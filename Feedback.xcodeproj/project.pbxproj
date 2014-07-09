@@ -20,18 +20,22 @@
 		0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55515B23B04008FBC1C /* iPadLogo@2x.png */; };
 		0705D55815B23B08008FBC1C /* iPadLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55715B23B08008FBC1C /* iPadLogo.png */; };
 		0705D56715B3926D008FBC1C /* iPadBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D56615B3926D008FBC1C /* iPadBasicViewController.m */; };
-		0705D56C15B3998C008FBC1C /* ToDo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0705D56B15B3998C008FBC1C /* ToDo.rtf */; };
 		0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D58715B45967008FBC1C /* NSBlockDevice.m */; };
+		071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */; };
+		071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 071CB8671602ABA300C3DDB1 /* Default-568h@2x~iphone.png */; };
 		073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 073039AD15B4E14F001B1C52 /* Default@2x~iphone.png */; };
-		073039AE15B4E152001B1C52 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 073039B015B4E152001B1C52 /* Default~iphone.png */; };
 		073B699815B77F0100DAE53D /* IvOGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 073B699715B77F0100DAE53D /* IvOGraphView.m */; };
 		073B699B15B785DF00DAE53D /* OvDGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 073B699A15B785DE00DAE53D /* OvDGraphView.m */; };
+		07410DA91608B21400548599 /* loopRule.png in Resources */ = {isa = PBXBuildFile; fileRef = 07410DA81608B21400548599 /* loopRule.png */; };
 		07523F9E1520882800507602 /* iPhoneGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523F9D1520882800507602 /* iPhoneGraphViewController.m */; };
 		07523FDF152373C600507602 /* iPadFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FDE152373C600507602 /* iPadFeedbackViewController.m */; };
 		07523FF01523B33E00507602 /* iPadBasicFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FEF1523B33E00507602 /* iPadBasicFeedbackView.m */; };
 		0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0754D9D215B62A8200E997B0 /* iPadInterface.storyboard */; };
+		0764B2FC19654E6900AB3AEE /* UICircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0764B2FB19654E6900AB3AEE /* UICircleView.m */; };
 		076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D258615C0C1D600D0E56F /* Default-Landscape~ipad.png */; };
 		076D258715C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D258915C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png */; };
+		077D73D1176798AA009D4880 /* iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077D73D0176798AA009D4880 /* iOS7@2x.png */; };
+		077D73D41767ADED009D4880 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D73D31767ADED009D4880 /* CustomSegue.m */; };
 		077E042415B97C6500450452 /* iPadLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E042315B97C6500450452 /* iPadLimitViewController.m */; };
 		077E042815B97C7E00450452 /* iPadLimitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E042715B97C7E00450452 /* iPadLimitView.m */; };
 		077E043115BAD40400450452 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077E043015BAD40400450452 /* Settings.bundle */; };
@@ -40,10 +44,15 @@
 		077E043E15BCAEBD00450452 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077E044015BCAEBD00450452 /* Localizable.strings */; };
 		077E9DD0156DA07400122AFE /* feedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E9DCF156DA07400122AFE /* feedbackModel.m */; };
 		07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07819E9F15B6CFE600C98CA4 /* GraphView.m */; };
+		07898DC9164092E900B2B8AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07898DC8164092E900B2B8AD /* QuartzCore.framework */; };
 		079A1D7D14DF171300D2D434 /* iPhoneFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */; };
+		079BD3B6164BA188007A8A76 /* UIReadOnlyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */; };
 		07A1050315C5D7D90078CA26 /* limitBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A1050215C5D7D90078CA26 /* limitBlock.m */; };
 		07DC7E1515B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DC7E1715B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png */; };
 		07DF954515C19D4D00186BF3 /* TextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF954415C19D4D00186BF3 /* TextFieldDelegate.m */; };
+		07E787CF196AA95A0023EC79 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E787CE196AA95A0023EC79 /* basic.json */; };
+		07E787D3196AB02C0023EC79 /* JSONFeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */; };
+		07E787E4196AD6220023EC79 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787E3196AD6220023EC79 /* CustomModelViewController.swift */; };
 		07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EE342C1519681500EBBE2C /* CreditsViewController.m */; };
 		07FFE6E91561DFB4000E32DE /* VerticalUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FFE6E81561DFB4000E32DE /* VerticalUISlider.m */; };
 		07FFE6F31562A9AF000E32DE /* iPadFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FFE6F21562A9AF000E32DE /* iPadFeedbackView.m */; };
@@ -69,16 +78,17 @@
 		0705D55715B23B08008FBC1C /* iPadLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadLogo.png; sourceTree = "<group>"; };
 		0705D56515B3926D008FBC1C /* iPadBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBasicViewController.h; sourceTree = "<group>"; };
 		0705D56615B3926D008FBC1C /* iPadBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadBasicViewController.m; sourceTree = "<group>"; };
-		0705D56B15B3998C008FBC1C /* ToDo.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = ToDo.rtf; sourceTree = "<group>"; };
 		0705D58615B45967008FBC1C /* NSBlockDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBlockDevice.h; sourceTree = "<group>"; };
 		0705D58715B45967008FBC1C /* NSBlockDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBlockDevice.m; sourceTree = "<group>"; };
+		071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSystemBlockDevice.swift; sourceTree = "<group>"; };
+		071CB8661602ABA300C3DDB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		071EA97B1561C4600034266B /* iPadFeedbackViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPadFeedbackViews.h; sourceTree = "<group>"; };
 		073039AC15B4E14F001B1C52 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default@2x~iphone.png"; sourceTree = "<group>"; };
-		073039AF15B4E152001B1C52 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default~iphone.png"; sourceTree = "<group>"; };
 		073B699615B77F0100DAE53D /* IvOGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IvOGraphView.h; sourceTree = "<group>"; };
 		073B699715B77F0100DAE53D /* IvOGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IvOGraphView.m; sourceTree = "<group>"; };
 		073B699915B785DE00DAE53D /* OvDGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OvDGraphView.h; sourceTree = "<group>"; };
 		073B699A15B785DE00DAE53D /* OvDGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OvDGraphView.m; sourceTree = "<group>"; };
+		07410DA81608B21400548599 /* loopRule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loopRule.png; sourceTree = "<group>"; };
 		07523F9C1520882800507602 /* iPhoneGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneGraphViewController.h; sourceTree = "<group>"; };
 		07523F9D1520882800507602 /* iPhoneGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneGraphViewController.m; sourceTree = "<group>"; };
 		07523FDD152373C600507602 /* iPadFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFeedbackViewController.h; sourceTree = "<group>"; };
@@ -86,8 +96,13 @@
 		07523FEE1523B33E00507602 /* iPadBasicFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBasicFeedbackView.h; sourceTree = "<group>"; };
 		07523FEF1523B33E00507602 /* iPadBasicFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadBasicFeedbackView.m; sourceTree = "<group>"; };
 		0754D9D115B62A8200E997B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPadInterface.storyboard; sourceTree = "<group>"; };
+		0764B2FA19654E6900AB3AEE /* UICircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICircleView.h; sourceTree = "<group>"; };
+		0764B2FB19654E6900AB3AEE /* UICircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICircleView.m; sourceTree = "<group>"; };
 		076D258515C0C1D600D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		076D258815C0C1DA00D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		077D73D0176798AA009D4880 /* iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS7@2x.png"; sourceTree = "<group>"; };
+		077D73D21767ADED009D4880 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
+		077D73D31767ADED009D4880 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
 		077E042215B97C6500450452 /* iPadLimitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadLimitViewController.h; sourceTree = "<group>"; };
 		077E042315B97C6500450452 /* iPadLimitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadLimitViewController.m; sourceTree = "<group>"; };
 		077E042615B97C7E00450452 /* iPadLimitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadLimitView.h; sourceTree = "<group>"; };
@@ -101,13 +116,20 @@
 		077E9DCF156DA07400122AFE /* feedbackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackModel.m; sourceTree = "<group>"; };
 		07819E9E15B6CFE600C98CA4 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		07819E9F15B6CFE600C98CA4 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		07898DC8164092E900B2B8AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		079A1D7B14DF171300D2D434 /* iPhoneFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneFeedbackView.h; sourceTree = "<group>"; };
 		079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneFeedbackView.m; sourceTree = "<group>"; };
+		079BD3B4164BA188007A8A76 /* UIReadOnlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIReadOnlyTextView.h; sourceTree = "<group>"; };
+		079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIReadOnlyTextView.m; sourceTree = "<group>"; };
 		07A1050115C5D7D90078CA26 /* limitBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = limitBlock.h; sourceTree = "<group>"; };
 		07A1050215C5D7D90078CA26 /* limitBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = limitBlock.m; sourceTree = "<group>"; };
 		07DC7E1615B4DF7D0082A141 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/1000px-University_of_Reading_logo.svg.png"; sourceTree = "<group>"; };
 		07DF954315C19D4D00186BF3 /* TextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDelegate.h; sourceTree = "<group>"; };
 		07DF954415C19D4D00186BF3 /* TextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldDelegate.m; sourceTree = "<group>"; };
+		07E787CE196AA95A0023EC79 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basic.json; sourceTree = "<group>"; };
+		07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFeedbackModel.swift; sourceTree = "<group>"; };
+		07E787D4196AB1740023EC79 /* Feedback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feedback-Bridging-Header.h"; sourceTree = "<group>"; };
+		07E787E3196AD6220023EC79 /* CustomModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelViewController.swift; sourceTree = "<group>"; };
 		07EE342B1519681500EBBE2C /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		07EE342C1519681500EBBE2C /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		07FFE6E71561DFB4000E32DE /* VerticalUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalUISlider.h; sourceTree = "<group>"; };
@@ -121,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07898DC9164092E900B2B8AD /* QuartzCore.framework in Frameworks */,
 				0701AC9A14DACD6000AE4374 /* UIKit.framework in Frameworks */,
 				0701AC9C14DACD6000AE4374 /* Foundation.framework in Frameworks */,
 				0701AC9E14DACD6000AE4374 /* CoreGraphics.framework in Frameworks */,
@@ -150,6 +173,7 @@
 		0701AC9814DACD6000AE4374 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07898DC8164092E900B2B8AD /* QuartzCore.framework */,
 				0701AC9914DACD6000AE4374 /* UIKit.framework */,
 				0701AC9B14DACD6000AE4374 /* Foundation.framework */,
 				0701AC9D14DACD6000AE4374 /* CoreGraphics.framework */,
@@ -160,13 +184,13 @@
 		0701AC9F14DACD6000AE4374 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
-				0705D56B15B3998C008FBC1C /* ToDo.rtf */,
 				077E043015BAD40400450452 /* Settings.bundle */,
 				077E042A15BA217900450452 /* model */,
 				07523FF61523B57800507602 /* iPad interface */,
 				07523FAA1521C97800507602 /* iPhone interface */,
 				0754D9CD15B6231300E997B0 /* Graph Views */,
 				0701ACA014DACD6000AE4374 /* Supporting Files */,
+				07E787D1196AA9910023EC79 /* jsonModels */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -174,10 +198,12 @@
 		0701ACA014DACD6000AE4374 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07E787D4196AB1740023EC79 /* Feedback-Bridging-Header.h */,
 				071C44EF14DF40A9009EFCA8 /* App Images */,
 				07A104FE15C5D3990078CA26 /* Shared interface */,
 				0705D58615B45967008FBC1C /* NSBlockDevice.h */,
 				0705D58715B45967008FBC1C /* NSBlockDevice.m */,
+				071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */,
 				0701ACA814DACD6000AE4374 /* FeedbackAppDelegate.h */,
 				0701ACA914DACD6000AE4374 /* FeedbackAppDelegate.m */,
 				077E044015BCAEBD00450452 /* Localizable.strings */,
@@ -206,6 +232,7 @@
 				07A104FF15C5D3D10078CA26 /* Icons */,
 				07A1050015C5D3F20078CA26 /* Launch Images */,
 				07DC7E1715B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png */,
+				07410DA81608B21400548599 /* loopRule.png */,
 			);
 			name = "App Images";
 			sourceTree = "<group>";
@@ -226,12 +253,10 @@
 			isa = PBXGroup;
 			children = (
 				0701ACAB14DACD6000AE4374 /* iPhoneStoryboard.storyboard */,
-				079A1D7B14DF171300D2D434 /* iPhoneFeedbackView.h */,
-				079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */,
-				0701ACAE14DACD6000AE4374 /* FeedbackViewController.h */,
-				0701ACAF14DACD6000AE4374 /* FeedbackViewController.m */,
-				07523F9C1520882800507602 /* iPhoneGraphViewController.h */,
-				07523F9D1520882800507602 /* iPhoneGraphViewController.m */,
+				077D73D21767ADED009D4880 /* CustomSegue.h */,
+				077D73D31767ADED009D4880 /* CustomSegue.m */,
+				07E787E1196AD5D70023EC79 /* Custom Views */,
+				07E787E2196AD5E60023EC79 /* View Controllers */,
 			);
 			name = "iPhone interface";
 			sourceTree = "<group>";
@@ -279,6 +304,7 @@
 			children = (
 				077E9DCE156DA07400122AFE /* feedbackModel.h */,
 				077E9DCF156DA07400122AFE /* feedbackModel.m */,
+				07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -286,12 +312,16 @@
 		07A104FE15C5D3990078CA26 /* Shared interface */ = {
 			isa = PBXGroup;
 			children = (
+				079BD3B4164BA188007A8A76 /* UIReadOnlyTextView.h */,
+				079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */,
 				07FFE6E71561DFB4000E32DE /* VerticalUISlider.h */,
 				07FFE6E81561DFB4000E32DE /* VerticalUISlider.m */,
 				07EE342B1519681500EBBE2C /* CreditsViewController.h */,
 				07EE342C1519681500EBBE2C /* CreditsViewController.m */,
 				07DF954315C19D4D00186BF3 /* TextFieldDelegate.h */,
 				07DF954415C19D4D00186BF3 /* TextFieldDelegate.m */,
+				0764B2FA19654E6900AB3AEE /* UICircleView.h */,
+				0764B2FB19654E6900AB3AEE /* UICircleView.m */,
 			);
 			name = "Shared interface";
 			sourceTree = "<group>";
@@ -299,6 +329,7 @@
 		07A104FF15C5D3D10078CA26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				077D73D0176798AA009D4880 /* iOS7@2x.png */,
 				0705D55715B23B08008FBC1C /* iPadLogo.png */,
 				0705D55515B23B04008FBC1C /* iPadLogo@2x.png */,
 				0705D55315B23AF3008FBC1C /* iPhoneLogo.png */,
@@ -315,9 +346,38 @@
 				076D258915C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png */,
 				076D258615C0C1D600D0E56F /* Default-Landscape~ipad.png */,
 				073039AD15B4E14F001B1C52 /* Default@2x~iphone.png */,
-				073039B015B4E152001B1C52 /* Default~iphone.png */,
+				071CB8671602ABA300C3DDB1 /* Default-568h@2x~iphone.png */,
 			);
 			name = "Launch Images";
+			sourceTree = "<group>";
+		};
+		07E787D1196AA9910023EC79 /* jsonModels */ = {
+			isa = PBXGroup;
+			children = (
+				07E787CE196AA95A0023EC79 /* basic.json */,
+			);
+			name = jsonModels;
+			sourceTree = "<group>";
+		};
+		07E787E1196AD5D70023EC79 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				079A1D7B14DF171300D2D434 /* iPhoneFeedbackView.h */,
+				079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		07E787E2196AD5E60023EC79 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0701ACAE14DACD6000AE4374 /* FeedbackViewController.h */,
+				0701ACAF14DACD6000AE4374 /* FeedbackViewController.m */,
+				07523F9C1520882800507602 /* iPhoneGraphViewController.h */,
+				07523F9D1520882800507602 /* iPhoneGraphViewController.m */,
+				07E787E3196AD6220023EC79 /* CustomModelViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +387,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0701ACB314DACD6000AE4374 /* Build configuration list for PBXNativeTarget "Feedback" */;
 			buildPhases = (
+				07F138C4196D464D004E5946 /* ShellScript */,
 				0701AC9114DACD6000AE4374 /* Sources */,
 				0701AC9214DACD6000AE4374 /* Frameworks */,
 				0701AC9314DACD6000AE4374 /* Resources */,
@@ -346,8 +407,13 @@
 		0701AC8C14DACD6000AE4374 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = OlliesPage;
+				TargetAttributes = {
+					0701AC9414DACD6000AE4374 = {
+						DevelopmentTeam = XLGMJERUL6;
+					};
+				};
 			};
 			buildConfigurationList = 0701AC8F14DACD6000AE4374 /* Build configuration list for PBXProject "Feedback" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -375,23 +441,41 @@
 				0701ACAD14DACD6000AE4374 /* iPhoneStoryboard.storyboard in Resources */,
 				07DC7E1515B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png in Resources */,
 				0705D55215B23AEC008FBC1C /* iPhoneLogo@2x.png in Resources */,
+				07E787CF196AA95A0023EC79 /* basic.json in Resources */,
 				0705D55415B23AF3008FBC1C /* iPhoneLogo.png in Resources */,
 				0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */,
 				0705D55815B23B08008FBC1C /* iPadLogo.png in Resources */,
-				0705D56C15B3998C008FBC1C /* ToDo.rtf in Resources */,
 				073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */,
-				073039AE15B4E152001B1C52 /* Default~iphone.png in Resources */,
 				0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */,
 				077E043115BAD40400450452 /* Settings.bundle in Resources */,
 				077E043415BAEA4A00450452 /* settings.png in Resources */,
+				077D73D1176798AA009D4880 /* iOS7@2x.png in Resources */,
 				077E043515BAEA4A00450452 /* settings@2x.png in Resources */,
 				077E043E15BCAEBD00450452 /* Localizable.strings in Resources */,
 				076D258715C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png in Resources */,
 				076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */,
+				071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */,
+				07410DA91608B21400548599 /* loopRule.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07F138C4196D464D004E5946 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/tools/bump_build_number.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0701AC9114DACD6000AE4374 /* Sources */ = {
@@ -404,20 +488,26 @@
 				079A1D7D14DF171300D2D434 /* iPhoneFeedbackView.m in Sources */,
 				07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */,
 				07523F9E1520882800507602 /* iPhoneGraphViewController.m in Sources */,
+				077D73D41767ADED009D4880 /* CustomSegue.m in Sources */,
 				07523FDF152373C600507602 /* iPadFeedbackViewController.m in Sources */,
 				07523FF01523B33E00507602 /* iPadBasicFeedbackView.m in Sources */,
 				07FFE6E91561DFB4000E32DE /* VerticalUISlider.m in Sources */,
+				07E787D3196AB02C0023EC79 /* JSONFeedbackModel.swift in Sources */,
 				07FFE6F31562A9AF000E32DE /* iPadFeedbackView.m in Sources */,
 				077E9DD0156DA07400122AFE /* feedbackModel.m in Sources */,
+				0764B2FC19654E6900AB3AEE /* UICircleView.m in Sources */,
 				0705D56715B3926D008FBC1C /* iPadBasicViewController.m in Sources */,
+				07E787E4196AD6220023EC79 /* CustomModelViewController.swift in Sources */,
 				0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */,
 				07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */,
 				073B699815B77F0100DAE53D /* IvOGraphView.m in Sources */,
 				073B699B15B785DF00DAE53D /* OvDGraphView.m in Sources */,
 				077E042415B97C6500450452 /* iPadLimitViewController.m in Sources */,
+				071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */,
 				077E042815B97C7E00450452 /* iPadLimitView.m in Sources */,
 				07DF954515C19D4D00186BF3 /* TextFieldDelegate.m in Sources */,
 				07A1050315C5D7D90078CA26 /* limitBlock.m in Sources */,
+				079BD3B6164BA188007A8A76 /* UIReadOnlyTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,20 +530,20 @@
 			name = iPhoneStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
+		071CB8671602ABA300C3DDB1 /* Default-568h@2x~iphone.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				071CB8661602ABA300C3DDB1 /* en */,
+			);
+			name = "Default-568h@2x~iphone.png";
+			sourceTree = "<group>";
+		};
 		073039AD15B4E14F001B1C52 /* Default@2x~iphone.png */ = {
 			isa = PBXVariantGroup;
 			children = (
 				073039AC15B4E14F001B1C52 /* en */,
 			);
 			name = "Default@2x~iphone.png";
-			sourceTree = "<group>";
-		};
-		073039B015B4E152001B1C52 /* Default~iphone.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				073039AF15B4E152001B1C52 /* en */,
-			);
-			name = "Default~iphone.png";
 			sourceTree = "<group>";
 		};
 		0754D9D215B62A8200E997B0 /* iPadInterface.storyboard */ = {
@@ -503,11 +593,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -517,10 +614,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
@@ -530,17 +632,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -551,11 +664,19 @@
 		0701ACB414DACD6000AE4374 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Feedback/Feedback-Prefix.pch";
 				INFOPLIST_FILE = "Feedback/Feedback-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Feedback/Feedback-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -564,11 +685,18 @@
 		0701ACB514DACD6000AE4374 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Feedback/Feedback-Prefix.pch";
 				INFOPLIST_FILE = "Feedback/Feedback-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Feedback/Feedback-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -578,17 +706,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -600,11 +739,18 @@
 		0729BBB915D9388B00779AB3 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Feedback/Feedback-Prefix.pch";
 				INFOPLIST_FILE = "Feedback/Feedback-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Feedback/Feedback-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

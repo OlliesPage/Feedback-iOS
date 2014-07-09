@@ -1,0 +1,23 @@
+{
+    "name": "basic",
+    "model": [
+        {
+            "controller": {
+                "block": 11
+            }
+        },
+        {
+            "device": {
+                "block": 9
+            }
+        },
+        [
+            {
+                "sensor": {
+                    "block": -0.2
+                }
+            }
+        ]
+    ],
+    "description": "some text describing the shiz"
+}

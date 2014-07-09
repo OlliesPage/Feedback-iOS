@@ -11,4 +11,13 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import "NSBlockDevice.h"
+    #import "UICircleView.h"
 #endif
+
+struct disturbAtLimit {
+    double x;
+    double y;
+};
+typedef struct disturbAtLimit disturbAtLimit;

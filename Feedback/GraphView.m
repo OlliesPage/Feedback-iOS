@@ -1,0 +1,58 @@
+//
+//  GraphView.m
+//  Feedback
+//
+//  Created by Oliver Hayman on 18/07/2012.
+//  Copyright (c) 2012 OlliesPage. All rights reserved.
+//
+
+#import "GraphView.h"
+
+@implementation GraphView
+@synthesize delegate = _delegate;
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+- (void)drawLineWithMaxValue:(double)max andMinValue:(double)min withLimit:(double)limit onContext:(CGContextRef)context
+{
+    // this function is to be overwritten by subclasses
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)drawLineWithGradient:(double)gradient withLimit:(double)limit onContext:(CGContextRef)context
+{
+    // this function is to be overwritten by subclasses
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    NSLog(@"Class is %@", [self class]);
+    // the first thing to do in drawRect is to draw the axis
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] setStroke];
+    CGContextBeginPath(context);
+    CGContextMoveToPoint(context, self.bounds.size.width/2, 0);
+    CGContextAddLineToPoint(context, self.bounds.size.width/2, self.bounds.size.height);
+    CGContextMoveToPoint(context, 0, self.bounds.size.height/2);
+    CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height/2);
+    CGContextStrokePath(context);
+    
+    // now we add line(s) to the graph
+    if(self.delegate)
+    {
+        if([@"IvOGraphView" isEqualToString:NSStringFromClass([self class])])
+            [self drawLineWithMaxValue:[self.delegate getMaxValue] andMinValue:[self.delegate getMinValue] withLimit:[self.delegate getLimitValue] onContext:context];
+        if([@"OvDGraphView" isEqualToString:NSStringFromClass([self class])])
+            [self drawLineWithGradient:[self.delegate getOutputvDisturbance] withLimit:[self.delegate getLimitValue] onContext:context];
+    }
+}
+
+@end

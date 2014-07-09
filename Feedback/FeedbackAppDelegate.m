@@ -15,6 +15,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) // check our code is running on iPad
+    {
+        NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"learning_preference"];
+        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+        [[NSUserDefaults standardUserDefaults] synchronize]; // this sets the default value for learning_preference to NO
+    }
     return YES;
 }
 							
@@ -36,9 +42,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
+    [[NSUserDefaults standardUserDefaults] synchronize]; // make sure that the preferences are updated when the app returns from the background
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

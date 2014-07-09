@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="EeA-i0-lL8">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
-        <!--Feedback View Controller - Feedback-->
+        <!--Feedback-->
         <scene sceneID="5">
             <objects>
                 <viewController storyboardIdentifier="Feedback" title="Feedback" id="2" customClass="FeedbackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="480" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="7rY-7M-lSy" customClass="VerticalUISlider">
-                                <rect key="frame" x="-113" y="117" width="254" height="23"/>
+                                <rect key="frame" x="-113" y="146" width="254" height="29"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="I"/>
                                 <connections>
@@ -22,56 +22,34 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="Fcl-dE-ucW" customClass="VerticalUISlider">
-                                <rect key="frame" x="339" y="117" width="254" height="23"/>
+                                <rect key="frame" x="339" y="146" width="254" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
+                                <color key="thumbTintColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                             </slider>
                             <view contentMode="scaleToFill" id="EUl-Hb-L3v" customClass="FeedbackView">
-                                <rect key="frame" x="31" y="0.0" width="418" height="150"/>
+                                <rect key="frame" x="36" y="19" width="408" height="150"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" id="nPX-Ye-5YN">
-                                        <rect key="frame" x="227" y="2" width="193" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="inputValueChanged" destination="2" eventType="valueChanged" id="54Q-Kb-INU"/>
-                                        </connections>
-                                    </slider>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11.0" borderStyle="roundedRect" minimumFontSize="17" id="fq5-HX-ByA" userLabel="controller">
-                                        <rect key="frame" x="131" y="54" width="49" height="31"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                    <view contentMode="scaleToFill" id="ZnT-4L-z1l" customClass="UICircleView">
+                                        <rect key="frame" x="54" y="37" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view opaque="NO" contentMode="scaleToFill" id="4i4-De-QIX" customClass="UICircleView">
+                                        <rect key="frame" x="291" y="37" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="O=0.00" lineBreakMode="tailTruncation" minimumFontSize="9" id="QrL-uE-o4Z">
+                                        <rect key="frame" x="357" y="49" width="58" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="SE9-kv-ZBq"/>
-                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="taG-IT-qAj"/>
-                                            <outlet property="delegate" destination="3YK-je-J9h" id="rcc-bV-1ql"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9.0" borderStyle="roundedRect" minimumFontSize="17" id="uFJ-uo-iKl" userLabel="device">
-                                        <rect key="frame" x="229" y="54" width="42" height="31"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="GdP-Vb-bUs"/>
-                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="nIk-MN-a2m"/>
-                                            <outlet property="delegate" destination="3YK-je-J9h" id="1Mk-hq-Myi"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-0.2" borderStyle="roundedRect" minimumFontSize="17" id="Cf8-ZV-3tW" userLabel="sensor">
-                                        <rect key="frame" x="166" y="99" width="46" height="31"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="uKU-0Z-zPI"/>
-                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="f6S-WQ-Mbd"/>
-                                            <outlet property="delegate" destination="3YK-je-J9h" id="zKU-HK-Oto"/>
-                                        </connections>
-                                    </textField>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="I=0.00" lineBreakMode="tailTruncation" minimumFontSize="10" adjustsFontSizeToFit="NO" id="j4U-tg-Dwz">
                                         <rect key="frame" x="0.0" y="77" width="54" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
@@ -83,16 +61,38 @@
                                             <outletCollection property="gestureRecognizers" destination="hS7-Fc-jyr" appends="YES" id="fN1-19-AyG"/>
                                         </connections>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="O=0.00" lineBreakMode="tailTruncation" minimumFontSize="9" id="QrL-uE-o4Z">
-                                        <rect key="frame" x="357" y="49" width="58" height="21"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-0.2" borderStyle="roundedRect" minimumFontSize="17" id="Cf8-ZV-3tW" userLabel="sensor">
+                                        <rect key="frame" x="166" y="99" width="46" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="uKU-0Z-zPI"/>
+                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="f6S-WQ-Mbd"/>
+                                            <outlet property="delegate" destination="3YK-je-J9h" id="zKU-HK-Oto"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11.0" borderStyle="roundedRect" minimumFontSize="17" id="fq5-HX-ByA" userLabel="controller">
+                                        <rect key="frame" x="131" y="54" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="SE9-kv-ZBq"/>
+                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="taG-IT-qAj"/>
+                                            <outlet property="delegate" destination="3YK-je-J9h" id="rcc-bV-1ql"/>
+                                        </connections>
+                                    </textField>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" id="nPX-Ye-5YN">
+                                        <rect key="frame" x="227" y="2" width="193" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="inputValueChanged" destination="2" eventType="valueChanged" id="54Q-Kb-INU"/>
+                                        </connections>
+                                    </slider>
                                     <label opaque="NO" clipsSubviews="YES" contentMode="left" text="D=0.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="nA4-fm-dSk">
-                                        <rect key="frame" x="336" y="20" width="67" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="336" y="24" width="77" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -101,12 +101,23 @@
                                             <outletCollection property="gestureRecognizers" destination="gOV-ur-klz" appends="YES" id="zzy-Fz-IVx"/>
                                         </connections>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9.0" borderStyle="roundedRect" minimumFontSize="17" id="uFJ-uo-iKl" userLabel="device">
+                                        <rect key="frame" x="229" y="54" width="42" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <action selector="editEnded:" destination="2" eventType="editingDidEnd" id="GdP-Vb-bUs"/>
+                                            <action selector="textWillChange:" destination="2" eventType="editingDidBegin" id="nIk-MN-a2m"/>
+                                            <outlet property="delegate" destination="3YK-je-J9h" id="1Mk-hq-Myi"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="gBl-zE-wjJ" userLabel="infoButton">
-                                <rect key="frame" x="457" y="272" width="18" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="452" y="292" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,24 +132,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iMw-Mg-uBA">
-                                <rect key="frame" x="31" y="254" width="167" height="37"/>
+                                <rect key="frame" x="31" y="272" width="167" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Plot this on a Graph">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="goToGraphs:" destination="2" eventType="touchDown" id="2Us-AT-N39"/>
-                                    <segue destination="jvW-1y-mAT" kind="modal" identifier="graphSegue" id="eWd-DX-0Kf"/>
+                                    <segue destination="jvW-1y-mAT" kind="custom" identifier="graphSegue" customClass="CustomSegue" id="eWd-DX-0Kf"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="HkI-Ec-Lfe">
-                                <rect key="frame" x="31" y="132" width="418" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="36" y="151" width="403" height="118"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">This is a model of a feedback system. By moving the sliders you can adjust the input I and the disturbance D. By tapping the  block paramaters they also can be adjusted. The type of feedback system being modelled is shown below.
 
@@ -147,14 +154,14 @@ This app is designed to allows you to see how feedback can be used to modify inp
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type of feedback:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="A5A-NN-81B">
-                                <rect key="frame" x="206" y="254" width="135" height="26"/>
+                                <rect key="frame" x="206" y="277" width="135" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="NFl-PQ-NF5">
-                                <rect key="frame" x="338" y="256" width="111" height="21"/>
+                                <rect key="frame" x="338" y="279" width="111" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -162,18 +169,20 @@ This app is designed to allows you to see how feedback can be used to modify inp
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="2Ln-t0-oe6"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="controllerText" destination="fq5-HX-ByA" id="IqO-ia-HlJ"/>
                         <outlet property="deviceText" destination="uFJ-uo-iKl" id="xmO-VP-UQq"/>
+                        <outlet property="disturbanceCircleView" destination="4i4-De-QIX" id="nLq-9l-Zrw"/>
                         <outlet property="disturbanceGestureRecognizer" destination="gOV-ur-klz" id="AOc-34-JuB"/>
                         <outlet property="disturbanceLabel" destination="nA4-fm-dSk" id="Bfp-9g-2M7"/>
                         <outlet property="disturbanceSlider" destination="nPX-Ye-5YN" id="vs1-ud-HCy"/>
                         <outlet property="feedbackText" destination="Cf8-ZV-3tW" id="g4H-XL-DwS"/>
                         <outlet property="feedbackTypeText" destination="NFl-PQ-NF5" id="TZg-nO-GTP"/>
+                        <outlet property="firstCircleView" destination="ZnT-4L-z1l" id="Gaf-Ie-k63"/>
                         <outlet property="firstSlider" destination="7rY-7M-lSy" id="pr4-4l-0zW"/>
                         <outlet property="graphButton" destination="iMw-Mg-uBA" id="4Yr-aW-AZs"/>
                         <outlet property="infoButton" destination="gBl-zE-wjJ" id="jvL-Vc-2AY"/>
@@ -204,12 +213,12 @@ This app is designed to allows you to see how feedback can be used to modify inp
             <objects>
                 <viewController id="RqT-Xs-FH5" customClass="CreditsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Opc-Wg-5Xa">
-                        <rect key="frame" x="0.0" y="20" width="480" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1000px-University_of_Reading_logo.svg.png" id="CD9-xQ-vxn">
                                 <rect key="frame" x="283" y="217" width="192" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="lEk-IA-R0m">
                                 <rect key="frame" x="20" y="206" width="326" height="79"/>
@@ -224,32 +233,61 @@ Original by Dr Richard Mitchell.
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zc4-0Z-iOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="763" y="559"/>
         </scene>
+        <!--Custom Model View Controller-->
+        <scene sceneID="gCP-F2-29I">
+            <objects>
+                <viewController storyboardIdentifier="CustomModelView" id="EeA-i0-lL8" customClass="CustomModelViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RMf-9f-eus">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="BCD-YE-M4H" customClass="VerticalUISlider">
+                                <rect key="frame" x="-113" y="146" width="254" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="inputChanged:" destination="EeA-i0-lL8" eventType="valueChanged" id="U6a-6j-ybX"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="AxY-s0-8Pb" customClass="VerticalUISlider">
+                                <rect key="frame" x="339" y="145" width="254" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <color key="thumbTintColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputSlider" destination="BCD-YE-M4H" id="xpQ-HG-Hyx"/>
+                        <outlet property="outputSlider" destination="AxY-s0-8Pb" id="CB8-i1-eKz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sww-Gu-CY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1318" y="50"/>
+        </scene>
         <!--I Phone Graph View Controller-->
         <scene sceneID="CKE-5o-Tbs">
             <objects>
                 <viewController id="jvW-1y-mAT" customClass="iPhoneGraphViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fMH-OZ-nTY">
-                        <rect key="frame" x="0.0" y="20" width="480" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nEz-y8-wb1">
                                 <rect key="frame" x="20" y="20" width="73" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Return">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="&lt; Return">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="doReturn:" destination="jvW-1y-mAT" eventType="touchUpInside" id="T2J-pa-rdM"/>
@@ -269,12 +307,12 @@ Original by Dr Richard Mitchell.
                             </view>
                             <view contentMode="scaleToFill" id="Hxm-at-5tx" customClass="OvDGraphView">
                                 <rect key="frame" x="255" y="75" width="210" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Output v Disturbance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="19O-re-99U">
                                 <rect key="frame" x="280" y="236" width="163" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -295,30 +333,39 @@ Original by Dr Richard Mitchell.
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="FjW-Po-xHS">
                                 <rect key="frame" x="466" y="139" width="15" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="O" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="P6R-Eu-A9S">
                                 <rect key="frame" x="353" y="55" width="16" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="scG-mV-7JJ" appends="YES" id="mlj-eu-Zku"/>
+                        </connections>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="wJW-Md-Xwf"/>
                     <connections>
                         <outlet property="OvDView" destination="Hxm-at-5tx" id="vDP-Z4-H56"/>
                         <outlet property="OvIView" destination="6p0-P7-ZBN" id="CVb-ft-fsG"/>
+                        <outlet property="dismissGuesture" destination="scG-mV-7JJ" id="TNB-p4-igf"/>
                         <outlet property="returnButton" destination="nEz-y8-wb1" id="RXI-6J-x50"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hR9-2J-EXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="scG-mV-7JJ">
+                    <connections>
+                        <action selector="doReturn:" destination="jvW-1y-mAT" id="XoS-7s-TuW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1388" y="471"/>
         </scene>
@@ -326,67 +373,12 @@ Original by Dr Richard Mitchell.
     <resources>
         <image name="1000px-University_of_Reading_logo.svg.png" width="1000" height="325"/>
     </resources>
-    <classes>
-        <class className="CreditsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreditsViewController.h"/>
-        </class>
-        <class className="FeedbackView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackView.h"/>
-        </class>
-        <class className="FeedbackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editEnded:"/>
-                <relationship kind="action" name="goToGraphs:"/>
-                <relationship kind="action" name="inputValueChanged"/>
-                <relationship kind="action" name="resetGesture:"/>
-                <relationship kind="action" name="showInfo:"/>
-                <relationship kind="action" name="textWillChange:"/>
-                <relationship kind="outlet" name="controllerText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="deviceText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="disturbanceGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="disturbanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="disturbanceSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="feedbackText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="feedbackTypeText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="graphButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="inputGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="inputLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="outputLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="textFieldDelegate" candidateClass="NSObject"/>
-            </relationships>
-        </class>
-        <class className="GraphView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GraphView.h"/>
-        </class>
-        <class className="IvOGraphView" superclassName="GraphView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IvOGraphView.h"/>
-        </class>
-        <class className="OvDGraphView" superclassName="GraphView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OvDGraphView.h"/>
-        </class>
-        <class className="TextFieldDelegate" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextFieldDelegate.h"/>
-        </class>
-        <class className="VerticalUISlider" superclassName="UISlider">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VerticalUISlider.h"/>
-        </class>
-        <class className="iPhoneGraphViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iPhoneGraphViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doReturn:"/>
-                <relationship kind="outlet" name="OvDView" candidateClass="GraphView"/>
-                <relationship kind="outlet" name="OvIView" candidateClass="GraphView"/>
-                <relationship kind="outlet" name="returnButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination">
+            <size key="portraitSize" width="320" height="480"/>
+            <size key="landscapeSize" width="480" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
 </document>
