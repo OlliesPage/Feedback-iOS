@@ -37,7 +37,7 @@
     [self addSubview:self.maxOutput];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if(self)
@@ -47,7 +47,7 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if(self)
@@ -112,6 +112,19 @@
         self.maxInput.text = @"10"; self.maxInput.backgroundColor = [UIColor clearColor]; self.maxInput.textAlignment = NSTextAlignmentRight;
         self.minOutput.text = [NSString stringWithFormat:@"%.1f",min]; self.minOutput.backgroundColor = [UIColor clearColor];
         self.maxOutput.text = [NSString stringWithFormat:@"%.1f",max]; self.maxOutput.backgroundColor = [UIColor clearColor];
+    }
+    
+}
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    
+    // only run this if the delegate exists, otherwise there will be problems
+    if(super.delegate)
+    {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        // now add the line
+        [self drawLineWithMaxValue:[super.delegate getMaxValue] andMinValue:[super.delegate getMinValue] withLimit:[super.delegate getLimitValue] onContext:context];
     }
 }
 

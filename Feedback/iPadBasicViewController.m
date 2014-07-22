@@ -25,9 +25,9 @@
 @synthesize disturbanceText = _disturbanceText;
 @synthesize inputResetGestureRecognizer = _inputResetGestureRecognizer;
 @synthesize disturbanceResetGestureRecognizer = _disturbanceResetGestureRecognizer;
-@synthesize delegate = _delegate;
 @synthesize temp = _temp;
 @synthesize shapeOnScreen = _shapeOnScreen;
+@synthesize delegate = _delegate;
 
 - (void)viewWillAppear:(BOOL)animated
 {

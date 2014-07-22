@@ -11,7 +11,7 @@
 @implementation GraphView
 @synthesize delegate = _delegate;
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -44,15 +44,8 @@
     CGContextMoveToPoint(context, 0, self.bounds.size.height/2);
     CGContextAddLineToPoint(context, self.bounds.size.width, self.bounds.size.height/2);
     CGContextStrokePath(context);
-    
-    // now we add line(s) to the graph
-    if(self.delegate)
-    {
-        if([@"IvOGraphView" isEqualToString:NSStringFromClass([self class])])
-            [self drawLineWithMaxValue:[self.delegate getMaxValue] andMinValue:[self.delegate getMinValue] withLimit:[self.delegate getLimitValue] onContext:context];
-        if([@"OvDGraphView" isEqualToString:NSStringFromClass([self class])])
-            [self drawLineWithGradient:[self.delegate getOutputvDisturbance] withLimit:[self.delegate getLimitValue] onContext:context];
-    }
+    // here used to cal the drawLine... methods from above in a very view-specific way... that's now been removed
+    // this makes this class even better than before, hopefully
 }
 
 @end

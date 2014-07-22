@@ -6,7 +6,10 @@
   Copyright (c) 2012 OlliesPage. All rights reserved.
 */
 
+"TOF" = "Type of feedback";
 "Positive" = "Positive";
 "Negative" = "Negative";
 "Correct" = "Correct";
 "Incorrect" = "Incorrect";
+"PlotG" = "Plot this on a Graph";
+"ShowSinG" = "Show Sine Graphs";

@@ -14,10 +14,35 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>FeedbackUIFramework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0701AC9414DACD6000AE4374</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>07CD034D197E99E4004840BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>07CD0357197E99E4004840BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>07CD0374197E9A57004840BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>07CD037E197E9A58004840BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

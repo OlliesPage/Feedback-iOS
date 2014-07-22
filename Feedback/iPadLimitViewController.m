@@ -28,9 +28,9 @@
 @synthesize limitNegText = _limitNegText;
 @synthesize inputGestureRecognizer = _inputGestureRecognizer;
 @synthesize disturbanceGestureRecognizer = _disturbanceGestureRecognizer;
-@synthesize delegate = _delegate;
 @synthesize temp = _temp;
 @synthesize shapeOnScreen = _shapeOnScreen;
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad
 {

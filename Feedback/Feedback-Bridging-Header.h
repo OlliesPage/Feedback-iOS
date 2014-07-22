@@ -4,6 +4,8 @@
 
 #import "NSBlockDevice.h"
 #import "feedbackModel.h"
-#import "UICircleView.h"
 #import "VerticalUISlider.h"
 #import "TextFieldDelegate.h"
+#import "SinGraphGLKViewController.h"
+#import "OpenGLESGraphsViewController.h"
+#import "iPhoneGraphViewController.h"

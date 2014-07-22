@@ -11,6 +11,10 @@ import Foundation
 @objc class JSONFeedbackModel: NSObject {
     let json:NSData
     let jsonDict:Dictionary<String, AnyObject>
+    let hasDisturbance: Bool
+    let modelName: String
+    let modelDescrip: String?
+    
     var error: NSError?
     var forward = Array<(String?, String?, Double?)>()
     var loop = Array<(String?, String?, Double?)>()
@@ -18,19 +22,35 @@ import Foundation
     @objc init(sysModel: feedbackModel, pathToModel:NSString) {
         json = NSData.dataWithContentsOfFile(pathToModel, options:NSDataReadingOptions.DataReadingMappedIfSafe, error: &error)
         jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as Dictionary<String, AnyObject>
+        // read the boolean for disturbance, if it exists
+        if let distVal: AnyObject = jsonDict["hasDisturbance"] {
+            hasDisturbance = distVal as Bool
+        } else {
+            hasDisturbance = false
+        }
+        
+        // read the name of the model if it exists
+        if let name: AnyObject = jsonDict["name"] {
+            modelName = name as String
+        } else {
+            modelName = "Unknown"
+        }
+        
+        // read the description from the model and set it if appropriate
+        if let jsonDescription: AnyObject = jsonDict["description"] {
+            modelDescrip = jsonDescription as? String
+        }
         
         super.init();
         
         // ensure system is empty
         sysModel.resetModel()
         
-        for (key: String, value: AnyObject) in jsonDict as Dictionary<String, AnyObject> {
-            if(key == "model") {
-                parseModel(value, systemModel: sysModel)
-                continue
-            }
-            println("\(key) has value: \(value)")
-            
+        if let model: AnyObject = jsonDict["model"] {
+            parseModel(model, systemModel: sysModel)
+        } else {
+            println("Model error: Model not found")
+            abort() // cannot run in this condition, so crash
         }
     }
     

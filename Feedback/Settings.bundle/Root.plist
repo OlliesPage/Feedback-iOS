@@ -12,13 +12,23 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>2.0.1</string>
+			<string>3.0.0-beta</string>
 			<key>Key</key>
 			<string>version_preference</string>
 			<key>Title</key>
 			<string>Version</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>SineG</string>
+			<key>Key</key>
+			<string>use_sin</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>SupportedUserInterfaceIdioms</key>

@@ -21,9 +21,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *disturbanceText;
 @property (strong) IBOutlet NSObject *textFieldDelegate;
 
+@property (nonatomic, weak) id <FeedbackViewControllerDelegate> delegate;
+
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *inputResetGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *disturbanceResetGestureRecognizer;
-@property (nonatomic, weak) id <FeedbackViewControllerDelegate> delegate;
 
 - (IBAction)inputChanged;
 - (IBAction)editBegins:(id)sender;

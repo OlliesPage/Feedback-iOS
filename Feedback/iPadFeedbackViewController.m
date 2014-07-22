@@ -8,6 +8,7 @@
 
 #import "iPadFeedbackViewController.h"
 #import "feedbackModel.h"
+#import "iPadViewControllerCommon.h"
 
 @interface iPadFeedbackViewController () <FeedbackViewControllerDelegate, GraphViewDelegate>
 @property (strong, nonatomic) feedbackModel *model;
@@ -184,7 +185,7 @@ long active =0;
     // here we set up the additional View Controllers
     for(int i=0; i<[self.viewControllers count]; i++)
     {
-        [[self.viewControllers objectAtIndex:i] setDelegate:self]; // this sets the delegate method of all viewControllers
+        [(iPadViewControllerCommon *)[self.viewControllers objectAtIndex:i] setDelegate:self]; // this sets the delegate method of all viewControllers
     }
     [self addChildViewController:[self.viewControllers objectAtIndex:active]];
     self.currentFeedbackView = ((UIViewController *)[self.viewControllers objectAtIndex:active]).view;

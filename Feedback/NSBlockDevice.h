@@ -13,8 +13,8 @@
 @property (strong) NSNumber *value;
 @property (strong, nonatomic) NSNumber *type;
 
-+ (NSBlockDevice *)blockWithName:(NSString *)name andValue:(NSNumber *)value;
++ (instancetype)blockWithName:(NSString *)name andValue:(NSNumber *)value;
 
--(id)initWithName:(NSString *)name;
--(id)initWithName:(NSString *)name andValue:(NSNumber *)value;
+-(instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
+-(instancetype)initWithName:(NSString *)name andValue:(NSNumber *)value;
 @end

@@ -48,13 +48,16 @@ double limit = 0, forwardCache=0, loopCache=0;
 - (double)calculateForwardValue
 {
     if(forwardCache != 0) return forwardCache;
+#ifdef VERBOSE
     NSLog(@"calculating forwardValues");
+#endif
     __block double forward=1;
     NSArray *values;
     if([self.forwardDict count] == 0) return forward;
+#ifdef VERBOSE
     NSLog(@"There are %lu forward devices and %lu loop devices", (unsigned long)[self.forwardDict count], (unsigned long)[self.loopDict count]);
+#endif
     values = [self.forwardDict allValues];
-    NSLog(@"values has %lu elements", (unsigned long)[values count]);
     dispatch_group_t loopGroup = dispatch_group_create(); // create a thread to do the maths on
     dispatch_queue_t loopQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_group_async(loopGroup, loopQueue, ^{
@@ -77,10 +80,12 @@ double limit = 0, forwardCache=0, loopCache=0;
 - (double)calculateOneMinusLoopValueWithForward:(double)forward
 {
     if(loopCache != 0) return loopCache;
+#ifdef VERBOSE
     NSLog(@"calculating oneMinusLoop with forward %.2f",forward);
+#endif
     __block double oneMinusLoop;
     NSArray *values;
-    if([self.loopDict count] == 0) return forward;
+    if([self.loopDict count] == 0) return 1;
     oneMinusLoop = forward; values = [self.loopDict allValues];
     dispatch_group_t loopGroup = dispatch_group_create();
     dispatch_queue_t loopQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
@@ -156,12 +161,21 @@ double limit = 0, forwardCache=0, loopCache=0;
 
 - (double)calculateOutputForInput:(float)input withDistrubance:(float)disturbance
 {
+#ifdef VERBOSE
     NSLog(@"calculating output for input %.2f",input);
+#endif
     double output, forward=[self calculateForwardValue], oneMinusLoop;
-    if([self.forwardDict count] == 0 || [self.loopDict count] == 0) return input;
+    if([self.forwardDict count] == 0 && [self.loopDict count] == 0)
+    {
+        NSLog(@"Empty model, returning input");
+        return input;
+    }
     oneMinusLoop = [self calculateOneMinusLoopValueWithForward:forward];
+#ifdef VERBOSE
     NSLog(@"oneMinusLoop is: %.2f", oneMinusLoop);
+#endif
     output = (forward/oneMinusLoop)*input;
+    if(limit == 0 && disturbance == 0) return output; // this will speed things up a little
     if(limit != 0)
     {
         if(output >= limit || output <= -1*limit)
@@ -172,8 +186,11 @@ double limit = 0, forwardCache=0, loopCache=0;
             return output;
         }
     }
-    output += (1/oneMinusLoop)*disturbance; // add the disturbance when input=0
+    if(disturbance != 0.0)
+        output += (1/oneMinusLoop)*disturbance; // add the disturbance when input=0
+#ifdef VERBOSE
     NSLog(@"Calculated output: %.2f", output);
+#endif
     return output;
 }
 

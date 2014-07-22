@@ -41,17 +41,10 @@ double temp;
     {
         _model = [[feedbackModel alloc] init];
         
+        // generate the basic model
         NSString *pathToBasic = [[NSBundle mainBundle] pathForResource:@"basic" ofType:@"json"];
-        
-        [[JSONFeedbackModel alloc] initWithSysModel:_model pathToModel:pathToBasic];
-        
-        //[JSONFeedbackModel initWithSysModel:_model pathToModel:pathToBasic];
-        
-        
-        // next seperate them into forward and loop
-       // NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerText text] doubleValue]]],[NSBlockDevice blockWithName:@"device" andValue:[NSNumber numberWithDouble:[[self.deviceText text] doubleValue]]], nil];
-        //NSArray *loopDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.feedbackText text] doubleValue]]], nil];
-        //[_model addBlockDevicesWithForwardDevices:forwardDevices WithLoopDevices:loopDevices];
+        JSONFeedbackModel *jsonM = [[JSONFeedbackModel alloc] initWithSysModel:_model pathToModel:pathToBasic];
+        #pragma unused(jsonM) // tell the compiler that we're not going to use this variable and not to moan about it
     }
     return _model;
 }

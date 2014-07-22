@@ -18,12 +18,12 @@
     return [[NSBlockDevice alloc] initWithName:name andValue:value];
 }
 
-- (id)init
+- (instancetype)init
 {
     return [self initWithName:@""];
 }
 
--(id)initWithName:(NSString *)name
+-(instancetype)initWithName:(NSString *)name
 {
     self = [super init];
     if(self)
@@ -34,7 +34,7 @@
     return self;
 }
 
--(id)initWithName:(NSString *)name andValue:(NSNumber *)value
+-(instancetype)initWithName:(NSString *)name andValue:(NSNumber *)value
 {
     self = [self initWithName:name];
     if(self)

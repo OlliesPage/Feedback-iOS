@@ -37,7 +37,7 @@
     [self addSubview:self.maxOutput];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if(self)
@@ -47,7 +47,7 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if(self)
@@ -129,6 +129,19 @@
         self.minOutput.text = [NSString stringWithFormat:@"%.1f",gradient*-100]; self.minOutput.backgroundColor = [UIColor clearColor];
         [self.maxOutput setFrame:CGRectMake(center.x+2, (maxPoint.y-10), 50, 21)];
         self.maxOutput.text = [NSString stringWithFormat:@"%.1f",gradient*100]; self.maxOutput.backgroundColor = [UIColor clearColor];
+    }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+   
+    // if the delegate has been set call this, otherwise there will be an issue
+    if(super.delegate)
+    {
+         // get the graphics context back
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [self drawLineWithGradient:[super.delegate getOutputvDisturbance] withLimit:[super.delegate getLimitValue] onContext:context];
     }
 }
 

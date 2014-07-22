@@ -14,13 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if(UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad) // check our code is running on iPad
-    {
-        NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"learning_preference"];
-        [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-        [[NSUserDefaults standardUserDefaults] synchronize]; // this sets the default value for learning_preference to NO
-    }
+    // setup preferences, note that one of these preferences is currently only user-changable on the iPood
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"learning_preference",[NSNumber numberWithBool:NO],@"use_sin", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize]; // this sets the default value for learning_preference to NO
     return YES;
 }
 							
