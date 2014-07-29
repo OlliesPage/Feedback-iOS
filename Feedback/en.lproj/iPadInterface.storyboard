@@ -464,17 +464,6 @@ Below there is information about the type of feedback system being modelled. The
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9.0" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="ssu-0Z-fk0">
-                                <rect key="frame" x="430" y="82" width="60" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="editWillBegin:" destination="Fle-Xm-5zh" eventType="touchDown" id="Qz6-ac-dSa"/>
-                                    <action selector="limitChanged:" destination="Fle-Xm-5zh" eventType="editingDidEnd" id="Ion-mV-tcx"/>
-                                    <outlet property="delegate" destination="Sx6-lV-7lX" id="woB-k4-PbO"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-0.2" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="Z6U-hO-1Cg">
                                 <rect key="frame" x="327" y="180" width="60" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -564,7 +553,6 @@ There are graphs of output vs input and output vs disturbance to the right of th
                         <outlet property="inputGestureRecognizer" destination="7jC-cb-QRs" id="eUk-ma-Ouc"/>
                         <outlet property="inputSlider" destination="vZa-bu-A15" id="2VX-mP-J1T"/>
                         <outlet property="inputTextLabel" destination="f5e-OF-Gd4" id="lg4-5P-InN"/>
-                        <outlet property="limitBlock" destination="ssu-0Z-fk0" id="hhl-aH-zNP"/>
                         <outlet property="limitBlockView" destination="jnQ-oU-0YX" id="adT-UO-8Si"/>
                         <outlet property="outputSlider" destination="bmv-YB-lOb" id="ayZ-Mc-URg"/>
                         <outlet property="outputTextLabel" destination="Acc-1n-ez7" id="HGc-ua-7ny"/>

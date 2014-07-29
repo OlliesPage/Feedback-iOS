@@ -21,7 +21,6 @@
 @synthesize outputSlider = _outputSlider;
 @synthesize distrubanceSlider = _distrubanceSlider;
 @synthesize controllerBlock = _controllerBlock;
-@synthesize limitBlock = _limitBlock;
 @synthesize sensorBlock = _sensorBlock;
 @synthesize limitBlockView = _limitBlockView;
 @synthesize inputGestureRecognizer = _inputGestureRecognizer;
@@ -33,19 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(limitBlockTapped)];
-    [tapped setNumberOfTapsRequired:1];
-    [tapped setNumberOfTouchesRequired:1];
-    [self.limitBlockView addGestureRecognizer:tapped];
-    // note we've not assigned a value to the limitBlock... But does this code run every time the view appears
     _shapeOnScreen = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[NSBlockDevice blockWithName:@"device" andValue:[NSNumber numberWithDouble:[[self.deviceText text] doubleValue]]]
-    NSBlockDevice *limitBlock = [NSBlockDevice blockWithName:@"limit" andValue:[NSNumber numberWithDouble:[[self.limitBlock text] doubleValue]]];
+    NSBlockDevice *limitBlock = [NSBlockDevice blockWithName:@"limit" andValue:[NSNumber numberWithDouble:9.0]];
     [limitBlock setType:[NSNumber numberWithInt:1]];
     NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerBlock text] doubleValue]]],limitBlock, nil];
     NSArray *loopDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.sensorBlock text] doubleValue]]], nil];
@@ -53,7 +46,8 @@
     // now send them to the delegate to be added to the model
     NSLog(@"sending delegate message with %lu fowrward devices and %lu loop devices", (unsigned long)[forwardDevices count],(unsigned long)[loopDevices count]);
     [self.delegate setModelForwardDevices:forwardDevices loopDevices:loopDevices];
-    self.limitBlockView.value = [[self.limitBlock text] doubleValue];
+    self.limitBlockView.value = 9.0;
+    self.limitBlockView.delegate = self;
 }
 
 - (void)highlightBlockDeveces:(const NSString *)block
@@ -140,37 +134,35 @@
     self.temp = 0;
 }
 
-- (IBAction)limitChanged:(id)sender
+- (void)limitChange:(id)sender
 {
-    double newLimit = fabs([[sender text] doubleValue]); // this saves doing this two more times
-
-    if([[sender text] doubleValue] == 0)
-    {
-        // we're using this to block changing the value so
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You cannot set the limit to zero at this time" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-        self.limitBlock.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.temp]]; // set the limitBlock's value back to what it was
-        NSLog(@"Limit value is: %@, self.temp is: %f",self.limitBlock.text,self.temp); // if you don't observe it, it doesn't appear to happen.
-        self.temp = 0;
-        self.limitBlockView.hidden = NO;
-        return; // stop it from changing the value!
-    } // stop users from setting the limit to zero!
-
-    [self.delegate setLimitValue:newLimit];
-    self.limitBlockView.value = newLimit;
+    
+    [self.delegate setLimitValue:((UILimitBlock *)sender).value];
     [self inputChanged];
-    self.temp = 0;
-    self.limitBlockView.hidden = NO;
 }
 
-- (void)limitBlockTapped
-{
-    // hide limitBlock
-    //self.limitBlockView.hidden = YES;
-    self.temp = [[self.limitBlock text] doubleValue];
-    NSLog(@"Temp value assigned: %f", self.temp);
-    [self.limitBlock becomeFirstResponder];
-}
+//- (IBAction)limitChanged:(id)sender
+//{
+//    double newLimit = fabs([[sender text] doubleValue]); // this saves doing this two more times
+//
+//    if([[sender text] doubleValue] == 0)
+//    {
+//        // we're using this to block changing the value so
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You cannot set the limit to zero at this time" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//        [alert show];
+//        self.limitBlock.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.temp]]; // set the limitBlock's value back to what it was
+//        NSLog(@"Limit value is: %@, self.temp is: %f",self.limitBlock.text,self.temp); // if you don't observe it, it doesn't appear to happen.
+//        self.temp = 0;
+//        self.limitBlockView.hidden = NO;
+//        return; // stop it from changing the value!
+//    } // stop users from setting the limit to zero!
+//
+//    [self.delegate setLimitValue:newLimit];
+//    self.limitBlockView.value = newLimit;
+//    [self inputChanged];
+//    self.temp = 0;
+//    self.limitBlockView.hidden = NO;
+//}
 
 - (IBAction)resetGesture:(id)sender
 {
@@ -190,7 +182,6 @@
     [self setOutputSlider:nil];
     [self setDistrubanceSlider:nil];
     [self setControllerBlock:nil];
-    [self setLimitBlock:nil];
     [self setSensorBlock:nil];
     [self setDelegate:nil];
     [self setLimitBlockView:nil];
