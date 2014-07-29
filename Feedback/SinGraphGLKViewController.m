@@ -66,6 +66,7 @@ enum
 - (void)dealloc
 {
     // destroy the OpenGL stuff before removing the context
+    self.guestureDelegate = NULL;
     [self tearDownGL];
     
     if ([EAGLContext currentContext] == self.context) {
@@ -79,6 +80,7 @@ enum
     
     if ([self isViewLoaded] && ([[self view] window] == nil)) {
         self.view = nil;
+        self.guestureDelegate = NULL;
         
         [self tearDownGL];
         
@@ -94,7 +96,7 @@ enum
 - (void)setGraphData:(GLKVector2[])data withSize:(size_t)size {
     graphSize = size;
     graphCount = size/sizeof(GLKVector2);
-    graph = malloc(size);
+    //graph = malloc(size);
     //memcpy(graph, data, size);
     graph = data;
 }
@@ -120,7 +122,8 @@ enum
         
         if (gradient > 1.7) {
             // Vertical pinch - scale in the Y
-            [self.guestureDelegate setYScale:[gesture scale]];
+            if(self.guestureDelegate)
+                [self.guestureDelegate setYScale:[gesture scale]];
         } else {
             // if we're not scaling just y, scale x
             _uniform_scale_x += [gesture scale] - lastPinchScale;
@@ -138,7 +141,8 @@ enum
     
     if(gesture.state == UIGestureRecognizerStateEnded) {
         lastPinchScale = 1.f;
-        [self.guestureDelegate gestureDidFinish];
+        if(self.guestureDelegate)
+            [self.guestureDelegate gestureDidFinish];
     }
 }
 
@@ -181,6 +185,13 @@ enum
     
     // delete the buffers as they will no longer be needed
     glDeleteBuffers(1, &_vertexBuffer);
+    
+    // this prevents the OpenGL ES program causing memory leaks
+    if(_program)
+    {
+        glDeleteProgram(_program);
+        _program = 0;
+    }
 }
 
 #pragma mark OpenGL ES 2 shader compilation

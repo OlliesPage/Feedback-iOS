@@ -16,8 +16,8 @@
 
 @interface SinGraphGLKViewController : GLKViewController
 
-@property id<GraphGestureResizeDelegate> guestureDelegate;
-@property SinGraphGLKViewController *twin;
+@property (weak) id<GraphGestureResizeDelegate> guestureDelegate;
+@property (weak) SinGraphGLKViewController *twin;
 
 - (void)setGraphData:(GLKVector2[])data withSize:(size_t)size;
 - (void)scaleX:(GLfloat)scale;

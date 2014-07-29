@@ -24,8 +24,6 @@
 @synthesize limitBlock = _limitBlock;
 @synthesize sensorBlock = _sensorBlock;
 @synthesize limitBlockView = _limitBlockView;
-@synthesize limitPosText = _limitPosText;
-@synthesize limitNegText = _limitNegText;
 @synthesize inputGestureRecognizer = _inputGestureRecognizer;
 @synthesize disturbanceGestureRecognizer = _disturbanceGestureRecognizer;
 @synthesize temp = _temp;
@@ -55,8 +53,7 @@
     // now send them to the delegate to be added to the model
     NSLog(@"sending delegate message with %lu fowrward devices and %lu loop devices", (unsigned long)[forwardDevices count],(unsigned long)[loopDevices count]);
     [self.delegate setModelForwardDevices:forwardDevices loopDevices:loopDevices];
-    self.limitPosText.text = [NSString stringWithFormat:@"%.1f",fabs([[self.limitBlock text] doubleValue])];
-    self.limitNegText.text = [NSString stringWithFormat:@"%.1f",-1*fabs([[self.limitBlock text] doubleValue])];
+    self.limitBlockView.value = [[self.limitBlock text] doubleValue];
 }
 
 - (void)highlightBlockDeveces:(const NSString *)block
@@ -160,8 +157,7 @@
     } // stop users from setting the limit to zero!
 
     [self.delegate setLimitValue:newLimit];
-    self.limitPosText.text = [NSString stringWithFormat:@"%.1f",newLimit];
-    self.limitNegText.text = [NSString stringWithFormat:@"%.1f",-1*newLimit];
+    self.limitBlockView.value = newLimit;
     [self inputChanged];
     self.temp = 0;
     self.limitBlockView.hidden = NO;
@@ -170,7 +166,7 @@
 - (void)limitBlockTapped
 {
     // hide limitBlock
-    self.limitBlockView.hidden = YES;
+    //self.limitBlockView.hidden = YES;
     self.temp = [[self.limitBlock text] doubleValue];
     NSLog(@"Temp value assigned: %f", self.temp);
     [self.limitBlock becomeFirstResponder];
@@ -198,8 +194,6 @@
     [self setSensorBlock:nil];
     [self setDelegate:nil];
     [self setLimitBlockView:nil];
-    [self setLimitPosText:nil];
-    [self setLimitNegText:nil];
     [self setInputGestureRecognizer:nil];
     [self setDisturbanceGestureRecognizer:nil];
     [super viewDidUnload];

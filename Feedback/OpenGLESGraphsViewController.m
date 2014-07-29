@@ -54,7 +54,13 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([self isViewLoaded] && ([[self view] window] == nil)) {
+        self.view = nil;
+        
+        // stop holding pointers to these
+        self.leftGraph = nil;
+        self.rightGraph = nil;
+    }
 }
 
 - (void)setYScale:(GLfloat)scale {
@@ -111,8 +117,14 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromLeft;
     [self.view.window.layer addAnimation:transition forKey:nil];
-    
     [self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:NO]; // remove myself from the navigation controller
+}
+
+- (void)dealloc
+{
+    self.leftGraph = nil;
+    self.rightGraph = nil;
 }
 
 @end

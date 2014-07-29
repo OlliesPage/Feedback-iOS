@@ -8,7 +8,8 @@
 
 import Foundation
 
-@objc class JSONFeedbackModel: NSObject {
+// refactored to remove NSObject subclass as Objc no longer needs to use this class
+class JSONFeedbackModel {
     let json:NSData
     let jsonDict:Dictionary<String, AnyObject>
     let hasDisturbance: Bool
@@ -19,7 +20,7 @@ import Foundation
     var forward = Array<(String?, String?, Double?)>()
     var loop = Array<(String?, String?, Double?)>()
     
-    @objc init(sysModel: feedbackModel, pathToModel:NSString) {
+    init(sysModel: feedbackModel, pathToModel:NSString) {
         json = NSData.dataWithContentsOfFile(pathToModel, options:NSDataReadingOptions.DataReadingMappedIfSafe, error: &error)
         jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as Dictionary<String, AnyObject>
         // read the boolean for disturbance, if it exists
@@ -40,8 +41,6 @@ import Foundation
         if let jsonDescription: AnyObject = jsonDict["description"] {
             modelDescrip = jsonDescription as? String
         }
-        
-        super.init();
         
         // ensure system is empty
         sysModel.resetModel()
@@ -81,9 +80,13 @@ import Foundation
                 var (name:String?, type:String?, value:Double?) = enumerateFromDictionary(element as Dictionary)
                 let forwarVal = (name, type, value)
                 forward.append(forwarVal)
-                let newBlock = NSBlockDevice.blockWithName(name, andValue: value)
-                systemModel.addBlockDevice(newBlock, onLevel: 0)
-                println("\(name) has type \(type) and value: \(value)")
+                if type == "block" {
+                    let newBlock = NSBlockDevice.blockWithName(name, andValue: value)
+                    systemModel.addBlockDevice(newBlock, onLevel: 0)
+                } else if type == "limitBlock" {
+                    systemModel.setLimitValue(value!) // set the limit
+                }
+                println("\(name!) has type \(type!) and value: \(value!)")
             } else if element is NSArray {
                 for subelement: AnyObject in element as NSArray {
                     // and again
@@ -94,7 +97,7 @@ import Foundation
                         loop.append(loopVal)
                         let newBlock = NSBlockDevice.blockWithName(name, andValue: value)
                         systemModel.addBlockDevice(newBlock, onLevel: 1)
-                        println("\(name) has type \(type) and value: \(value)")
+                        println("\(name!) has type \(type!) and value: \(value!)")
                     } else {
                         println("Badly formed model - does it have a sub model?")
                     }

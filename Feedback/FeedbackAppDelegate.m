@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // setup preferences, note that one of these preferences is currently only user-changable on the iPood
-    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"learning_preference",[NSNumber numberWithBool:NO],@"use_sin", nil];
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],@"learning_preference",[NSNumber numberWithBool:YES],@"use_sin", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     [[NSUserDefaults standardUserDefaults] synchronize]; // this sets the default value for learning_preference to NO
     return YES;

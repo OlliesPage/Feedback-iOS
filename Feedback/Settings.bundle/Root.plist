@@ -28,7 +28,7 @@
 			<key>Key</key>
 			<string>use_sin</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>SupportedUserInterfaceIdioms</key>

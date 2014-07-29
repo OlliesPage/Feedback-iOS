@@ -30,6 +30,7 @@
 }
 
 // limit is the current limit block value, forward and loop cache are caches of function output
+#warning Only one limit block can be used in the system and it's limit behaviour requires changing.
 double limit = 0, forwardCache=0, loopCache=0;
 
 #pragma mark - limit
@@ -182,7 +183,9 @@ double limit = 0, forwardCache=0, loopCache=0;
         {
             output = (output > limit)?limit:-1*limit;
             output += disturbance; // this ONLY applies at the limit
+#ifdef VERBOSE
             NSLog(@"Calculated output: %.2f", output);
+#endif
             return output;
         }
     }

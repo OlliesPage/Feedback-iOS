@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FeedbackUIFramework/UILimitBlock.h>
 #import "FeedbackViewControllerDelegateProtocol.h"
-#import "limitBlock.h"
 
 @interface iPadLimitViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *inputTextLabel;
@@ -22,9 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *sensorBlock;
 
 @property (strong) IBOutlet NSObject *textFieldDelegate;
-@property (weak, nonatomic) IBOutlet limitView *limitBlockView;
-@property (weak, nonatomic) IBOutlet UILabel *limitPosText;
-@property (weak, nonatomic) IBOutlet UILabel *limitNegText;
+@property (weak, nonatomic) IBOutlet UILimitBlock *limitBlockView;
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *inputGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *disturbanceGestureRecognizer;

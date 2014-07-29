@@ -14,7 +14,6 @@
 		0701ACA614DACD6000AE4374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701ACA514DACD6000AE4374 /* main.m */; };
 		0701ACAA14DACD6000AE4374 /* FeedbackAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701ACA914DACD6000AE4374 /* FeedbackAppDelegate.m */; };
 		0701ACAD14DACD6000AE4374 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0701ACAB14DACD6000AE4374 /* iPhoneStoryboard.storyboard */; };
-		0701ACB014DACD6000AE4374 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0701ACAF14DACD6000AE4374 /* FeedbackViewController.m */; };
 		0705D55215B23AEC008FBC1C /* iPhoneLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55115B23AEC008FBC1C /* iPhoneLogo@2x.png */; };
 		0705D55415B23AF3008FBC1C /* iPhoneLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55315B23AF3008FBC1C /* iPhoneLogo.png */; };
 		0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55515B23B04008FBC1C /* iPadLogo@2x.png */; };
@@ -30,13 +29,17 @@
 		073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 073039AD15B4E14F001B1C52 /* Default@2x~iphone.png */; };
 		073B699815B77F0100DAE53D /* IvOGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 073B699715B77F0100DAE53D /* IvOGraphView.m */; };
 		073B699B15B785DF00DAE53D /* OvDGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 073B699A15B785DE00DAE53D /* OvDGraphView.m */; };
-		07410DA91608B21400548599 /* loopRule.png in Resources */ = {isa = PBXBuildFile; fileRef = 07410DA81608B21400548599 /* loopRule.png */; };
+		074B49B8197F0C4D00CFD076 /* loopRule.png in Resources */ = {isa = PBXBuildFile; fileRef = 074B49BA197F0C4D00CFD076 /* loopRule.png */; };
 		07523F9E1520882800507602 /* iPhoneGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523F9D1520882800507602 /* iPhoneGraphViewController.m */; };
 		07523FDF152373C600507602 /* iPadFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FDE152373C600507602 /* iPadFeedbackViewController.m */; };
 		07523FF01523B33E00507602 /* iPadBasicFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FEF1523B33E00507602 /* iPadBasicFeedbackView.m */; };
 		0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0754D9D215B62A8200E997B0 /* iPadInterface.storyboard */; };
+		075F58EF198270B300B377D3 /* UILimitBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A1050215C5D7D90078CA26 /* UILimitBlock.m */; };
+		075F58F0198270BC00B377D3 /* UILimitBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A1050115C5D7D90078CA26 /* UILimitBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D258615C0C1D600D0E56F /* Default-Landscape~ipad.png */; };
 		076D258715C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D258915C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png */; };
+		07700A1F1986E309001F3CB9 /* SelectModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07700A1E1986E309001F3CB9 /* SelectModelTableViewController.swift */; };
+		07700A211986E6E4001F3CB9 /* JSONModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07700A201986E6E4001F3CB9 /* JSONModelLoader.swift */; };
 		0777506C1977E796009460CC /* OpenGLESGraphsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */; };
 		077D73D1176798AA009D4880 /* iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 077D73D0176798AA009D4880 /* iOS7@2x.png */; };
 		077D73D41767ADED009D4880 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D73D31767ADED009D4880 /* CustomSegue.m */; };
@@ -49,10 +52,8 @@
 		077E9DD0156DA07400122AFE /* feedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E9DCF156DA07400122AFE /* feedbackModel.m */; };
 		07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07819E9F15B6CFE600C98CA4 /* GraphView.m */; };
 		07898DC9164092E900B2B8AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07898DC8164092E900B2B8AD /* QuartzCore.framework */; };
-		079A1D7D14DF171300D2D434 /* iPhoneFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */; };
 		079BD3B6164BA188007A8A76 /* UIReadOnlyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */; };
 		079D90B719751F660083B847 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079D90B619751F660083B847 /* OpenGLES.framework */; };
-		07A1050315C5D7D90078CA26 /* limitBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A1050215C5D7D90078CA26 /* limitBlock.m */; };
 		07CD037A197E9A57004840BB /* FeedbackUIFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 07CD0379197E9A57004840BB /* FeedbackUIFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07CD038A197E9A58004840BB /* FeedbackUIFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */; };
 		07CD038B197E9A58004840BB /* FeedbackUIFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -63,6 +64,7 @@
 		07E787CF196AA95A0023EC79 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E787CE196AA95A0023EC79 /* basic.json */; };
 		07E787D3196AB02C0023EC79 /* JSONFeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */; };
 		07E787E4196AD6220023EC79 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787E3196AD6220023EC79 /* CustomModelViewController.swift */; };
+		07E9A2881986958E0029DC7D /* limit.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E9A2871986958E0029DC7D /* limit.json */; };
 		07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EE342C1519681500EBBE2C /* CreditsViewController.m */; };
 		07EE8B6D196DA39900044E2C /* UILoopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE8B6C196DA39900044E2C /* UILoopBarView.swift */; };
 		07F138C6196D9E66004E5946 /* UIBackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F138C5196D9E66004E5946 /* UIBackBarView.swift */; };
@@ -112,8 +114,6 @@
 		0701ACA814DACD6000AE4374 /* FeedbackAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackAppDelegate.h; sourceTree = "<group>"; };
 		0701ACA914DACD6000AE4374 /* FeedbackAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackAppDelegate.m; sourceTree = "<group>"; };
 		0701ACAC14DACD6000AE4374 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		0701ACAE14DACD6000AE4374 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
-		0701ACAF14DACD6000AE4374 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		0705D55115B23AEC008FBC1C /* iPhoneLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneLogo@2x.png"; sourceTree = "<group>"; };
 		0705D55315B23AF3008FBC1C /* iPhoneLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneLogo.png; sourceTree = "<group>"; };
 		0705D55515B23B04008FBC1C /* iPadLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadLogo@2x.png"; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		073B699715B77F0100DAE53D /* IvOGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IvOGraphView.m; sourceTree = "<group>"; };
 		073B699915B785DE00DAE53D /* OvDGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OvDGraphView.h; sourceTree = "<group>"; };
 		073B699A15B785DE00DAE53D /* OvDGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OvDGraphView.m; sourceTree = "<group>"; };
-		07410DA81608B21400548599 /* loopRule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loopRule.png; sourceTree = "<group>"; };
+		074B49B9197F0C4D00CFD076 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/loopRule.png; sourceTree = "<group>"; };
 		07523F9C1520882800507602 /* iPhoneGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneGraphViewController.h; sourceTree = "<group>"; };
 		07523F9D1520882800507602 /* iPhoneGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneGraphViewController.m; sourceTree = "<group>"; };
 		07523FDD152373C600507602 /* iPadFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFeedbackViewController.h; sourceTree = "<group>"; };
@@ -145,6 +145,8 @@
 		0754D9D115B62A8200E997B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPadInterface.storyboard; sourceTree = "<group>"; };
 		076D258515C0C1D600D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		076D258815C0C1DA00D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		07700A1E1986E309001F3CB9 /* SelectModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewController.swift; sourceTree = "<group>"; };
+		07700A201986E6E4001F3CB9 /* JSONModelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelLoader.swift; sourceTree = "<group>"; };
 		0777506A1977E796009460CC /* OpenGLESGraphsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLESGraphsViewController.h; sourceTree = "<group>"; };
 		0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLESGraphsViewController.m; sourceTree = "<group>"; };
 		077D73D0176798AA009D4880 /* iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iOS7@2x.png"; sourceTree = "<group>"; };
@@ -164,13 +166,11 @@
 		07819E9E15B6CFE600C98CA4 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		07819E9F15B6CFE600C98CA4 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		07898DC8164092E900B2B8AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		079A1D7B14DF171300D2D434 /* iPhoneFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneFeedbackView.h; sourceTree = "<group>"; };
-		079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneFeedbackView.m; sourceTree = "<group>"; };
 		079BD3B4164BA188007A8A76 /* UIReadOnlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIReadOnlyTextView.h; sourceTree = "<group>"; };
 		079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIReadOnlyTextView.m; sourceTree = "<group>"; };
 		079D90B619751F660083B847 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		07A1050115C5D7D90078CA26 /* limitBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = limitBlock.h; sourceTree = "<group>"; };
-		07A1050215C5D7D90078CA26 /* limitBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = limitBlock.m; sourceTree = "<group>"; };
+		07A1050115C5D7D90078CA26 /* UILimitBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILimitBlock.h; path = ../Feedback/UILimitBlock.h; sourceTree = "<group>"; };
+		07A1050215C5D7D90078CA26 /* UILimitBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILimitBlock.m; path = ../Feedback/UILimitBlock.m; sourceTree = "<group>"; };
 		07CD0348197E770D004840BB /* iPadViewControllerCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPadViewControllerCommon.h; sourceTree = "<group>"; };
 		07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedbackUIFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CD0378197E9A57004840BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +185,7 @@
 		07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFeedbackModel.swift; sourceTree = "<group>"; };
 		07E787D4196AB1740023EC79 /* Feedback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feedback-Bridging-Header.h"; sourceTree = "<group>"; };
 		07E787E3196AD6220023EC79 /* CustomModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelViewController.swift; sourceTree = "<group>"; };
+		07E9A2871986958E0029DC7D /* limit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = limit.json; sourceTree = "<group>"; };
 		07EE342B1519681500EBBE2C /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		07EE342C1519681500EBBE2C /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		07EE8B6C196DA39900044E2C /* UILoopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILoopBarView.swift; sourceTree = "<group>"; };
@@ -225,7 +226,6 @@
 				0701AC9F14DACD6000AE4374 /* Feedback */,
 				07CD0376197E9A57004840BB /* FeedbackUIFramework */,
 				0701AC9814DACD6000AE4374 /* Frameworks */,
-				07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */,
 				07CD038C197E9A58004840BB /* Feedback.app */,
 			);
 			sourceTree = "<group>";
@@ -233,6 +233,7 @@
 		0701AC9814DACD6000AE4374 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */,
 				079D90B619751F660083B847 /* OpenGLES.framework */,
 				07898DC8164092E900B2B8AD /* QuartzCore.framework */,
 				0701AC9914DACD6000AE4374 /* UIKit.framework */,
@@ -293,7 +294,7 @@
 				07A104FF15C5D3D10078CA26 /* Icons */,
 				07A1050015C5D3F20078CA26 /* Launch Images */,
 				07DC7E1715B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png */,
-				07410DA81608B21400548599 /* loopRule.png */,
+				074B49BA197F0C4D00CFD076 /* loopRule.png */,
 			);
 			name = "App Images";
 			sourceTree = "<group>";
@@ -311,14 +312,14 @@
 			name = iPadViews;
 			sourceTree = "<group>";
 		};
-		0729F4A01977CC8C0002033E /* OpenGL Graph */ = {
+		0729F4A01977CC8C0002033E /* OpenGL ES */ = {
 			isa = PBXGroup;
 			children = (
 				0729F4A51977CCD00002033E /* Shaders */,
 				0729F4A21977CCC10002033E /* SinGraphGLKViewController.h */,
 				0729F4A31977CCC10002033E /* SinGraphGLKViewController.m */,
 			);
-			name = "OpenGL Graph";
+			name = "OpenGL ES";
 			sourceTree = "<group>";
 		};
 		0729F4A11977CC9B0002033E /* UIView Graphs */ = {
@@ -343,13 +344,39 @@
 			name = Shaders;
 			sourceTree = "<group>";
 		};
+		073299D4197FC40B003FE729 /* Graph View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				073299D6197FC42A003FE729 /* UIView Graphs */,
+				073299D5197FC421003FE729 /* OpenGL ES */,
+			);
+			name = "Graph View Controllers";
+			sourceTree = "<group>";
+		};
+		073299D5197FC421003FE729 /* OpenGL ES */ = {
+			isa = PBXGroup;
+			children = (
+				0777506A1977E796009460CC /* OpenGLESGraphsViewController.h */,
+				0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */,
+			);
+			name = "OpenGL ES";
+			sourceTree = "<group>";
+		};
+		073299D6197FC42A003FE729 /* UIView Graphs */ = {
+			isa = PBXGroup;
+			children = (
+				07523F9C1520882800507602 /* iPhoneGraphViewController.h */,
+				07523F9D1520882800507602 /* iPhoneGraphViewController.m */,
+			);
+			name = "UIView Graphs";
+			sourceTree = "<group>";
+		};
 		07523FAA1521C97800507602 /* iPhone interface */ = {
 			isa = PBXGroup;
 			children = (
 				0701ACAB14DACD6000AE4374 /* iPhoneStoryboard.storyboard */,
 				077D73D21767ADED009D4880 /* CustomSegue.h */,
 				077D73D31767ADED009D4880 /* CustomSegue.m */,
-				07E787E1196AD5D70023EC79 /* Custom Views */,
 				07E787E2196AD5E60023EC79 /* View Controllers */,
 			);
 			name = "iPhone interface";
@@ -370,10 +397,19 @@
 		0754D9CD15B6231300E997B0 /* Graph Views */ = {
 			isa = PBXGroup;
 			children = (
-				0729F4A01977CC8C0002033E /* OpenGL Graph */,
+				0729F4A01977CC8C0002033E /* OpenGL ES */,
 				0729F4A11977CC9B0002033E /* UIView Graphs */,
 			);
 			name = "Graph Views";
+			sourceTree = "<group>";
+		};
+		075F58ED19826F0700B377D3 /* UILimitBlock */ = {
+			isa = PBXGroup;
+			children = (
+				07A1050115C5D7D90078CA26 /* UILimitBlock.h */,
+				07A1050215C5D7D90078CA26 /* UILimitBlock.m */,
+			);
+			name = UILimitBlock;
 			sourceTree = "<group>";
 		};
 		077E042915B97C8500450452 /* Limit */ = {
@@ -381,8 +417,6 @@
 			children = (
 				077E042215B97C6500450452 /* iPadLimitViewController.h */,
 				077E042315B97C6500450452 /* iPadLimitViewController.m */,
-				07A1050115C5D7D90078CA26 /* limitBlock.h */,
-				07A1050215C5D7D90078CA26 /* limitBlock.m */,
 				077E042615B97C7E00450452 /* iPadLimitView.h */,
 				077E042715B97C7E00450452 /* iPadLimitView.m */,
 			);
@@ -395,6 +429,7 @@
 				077E9DCE156DA07400122AFE /* feedbackModel.h */,
 				077E9DCF156DA07400122AFE /* feedbackModel.m */,
 				07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */,
+				07700A201986E6E4001F3CB9 /* JSONModelLoader.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -445,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				07CD0379197E9A57004840BB /* FeedbackUIFramework.h */,
+				075F58ED19826F0700B377D3 /* UILimitBlock */,
 				07CD03A0197E9E26004840BB /* UICircleView */,
 				07CD0377197E9A57004840BB /* Supporting Files */,
 			);
@@ -471,31 +507,19 @@
 		07E787D1196AA9910023EC79 /* jsonModels */ = {
 			isa = PBXGroup;
 			children = (
+				07E9A2871986958E0029DC7D /* limit.json */,
 				07E787CE196AA95A0023EC79 /* basic.json */,
 				071D7DB1197D9D3E009312FF /* graphTest.json */,
 			);
 			name = jsonModels;
 			sourceTree = "<group>";
 		};
-		07E787E1196AD5D70023EC79 /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				079A1D7B14DF171300D2D434 /* iPhoneFeedbackView.h */,
-				079A1D7C14DF171300D2D434 /* iPhoneFeedbackView.m */,
-			);
-			name = "Custom Views";
-			sourceTree = "<group>";
-		};
 		07E787E2196AD5E60023EC79 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0701ACAE14DACD6000AE4374 /* FeedbackViewController.h */,
-				0701ACAF14DACD6000AE4374 /* FeedbackViewController.m */,
-				07523F9C1520882800507602 /* iPhoneGraphViewController.h */,
-				07523F9D1520882800507602 /* iPhoneGraphViewController.m */,
+				073299D4197FC40B003FE729 /* Graph View Controllers */,
 				07E787E3196AD6220023EC79 /* CustomModelViewController.swift */,
-				0777506A1977E796009460CC /* OpenGLESGraphsViewController.h */,
-				0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */,
+				07700A1E1986E309001F3CB9 /* SelectModelTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -507,6 +531,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075F58F0198270BC00B377D3 /* UILimitBlock.h in Headers */,
 				07CD037A197E9A57004840BB /* FeedbackUIFramework.h in Headers */,
 				07CD039B197E9AB0004840BB /* UICircleView.h in Headers */,
 			);
@@ -605,6 +630,7 @@
 				0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */,
 				0705D55815B23B08008FBC1C /* iPadLogo.png in Resources */,
 				073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */,
+				07E9A2881986958E0029DC7D /* limit.json in Resources */,
 				0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */,
 				077E043115BAD40400450452 /* Settings.bundle in Resources */,
 				0729F4A91977CCDD0002033E /* Shader.fsh in Resources */,
@@ -616,7 +642,7 @@
 				076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */,
 				071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */,
 				071D7DB2197D9D3E009312FF /* graphTest.json in Resources */,
-				07410DA91608B21400548599 /* loopRule.png in Resources */,
+				074B49B8197F0C4D00CFD076 /* loopRule.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,8 +678,6 @@
 			files = (
 				0701ACA614DACD6000AE4374 /* main.m in Sources */,
 				0701ACAA14DACD6000AE4374 /* FeedbackAppDelegate.m in Sources */,
-				0701ACB014DACD6000AE4374 /* FeedbackViewController.m in Sources */,
-				079A1D7D14DF171300D2D434 /* iPhoneFeedbackView.m in Sources */,
 				07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */,
 				07523F9E1520882800507602 /* iPhoneGraphViewController.m in Sources */,
 				077D73D41767ADED009D4880 /* CustomSegue.m in Sources */,
@@ -671,13 +695,14 @@
 				0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */,
 				07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */,
 				073B699815B77F0100DAE53D /* IvOGraphView.m in Sources */,
+				07700A1F1986E309001F3CB9 /* SelectModelTableViewController.swift in Sources */,
 				073B699B15B785DF00DAE53D /* OvDGraphView.m in Sources */,
 				077E042415B97C6500450452 /* iPadLimitViewController.m in Sources */,
 				071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */,
 				077E042815B97C7E00450452 /* iPadLimitView.m in Sources */,
 				07DF954515C19D4D00186BF3 /* TextFieldDelegate.m in Sources */,
 				0729F4A41977CCC10002033E /* SinGraphGLKViewController.m in Sources */,
-				07A1050315C5D7D90078CA26 /* limitBlock.m in Sources */,
+				07700A211986E6E4001F3CB9 /* JSONModelLoader.swift in Sources */,
 				079BD3B6164BA188007A8A76 /* UIReadOnlyTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07CD039C197E9AB0004840BB /* UICircleView.m in Sources */,
+				075F58EF198270B300B377D3 /* UILimitBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +762,14 @@
 				073039AC15B4E14F001B1C52 /* en */,
 			);
 			name = "Default@2x~iphone.png";
+			sourceTree = "<group>";
+		};
+		074B49BA197F0C4D00CFD076 /* loopRule.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				074B49B9197F0C4D00CFD076 /* en */,
+			);
+			name = loopRule.png;
 			sourceTree = "<group>";
 		};
 		0754D9D215B62A8200E997B0 /* iPadInterface.storyboard */ = {

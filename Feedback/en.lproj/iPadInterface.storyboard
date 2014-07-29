@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="jsv-aA-2rT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="jsv-aA-2rT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
         <!--I Pad Feedback View Controller-->
@@ -226,7 +226,6 @@ A negative feedback system performs three specific functions that allow it to be
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
@@ -291,7 +290,6 @@ This application is not designed to teach users techniques related to feedback s
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
@@ -317,6 +315,7 @@ This application is not designed to teach users techniques related to feedback s
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="06l-aX-oOH" customClass="VerticalUISlider">
                                 <rect key="frame" x="513" y="185" width="392" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="zDR-g0-cWx">
@@ -456,6 +455,7 @@ Below there is information about the type of feedback system being modelled. The
                             <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="bmv-YB-lOb" customClass="VerticalUISlider">
                                 <rect key="frame" x="513" y="185" width="392" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.65490196078431373" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="pwh-rK-u0C">
@@ -494,7 +494,7 @@ Below there is information about the type of feedback system being modelled. The
                                 </connections>
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11.0" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" id="7sc-iv-xhI">
-                                <rect key="frame" x="230" y="82" width="60" height="31"/>
+                                <rect key="frame" x="230" y="82" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
@@ -542,27 +542,16 @@ There are graphs of output vs input and output vs disturbance to the right of th
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" id="jnQ-oU-0YX" customClass="limitView">
+                            <view contentMode="scaleToFill" id="jnQ-oU-0YX" customClass="UILimitBlock">
                                 <rect key="frame" x="413" y="82" width="94" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="tii-oF-KHm">
-                                        <rect key="frame" x="3" y="5" width="36" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oF2-zy-1Me">
-                                        <rect key="frame" x="56" y="4" width="36" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -577,8 +566,6 @@ There are graphs of output vs input and output vs disturbance to the right of th
                         <outlet property="inputTextLabel" destination="f5e-OF-Gd4" id="lg4-5P-InN"/>
                         <outlet property="limitBlock" destination="ssu-0Z-fk0" id="hhl-aH-zNP"/>
                         <outlet property="limitBlockView" destination="jnQ-oU-0YX" id="adT-UO-8Si"/>
-                        <outlet property="limitNegText" destination="tii-oF-KHm" id="2bV-XA-TWv"/>
-                        <outlet property="limitPosText" destination="oF2-zy-1Me" id="iex-AD-Xc3"/>
                         <outlet property="outputSlider" destination="bmv-YB-lOb" id="ayZ-Mc-URg"/>
                         <outlet property="outputTextLabel" destination="Acc-1n-ez7" id="HGc-ua-7ny"/>
                         <outlet property="sensorBlock" destination="Z6U-hO-1Cg" id="CQb-2K-VOm"/>
@@ -608,6 +595,9 @@ There are graphs of output vs input and output vs disturbance to the right of th
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination">
+            <size key="portraitSize" width="768" height="1024"/>
+            <size key="landscapeSize" width="1024" height="768"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
 </document>

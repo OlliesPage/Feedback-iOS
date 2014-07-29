@@ -13,8 +13,8 @@
 
 - (void)perform
 {
-    UIViewController *srcViewController = (UIViewController *) self.sourceViewController;
-    UIViewController *destViewController = (UIViewController *) self.destinationViewController;
+    __weak UIViewController *srcViewController = (UIViewController *) self.sourceViewController;
+    __weak UIViewController *destViewController = (UIViewController *) self.destinationViewController;
     
     CATransition *transition = [CATransition animation];
     transition.duration = 0.3;
