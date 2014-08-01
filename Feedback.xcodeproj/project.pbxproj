@@ -22,7 +22,7 @@
 		0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D58715B45967008FBC1C /* NSBlockDevice.m */; };
 		071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */; };
 		071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 071CB8671602ABA300C3DDB1 /* Default-568h@2x~iphone.png */; };
-		071D7DB2197D9D3E009312FF /* graphTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 071D7DB1197D9D3E009312FF /* graphTest.json */; };
+		071D7DB2197D9D3E009312FF /* Simple Amplifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 071D7DB1197D9D3E009312FF /* Simple Amplifier.json */; };
 		0729F4A41977CCC10002033E /* SinGraphGLKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0729F4A31977CCC10002033E /* SinGraphGLKViewController.m */; };
 		0729F4A81977CCDD0002033E /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 0729F4A61977CCDD0002033E /* Shader.vsh */; };
 		0729F4A91977CCDD0002033E /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 0729F4A71977CCDD0002033E /* Shader.fsh */; };
@@ -61,10 +61,10 @@
 		07CD039C197E9AB0004840BB /* UICircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07CD039A197E9AB0004840BB /* UICircleView.m */; };
 		07DC7E1515B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 07DC7E1715B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png */; };
 		07DF954515C19D4D00186BF3 /* TextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF954415C19D4D00186BF3 /* TextFieldDelegate.m */; };
-		07E787CF196AA95A0023EC79 /* basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E787CE196AA95A0023EC79 /* basic.json */; };
+		07E787CF196AA95A0023EC79 /* Basic Feedback Model.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E787CE196AA95A0023EC79 /* Basic Feedback Model.json */; };
 		07E787D3196AB02C0023EC79 /* JSONFeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */; };
 		07E787E4196AD6220023EC79 /* CustomModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E787E3196AD6220023EC79 /* CustomModelViewController.swift */; };
-		07E9A2881986958E0029DC7D /* limit.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E9A2871986958E0029DC7D /* limit.json */; };
+		07E9A2881986958E0029DC7D /* Feedback With Limits.json in Resources */ = {isa = PBXBuildFile; fileRef = 07E9A2871986958E0029DC7D /* Feedback With Limits.json */; };
 		07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EE342C1519681500EBBE2C /* CreditsViewController.m */; };
 		07EE8B6D196DA39900044E2C /* UILoopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE8B6C196DA39900044E2C /* UILoopBarView.swift */; };
 		07F138C6196D9E66004E5946 /* UIBackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F138C5196D9E66004E5946 /* UIBackBarView.swift */; };
@@ -124,7 +124,7 @@
 		0705D58715B45967008FBC1C /* NSBlockDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBlockDevice.m; sourceTree = "<group>"; };
 		071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSystemBlockDevice.swift; sourceTree = "<group>"; };
 		071CB8661602ABA300C3DDB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		071D7DB1197D9D3E009312FF /* graphTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = graphTest.json; sourceTree = "<group>"; };
+		071D7DB1197D9D3E009312FF /* Simple Amplifier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Simple Amplifier.json"; sourceTree = "<group>"; };
 		071EA97B1561C4600034266B /* iPadFeedbackViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPadFeedbackViews.h; sourceTree = "<group>"; };
 		0729F4A21977CCC10002033E /* SinGraphGLKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinGraphGLKViewController.h; sourceTree = "<group>"; };
 		0729F4A31977CCC10002033E /* SinGraphGLKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinGraphGLKViewController.m; sourceTree = "<group>"; };
@@ -181,11 +181,11 @@
 		07DC7E1615B4DF7D0082A141 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/1000px-University_of_Reading_logo.svg.png"; sourceTree = "<group>"; };
 		07DF954315C19D4D00186BF3 /* TextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDelegate.h; sourceTree = "<group>"; };
 		07DF954415C19D4D00186BF3 /* TextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldDelegate.m; sourceTree = "<group>"; };
-		07E787CE196AA95A0023EC79 /* basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = basic.json; sourceTree = "<group>"; };
+		07E787CE196AA95A0023EC79 /* Basic Feedback Model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Basic Feedback Model.json"; sourceTree = "<group>"; };
 		07E787D2196AB02C0023EC79 /* JSONFeedbackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFeedbackModel.swift; sourceTree = "<group>"; };
 		07E787D4196AB1740023EC79 /* Feedback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Feedback-Bridging-Header.h"; sourceTree = "<group>"; };
 		07E787E3196AD6220023EC79 /* CustomModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModelViewController.swift; sourceTree = "<group>"; };
-		07E9A2871986958E0029DC7D /* limit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = limit.json; sourceTree = "<group>"; };
+		07E9A2871986958E0029DC7D /* Feedback With Limits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Feedback With Limits.json"; sourceTree = "<group>"; };
 		07EE342B1519681500EBBE2C /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		07EE342C1519681500EBBE2C /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		07EE8B6C196DA39900044E2C /* UILoopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILoopBarView.swift; sourceTree = "<group>"; };
@@ -507,9 +507,9 @@
 		07E787D1196AA9910023EC79 /* jsonModels */ = {
 			isa = PBXGroup;
 			children = (
-				07E9A2871986958E0029DC7D /* limit.json */,
-				07E787CE196AA95A0023EC79 /* basic.json */,
-				071D7DB1197D9D3E009312FF /* graphTest.json */,
+				07E9A2871986958E0029DC7D /* Feedback With Limits.json */,
+				07E787CE196AA95A0023EC79 /* Basic Feedback Model.json */,
+				071D7DB1197D9D3E009312FF /* Simple Amplifier.json */,
 			);
 			name = jsonModels;
 			sourceTree = "<group>";
@@ -625,12 +625,12 @@
 				07DC7E1515B4DF7D0082A141 /* 1000px-University_of_Reading_logo.svg.png in Resources */,
 				0705D55215B23AEC008FBC1C /* iPhoneLogo@2x.png in Resources */,
 				0729F4A81977CCDD0002033E /* Shader.vsh in Resources */,
-				07E787CF196AA95A0023EC79 /* basic.json in Resources */,
+				07E787CF196AA95A0023EC79 /* Basic Feedback Model.json in Resources */,
 				0705D55415B23AF3008FBC1C /* iPhoneLogo.png in Resources */,
 				0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */,
 				0705D55815B23B08008FBC1C /* iPadLogo.png in Resources */,
 				073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */,
-				07E9A2881986958E0029DC7D /* limit.json in Resources */,
+				07E9A2881986958E0029DC7D /* Feedback With Limits.json in Resources */,
 				0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */,
 				077E043115BAD40400450452 /* Settings.bundle in Resources */,
 				0729F4A91977CCDD0002033E /* Shader.fsh in Resources */,
@@ -641,7 +641,7 @@
 				076D258715C0C1DA00D0E56F /* Default-Landscape@2x~ipad.png in Resources */,
 				076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */,
 				071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */,
-				071D7DB2197D9D3E009312FF /* graphTest.json in Resources */,
+				071D7DB2197D9D3E009312FF /* Simple Amplifier.json in Resources */,
 				074B49B8197F0C4D00CFD076 /* loopRule.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

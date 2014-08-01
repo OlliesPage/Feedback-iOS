@@ -13,7 +13,7 @@ import FeedbackUIFramework
 class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopoverPresentationControllerDelegate, SelectModalTableViewControllerDelegate {
 // MARK: Variable defintions
     let sysModel = feedbackModel()
-    let pathToFile = NSBundle.mainBundle().pathForResource("basic", ofType: "json")
+    let pathToFile = NSBundle.mainBundle().pathForResource("Basic Feedback Model", ofType: "json")
     var jsonParser:JSONFeedbackModel
     var blocksOnScreen = Array<Dictionary<Int,String>>()
     let textFieldDelegate = TextFieldDelegate()
@@ -374,6 +374,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
                 graphView.min = self.sysModel.minOutputWithDisturbance(0)
                 graphView.max = self.sysModel.maxOutputWithDisturbance(0)
             }
+            graphView.limit = sysModel.getLimitValue(); // return the current limit
             graphView.gradient = self.sysModel.outputVdisturbanceGradient()
         }
         

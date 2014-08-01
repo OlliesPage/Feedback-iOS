@@ -20,6 +20,7 @@
 @synthesize delegate = _delegate;
 @synthesize min = _min;
 @synthesize max = _max;
+@synthesize limit = _limit;
 @synthesize gradient = _gradient;
 
 #pragma mark - GraphView Delegates
@@ -35,7 +36,7 @@
 
 - (double)getLimitValue
 {
-    return 0;
+    return self.limit;
 }
 
 - (double)getOutputvDisturbance

@@ -29,6 +29,7 @@ DEPRECATED_ATTRIBUTE
 
 @property double min;
 @property double max;
+@property double limit;
 @property double gradient;
 
 - (IBAction)doReturn:(id)sender;

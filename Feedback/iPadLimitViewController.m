@@ -141,29 +141,6 @@
     [self inputChanged];
 }
 
-//- (IBAction)limitChanged:(id)sender
-//{
-//    double newLimit = fabs([[sender text] doubleValue]); // this saves doing this two more times
-//
-//    if([[sender text] doubleValue] == 0)
-//    {
-//        // we're using this to block changing the value so
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You cannot set the limit to zero at this time" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//        [alert show];
-//        self.limitBlock.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:self.temp]]; // set the limitBlock's value back to what it was
-//        NSLog(@"Limit value is: %@, self.temp is: %f",self.limitBlock.text,self.temp); // if you don't observe it, it doesn't appear to happen.
-//        self.temp = 0;
-//        self.limitBlockView.hidden = NO;
-//        return; // stop it from changing the value!
-//    } // stop users from setting the limit to zero!
-//
-//    [self.delegate setLimitValue:newLimit];
-//    self.limitBlockView.value = newLimit;
-//    [self inputChanged];
-//    self.temp = 0;
-//    self.limitBlockView.hidden = NO;
-//}
-
 - (IBAction)resetGesture:(id)sender
 {
     if([sender isEqual:self.inputGestureRecognizer])
