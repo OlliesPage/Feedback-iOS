@@ -169,8 +169,8 @@
 		079BD3B4164BA188007A8A76 /* UIReadOnlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIReadOnlyTextView.h; sourceTree = "<group>"; };
 		079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIReadOnlyTextView.m; sourceTree = "<group>"; };
 		079D90B619751F660083B847 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		07A1050115C5D7D90078CA26 /* UILimitBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UILimitBlock.h; path = ../Feedback/UILimitBlock.h; sourceTree = "<group>"; };
-		07A1050215C5D7D90078CA26 /* UILimitBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UILimitBlock.m; path = ../Feedback/UILimitBlock.m; sourceTree = "<group>"; };
+		07A1050115C5D7D90078CA26 /* UILimitBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILimitBlock.h; sourceTree = "<group>"; };
+		07A1050215C5D7D90078CA26 /* UILimitBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILimitBlock.m; sourceTree = "<group>"; };
 		07CD0348197E770D004840BB /* iPadViewControllerCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iPadViewControllerCommon.h; sourceTree = "<group>"; };
 		07CD0375197E9A57004840BB /* FeedbackUIFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedbackUIFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CD0378197E9A57004840BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
