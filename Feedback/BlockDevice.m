@@ -1,21 +1,22 @@
 //
-//  NSBlockDevice.m
+//  BlockDevice.m
 //  Feedback
 //
 //  Created by Oliver Hayman on 16/07/2012.
-//  Copyright (c) 2012 OlliesPage. All rights reserved.
+//  Updated by Oliver Hayman on 01/08/2014.
+//  Copyright (c) 2014 OlliesPage. All rights reserved.
 //
 
-#import "NSBlockDevice.h"
+#import "BlockDevice.h"
 
-@implementation NSBlockDevice
+@implementation BlockDevice
 @synthesize name = _name;
 @synthesize value = _value;
 @synthesize type = _type;
 
-+ (NSBlockDevice *)blockWithName:(NSString *)name andValue:(NSNumber *)value
++ (BlockDevice *)blockWithName:(NSString *)name andValue:(NSNumber *)value
 {
-    return [[NSBlockDevice alloc] initWithName:name andValue:value];
+    return [[BlockDevice alloc] initWithName:name andValue:value];
 }
 
 - (instancetype)init
@@ -47,7 +48,7 @@
 -(void)setType:(NSNumber *)type
 {
     // here we check if the type is valid
-    if(type.intValue < 2)
+    if(type.intValue < 3)
     {
         _type = type;
     }

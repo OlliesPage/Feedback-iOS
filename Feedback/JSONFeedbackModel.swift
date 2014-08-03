@@ -8,18 +8,24 @@
 
 import Foundation
 
+enum BlockDeviceType: Int { case Block=0, LimitBlock, SysModelBlock }
+
 // refactored to remove NSObject subclass as Objc no longer needs to use this class
 class JSONFeedbackModel {
-    let json:NSData
-    let jsonDict:Dictionary<String, AnyObject>
+    // MARK: Private properties
+    private let json:NSData
+    private let jsonDict:Dictionary<String, AnyObject>
+    private var error: NSError?
+    
+    // MARK: Public properties
     let hasDisturbance: Bool
     let modelName: String
     let modelDescrip: String?
     
-    var error: NSError?
-    var forward = Array<(String?, String?, Double?)>()
-    var loop = Array<(String?, String?, Double?)>()
+    var forward = Array<(String?, BlockDeviceType?, Double?)>()
+    var loop = Array<(String?, BlockDeviceType?, Double?)>()
     
+    // MARK:- Initializer function
     init(sysModel: feedbackModel, pathToModel:NSString) {
         json = NSData.dataWithContentsOfFile(pathToModel, options:NSDataReadingOptions.DataReadingMappedIfSafe, error: &error)
         jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as Dictionary<String, AnyObject>
@@ -46,64 +52,81 @@ class JSONFeedbackModel {
         sysModel.resetModel()
         
         if let model: AnyObject = jsonDict["model"] {
-            parseModel(model, systemModel: sysModel)
+            parseModel(model, systemModel: sysModel, addToScreen: true)
         } else {
             println("Model error: Model not found")
             abort() // cannot run in this condition, so crash
         }
     }
     
-    func enumerateFromDictionary(inputDictionary:Dictionary<String,AnyObject>) -> (String?, String?, Double?) {
-        var name:String?, type:String?, value:Double?
-        for (blockName, subDict : AnyObject) in inputDictionary {
+    // MARK:- Private member functions
+    private func instantiateBlockFromDictionary(inputDictionary inDict:Dictionary<String, AnyObject>) -> BlockDevice?
+    {
+        var outputBD: BlockDevice?
+        for (blockName, subDict: AnyObject) in inDict {
             if(blockName == "model") {
-                println("There is a new model to process")
-            }
-            name = blockName
-            // sanity check
-            if subDict is NSDictionary {
+                let newModel = feedbackModel();
+                parseModel(subDict, systemModel: newModel, addToScreen: false)
+                outputBD = FeedbackSystemBlockDevice(name: "subModel", andSystem: newModel)
+                return outputBD
+            }// special case
+            
+            if subDict is NSDictionary && !outputBD {
                 for (blockType: String, val: Double) in subDict as Dictionary<String, Double> {
-                    type = blockType
-                    value = val
+                    if blockType == "block"
+                    {
+                        outputBD = BlockDevice(name: blockName, andValue: val)
+                        outputBD!.type = BlockDeviceType.Block.toRaw()
+                    } else if blockType == "limitBlock" {
+                        outputBD = BlockDevice(name: blockName, andValue: val)
+                        outputBD!.type = BlockDeviceType.LimitBlock.toRaw()
+                    }
                 }
             }
         }
-        return (name, type, value)
+        return outputBD;
     }
     
-    // look at the java version, could this be made better with recursion?
-    func parseModel(jsonModel: AnyObject, systemModel:feedbackModel) {
+    // the array that holds blocks for fwrd/loop needs to either be made to hold BlockDevices or
+    // should there must be a way to convert from int to string for types
+    private func parseModel(jsonModel: AnyObject, systemModel:feedbackModel, addToScreen: Bool) {
         for element: AnyObject in jsonModel as NSArray {
             // Check if the element is a dictionary
             if element is NSDictionary {
                 // a dictionary will have a string and a dictionary, this is the name and blocktype/value
-                var (name:String?, type:String?, value:Double?) = enumerateFromDictionary(element as Dictionary)
-                let forwarVal = (name, type, value)
-                forward.append(forwarVal)
-                if type == "block" {
-                    let newBlock = NSBlockDevice.blockWithName(name, andValue: value)
-                    systemModel.addBlockDevice(newBlock, onLevel: 0)
-                } else if type == "limitBlock" {
-                    systemModel.setLimitValue(value!) // set the limit
+                let nBlock = instantiateBlockFromDictionary(inputDictionary: element as Dictionary)
+                //let forwardVal = ()
+                if addToScreen == true
+                {
+                    forward.append(nBlock?.name, BlockDeviceType.fromRaw(nBlock!.type), nBlock?.value)
                 }
-                println("\(name!) has type \(type!) and value: \(value!)")
+                let bType = BlockDeviceType.fromRaw(nBlock!.type)
+                if bType == BlockDeviceType.LimitBlock {
+                    systemModel.setLimitValue(nBlock!.value) // set the limit
+                } else {
+                    systemModel.addBlockDevice(nBlock, onLevel: 0)
+                }
+                println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)") // this causes it to crash
             } else if element is NSArray {
                 for subelement: AnyObject in element as NSArray {
                     // and again
                     println("Entering Loop")
                     if subelement is NSDictionary {
-                        var (name:String?, type:String?, value:Double?) = enumerateFromDictionary(subelement as Dictionary)
-                        let loopVal = (name,type, value)
-                        loop.append(loopVal)
-                        let newBlock = NSBlockDevice.blockWithName(name, andValue: value)
-                        systemModel.addBlockDevice(newBlock, onLevel: 1)
-                        println("\(name!) has type \(type!) and value: \(value!)")
+                        let nBlock = instantiateBlockFromDictionary(inputDictionary: subelement as Dictionary)
+                        //let loopVal = (nBlock?.name, BlockDeviceType.fromRaw(nBlock?.type), nBlock?.value)
+                        if addToScreen == true
+                        {
+                            loop.append(nBlock?.name, BlockDeviceType.fromRaw(nBlock!.type), nBlock?.value)
+                        }
+                        systemModel.addBlockDevice(nBlock, onLevel: 1)
+                        println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)")
                     } else {
                         println("Badly formed model - does it have a sub model?")
                     }
                 }
             }
         }
+        systemModel.resetCache() // try just clearing it out after
     }
 }
 

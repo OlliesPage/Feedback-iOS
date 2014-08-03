@@ -44,6 +44,7 @@ enum
             
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setPauseOnWillResignActive:YES]; // stop rendering when not on screen
     
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     
@@ -55,8 +56,13 @@ enum
     
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
+    
+    // setup pan and pinch gesture recognizers and attach them to the view
+    UIPanGestureRecognizer *panny = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeOccured:)];
     UIPinchGestureRecognizer *pinchy = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchOccured:)];
     [view addGestureRecognizer:pinchy];
+    [view addGestureRecognizer:panny];
+    
     lastPinchScale = 1.f;
     _uniform_scale_x = 1.f;
     
@@ -66,7 +72,7 @@ enum
 - (void)dealloc
 {
     // destroy the OpenGL stuff before removing the context
-    self.guestureDelegate = NULL;
+    self.gestureDelegate = NULL;
     [self tearDownGL];
     
     if ([EAGLContext currentContext] == self.context) {
@@ -80,7 +86,7 @@ enum
     
     if ([self isViewLoaded] && ([[self view] window] == nil)) {
         self.view = nil;
-        self.guestureDelegate = NULL;
+        self.gestureDelegate = NULL;
         
         [self tearDownGL];
         
@@ -122,8 +128,8 @@ enum
         
         if (gradient > 1.7) {
             // Vertical pinch - scale in the Y
-            if(self.guestureDelegate)
-                [self.guestureDelegate setYScale:[gesture scale]];
+            if(self.gestureDelegate)
+                [self.gestureDelegate setYScale:[gesture scale]];
         } else {
             // if we're not scaling just y, scale x
             _uniform_scale_x += [gesture scale] - lastPinchScale;
@@ -141,9 +147,16 @@ enum
     
     if(gesture.state == UIGestureRecognizerStateEnded) {
         lastPinchScale = 1.f;
-        if(self.guestureDelegate)
-            [self.guestureDelegate gestureDidFinish];
+        if(self.gestureDelegate)
+            [self.gestureDelegate gestureDidFinish];
     }
+}
+
+- (void)swipeOccured:(UIPanGestureRecognizer *)gesture
+{
+    // swipeeee
+    CGPoint translation = [gesture translationInView:self.view];
+    [self.gestureDelegate setPhase:translation.x];
 }
 
 - (void)scaleX:(GLfloat)scale {

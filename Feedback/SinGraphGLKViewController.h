@@ -11,12 +11,13 @@
 
 @protocol GraphGestureResizeDelegate <NSObject>
 - (void)setYScale:(GLfloat)scale;
+- (void)setPhase:(GLfloat)degrees;
 - (void)gestureDidFinish;
 @end
 
 @interface SinGraphGLKViewController : GLKViewController
 
-@property (weak) id<GraphGestureResizeDelegate> guestureDelegate;
+@property (weak) id<GraphGestureResizeDelegate> gestureDelegate;
 @property (weak) SinGraphGLKViewController *twin;
 
 - (void)setGraphData:(GLKVector2[])data withSize:(size_t)size;

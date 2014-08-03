@@ -33,8 +33,8 @@
 {
     [super viewWillAppear:animated];
     // This is run each time the view is going to be put on the screen, this makes sure the correct model is loaded
-    NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerText text] doubleValue]]],[NSBlockDevice blockWithName:@"device" andValue:[NSNumber numberWithDouble:[[self.deviceText text] doubleValue]]], nil];
-    NSArray *loopDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.sensorText text] doubleValue]]], nil];
+    NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[BlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerText text] doubleValue]]],[BlockDevice blockWithName:@"device" andValue:[NSNumber numberWithDouble:[[self.deviceText text] doubleValue]]], nil];
+    NSArray *loopDevices = [[NSArray alloc] initWithObjects:[BlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.sensorText text] doubleValue]]], nil];
     self.temp = 0;
     // now send them to the delegate to be added to the model
     [self.delegate setModelForwardDevices:forwardDevices loopDevices:loopDevices];

@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc class FeedbackSystemBlockDevice: NSBlockDevice {
-    let systemModel: feedbackModel?
+@objc class FeedbackSystemBlockDevice: BlockDevice {
+    strong let systemModel: feedbackModel?
     override var value: NSNumber! {
         get {
             return NSNumber.numberWithDouble(systemModel!.calculateOutputForInput(1, withDistrubance: 0))
@@ -20,9 +20,9 @@ import Foundation
         }
     } // this overrides the value property, making it return the gain of the feedback model
     
-    
     @objc init(name: String!, andSystem model: feedbackModel!) {
         systemModel = model // setup the system model
         super.init(name: name) // we're going to init with name, but value is not used yet so.
+        type = 2 // this is a SysModelBlock
     }
 }

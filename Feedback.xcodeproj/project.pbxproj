@@ -19,7 +19,7 @@
 		0705D55615B23B04008FBC1C /* iPadLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55515B23B04008FBC1C /* iPadLogo@2x.png */; };
 		0705D55815B23B08008FBC1C /* iPadLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0705D55715B23B08008FBC1C /* iPadLogo.png */; };
 		0705D56715B3926D008FBC1C /* iPadBasicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D56615B3926D008FBC1C /* iPadBasicViewController.m */; };
-		0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D58715B45967008FBC1C /* NSBlockDevice.m */; };
+		0705D58815B45967008FBC1C /* BlockDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0705D58715B45967008FBC1C /* BlockDevice.m */; };
 		071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */; };
 		071CB8651602ABA300C3DDB1 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 071CB8671602ABA300C3DDB1 /* Default-568h@2x~iphone.png */; };
 		071D7DB2197D9D3E009312FF /* Simple Amplifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 071D7DB1197D9D3E009312FF /* Simple Amplifier.json */; };
@@ -34,6 +34,8 @@
 		07523FDF152373C600507602 /* iPadFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FDE152373C600507602 /* iPadFeedbackViewController.m */; };
 		07523FF01523B33E00507602 /* iPadBasicFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07523FEF1523B33E00507602 /* iPadBasicFeedbackView.m */; };
 		0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0754D9D215B62A8200E997B0 /* iPadInterface.storyboard */; };
+		0758E21B198E51A7001F9305 /* UIFeedbackModelBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 0758E219198E51A7001F9305 /* UIFeedbackModelBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0758E21C198E51A7001F9305 /* UIFeedbackModelBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 0758E21A198E51A7001F9305 /* UIFeedbackModelBlock.m */; };
 		075F58EF198270B300B377D3 /* UILimitBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A1050215C5D7D90078CA26 /* UILimitBlock.m */; };
 		075F58F0198270BC00B377D3 /* UILimitBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A1050115C5D7D90078CA26 /* UILimitBlock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		076D258415C0C1D600D0E56F /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 076D258615C0C1D600D0E56F /* Default-Landscape~ipad.png */; };
@@ -68,6 +70,7 @@
 		07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07EE342C1519681500EBBE2C /* CreditsViewController.m */; };
 		07EE8B6D196DA39900044E2C /* UILoopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE8B6C196DA39900044E2C /* UILoopBarView.swift */; };
 		07F138C6196D9E66004E5946 /* UIBackBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F138C5196D9E66004E5946 /* UIBackBarView.swift */; };
+		07F958EB198BD433008209A1 /* Test.json in Resources */ = {isa = PBXBuildFile; fileRef = 07F958EA198BD433008209A1 /* Test.json */; };
 		07FFE6E91561DFB4000E32DE /* VerticalUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FFE6E81561DFB4000E32DE /* VerticalUISlider.m */; };
 		07FFE6F31562A9AF000E32DE /* iPadFeedbackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FFE6F21562A9AF000E32DE /* iPadFeedbackView.m */; };
 /* End PBXBuildFile section */
@@ -120,8 +123,8 @@
 		0705D55715B23B08008FBC1C /* iPadLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadLogo.png; sourceTree = "<group>"; };
 		0705D56515B3926D008FBC1C /* iPadBasicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBasicViewController.h; sourceTree = "<group>"; };
 		0705D56615B3926D008FBC1C /* iPadBasicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadBasicViewController.m; sourceTree = "<group>"; };
-		0705D58615B45967008FBC1C /* NSBlockDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBlockDevice.h; sourceTree = "<group>"; };
-		0705D58715B45967008FBC1C /* NSBlockDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBlockDevice.m; sourceTree = "<group>"; };
+		0705D58615B45967008FBC1C /* BlockDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockDevice.h; sourceTree = "<group>"; };
+		0705D58715B45967008FBC1C /* BlockDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockDevice.m; sourceTree = "<group>"; };
 		071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackSystemBlockDevice.swift; sourceTree = "<group>"; };
 		071CB8661602ABA300C3DDB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		071D7DB1197D9D3E009312FF /* Simple Amplifier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Simple Amplifier.json"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 		07523FEE1523B33E00507602 /* iPadBasicFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBasicFeedbackView.h; sourceTree = "<group>"; };
 		07523FEF1523B33E00507602 /* iPadBasicFeedbackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadBasicFeedbackView.m; sourceTree = "<group>"; };
 		0754D9D115B62A8200E997B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPadInterface.storyboard; sourceTree = "<group>"; };
+		0758E219198E51A7001F9305 /* UIFeedbackModelBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFeedbackModelBlock.h; sourceTree = "<group>"; };
+		0758E21A198E51A7001F9305 /* UIFeedbackModelBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFeedbackModelBlock.m; sourceTree = "<group>"; };
 		076D258515C0C1D600D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		076D258815C0C1DA00D0E56F /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		07700A1E1986E309001F3CB9 /* SelectModelTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 		07EE342C1519681500EBBE2C /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		07EE8B6C196DA39900044E2C /* UILoopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILoopBarView.swift; sourceTree = "<group>"; };
 		07F138C5196D9E66004E5946 /* UIBackBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBackBarView.swift; sourceTree = "<group>"; };
+		07F958EA198BD433008209A1 /* Test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test.json; sourceTree = "<group>"; };
 		07FFE6E71561DFB4000E32DE /* VerticalUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalUISlider.h; sourceTree = "<group>"; };
 		07FFE6E81561DFB4000E32DE /* VerticalUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalUISlider.m; sourceTree = "<group>"; };
 		07FFE6F11562A9AF000E32DE /* iPadFeedbackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFeedbackView.h; sourceTree = "<group>"; };
@@ -262,8 +268,8 @@
 			children = (
 				071C44EF14DF40A9009EFCA8 /* App Images */,
 				07A104FE15C5D3990078CA26 /* Shared interface */,
-				0705D58615B45967008FBC1C /* NSBlockDevice.h */,
-				0705D58715B45967008FBC1C /* NSBlockDevice.m */,
+				0705D58615B45967008FBC1C /* BlockDevice.h */,
+				0705D58715B45967008FBC1C /* BlockDevice.m */,
 				071348A6196C063F000B106E /* FeedbackSystemBlockDevice.swift */,
 				0701ACA814DACD6000AE4374 /* FeedbackAppDelegate.h */,
 				0701ACA914DACD6000AE4374 /* FeedbackAppDelegate.m */,
@@ -403,6 +409,15 @@
 			name = "Graph Views";
 			sourceTree = "<group>";
 		};
+		0758E21D198E51AC001F9305 /* UIFeeedbackModelBlock */ = {
+			isa = PBXGroup;
+			children = (
+				0758E219198E51A7001F9305 /* UIFeedbackModelBlock.h */,
+				0758E21A198E51A7001F9305 /* UIFeedbackModelBlock.m */,
+			);
+			name = UIFeeedbackModelBlock;
+			sourceTree = "<group>";
+		};
 		075F58ED19826F0700B377D3 /* UILimitBlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +495,7 @@
 			isa = PBXGroup;
 			children = (
 				07CD0379197E9A57004840BB /* FeedbackUIFramework.h */,
+				0758E21D198E51AC001F9305 /* UIFeeedbackModelBlock */,
 				075F58ED19826F0700B377D3 /* UILimitBlock */,
 				07CD03A0197E9E26004840BB /* UICircleView */,
 				07CD0377197E9A57004840BB /* Supporting Files */,
@@ -510,6 +526,7 @@
 				07E9A2871986958E0029DC7D /* Feedback With Limits.json */,
 				07E787CE196AA95A0023EC79 /* Basic Feedback Model.json */,
 				071D7DB1197D9D3E009312FF /* Simple Amplifier.json */,
+				07F958EA198BD433008209A1 /* Test.json */,
 			);
 			name = jsonModels;
 			sourceTree = "<group>";
@@ -534,6 +551,7 @@
 				075F58F0198270BC00B377D3 /* UILimitBlock.h in Headers */,
 				07CD037A197E9A57004840BB /* FeedbackUIFramework.h in Headers */,
 				07CD039B197E9AB0004840BB /* UICircleView.h in Headers */,
+				0758E21B198E51A7001F9305 /* UIFeedbackModelBlock.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +650,7 @@
 				073039AB15B4E14F001B1C52 /* Default@2x~iphone.png in Resources */,
 				07E9A2881986958E0029DC7D /* Feedback With Limits.json in Resources */,
 				0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */,
+				07F958EB198BD433008209A1 /* Test.json in Resources */,
 				077E043115BAD40400450452 /* Settings.bundle in Resources */,
 				0729F4A91977CCDD0002033E /* Shader.fsh in Resources */,
 				077E043415BAEA4A00450452 /* settings.png in Resources */,
@@ -692,7 +711,7 @@
 				07F138C6196D9E66004E5946 /* UIBackBarView.swift in Sources */,
 				0705D56715B3926D008FBC1C /* iPadBasicViewController.m in Sources */,
 				07E787E4196AD6220023EC79 /* CustomModelViewController.swift in Sources */,
-				0705D58815B45967008FBC1C /* NSBlockDevice.m in Sources */,
+				0705D58815B45967008FBC1C /* BlockDevice.m in Sources */,
 				07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */,
 				073B699815B77F0100DAE53D /* IvOGraphView.m in Sources */,
 				07700A1F1986E309001F3CB9 /* SelectModelTableViewController.swift in Sources */,
@@ -711,6 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0758E21C198E51A7001F9305 /* UIFeedbackModelBlock.m in Sources */,
 				07CD039C197E9AB0004840BB /* UICircleView.m in Sources */,
 				075F58EF198270B300B377D3 /* UILimitBlock.m in Sources */,
 			);

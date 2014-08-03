@@ -1,9 +1,10 @@
 //
-//  limitView.m
+//  UILimitBlock.m
 //  Feedback
 //
 //  Created by Oliver Hayman on 29/07/2012.
-//  Copyright (c) 2012 OlliesPage. All rights reserved.
+//  Updated by Oliver Hayman on 29/07/2014.
+//  Copyright (c) 2014 OlliesPage. All rights reserved.
 //
 
 #import "UILimitBlock.h"

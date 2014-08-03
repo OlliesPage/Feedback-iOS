@@ -10,6 +10,7 @@
 #import <GLKit/GLKit.h>
 
 #define NO_DATA_POINTS 4000
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 @interface OpenGLESGraphsViewController () {
     GLKVector2 inputData[NO_DATA_POINTS];
@@ -82,6 +83,18 @@
     [self.rightGraph setGraphData:outputData withSize:sizeof(outputData)];
 }
 
+- (void)setPhase:(GLfloat)degrees
+{
+    for(int i = 0; i < NO_DATA_POINTS; i++) {
+        float x = (i-NO_DATA_POINTS/2) / 100.0; // (i - 1000.0) / 100.0; gives range -10 to 10
+        inputData[i].x = outputData[i].x = x; // the x is the same for both
+        inputData[i].y = scale_y*sin(x*(19.0/6.0)-M_PI-DEGREES_TO_RADIANS(degrees));// * 10.0) / (1.0 + x * x);
+        outputData[i].y = [_systemModel calculateOutputForInput:inputData[i].y withDistrubance:0.f]; // no disturbance yet
+    }
+    [self.leftGraph setGraphData:inputData withSize:sizeof(inputData)];
+    [self.rightGraph setGraphData:outputData withSize:sizeof(outputData)];
+}
+
 - (void)gestureDidFinish {
     _last_scale = 1.f;
 }
@@ -94,14 +107,14 @@
     if ([segue.identifier isEqualToString:@"leftGraphSegue"]) {
         // we have the SinGraphGLKViewController
         self.leftGraph = (SinGraphGLKViewController *)[segue destinationViewController];
-        self.leftGraph.guestureDelegate = self;
+        self.leftGraph.gestureDelegate = self;
         [self.leftGraph setGraphData:inputData withSize:sizeof(inputData)]; // send the data
     }
     
     if([segue.identifier isEqualToString:@"rightGraphSegue"])
     {
         self.rightGraph  = (SinGraphGLKViewController *)[segue destinationViewController];
-        self.rightGraph.guestureDelegate = self;
+        self.rightGraph.gestureDelegate = self;
         self.leftGraph.twin = self.rightGraph;
         self.rightGraph.twin = self.leftGraph;
         [self.rightGraph setGraphData:outputData withSize:sizeof(outputData)]; // send the data

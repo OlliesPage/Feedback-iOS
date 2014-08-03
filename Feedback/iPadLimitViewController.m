@@ -38,10 +38,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSBlockDevice *limitBlock = [NSBlockDevice blockWithName:@"limit" andValue:[NSNumber numberWithDouble:9.0]];
+    BlockDevice *limitBlock = [BlockDevice blockWithName:@"limit" andValue:[NSNumber numberWithDouble:9.0]];
     [limitBlock setType:[NSNumber numberWithInt:1]];
-    NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerBlock text] doubleValue]]],limitBlock, nil];
-    NSArray *loopDevices = [[NSArray alloc] initWithObjects:[NSBlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.sensorBlock text] doubleValue]]], nil];
+    NSArray *forwardDevices = [[NSArray alloc] initWithObjects:[BlockDevice blockWithName:@"controller" andValue:[NSNumber numberWithDouble:[[self.controllerBlock text] doubleValue]]],limitBlock, nil];
+    NSArray *loopDevices = [[NSArray alloc] initWithObjects:[BlockDevice blockWithName:@"sensor" andValue:[NSNumber numberWithDouble:[[self.sensorBlock text] doubleValue]]], nil];
     self.temp = 0;
     // now send them to the delegate to be added to the model
     NSLog(@"sending delegate message with %lu fowrward devices and %lu loop devices", (unsigned long)[forwardDevices count],(unsigned long)[loopDevices count]);

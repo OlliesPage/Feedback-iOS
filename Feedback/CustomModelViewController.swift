@@ -14,7 +14,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
 // MARK: Variable defintions
     let sysModel = feedbackModel()
     let pathToFile = NSBundle.mainBundle().pathForResource("Basic Feedback Model", ofType: "json")
-    var jsonParser:JSONFeedbackModel
+    var jsonParser:JSONFeedbackModel?
     var blocksOnScreen = Array<Dictionary<Int,String>>()
     let textFieldDelegate = TextFieldDelegate()
     var disturbSlider:UISlider?
@@ -32,7 +32,6 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
 // MARK:- Initalizer methods
     // this is for storyboards
     init(coder aDecoder: NSCoder!)  {
-        jsonParser = JSONFeedbackModel(sysModel: sysModel, pathToModel: pathToFile) // no longer objective-c object, now pure swift
         // setup the input label on init
         inputLabel = UILabel(frame: CGRectMake(31, 57, 54.0, 21.0))
         inputLabel.text = "I=0.00"
@@ -43,10 +42,14 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
     override func viewDidLoad()  {
         
-        let hasLoop:Bool = jsonParser.loop.count > 0
-        let hasDisturbance = jsonParser.hasDisturbance
-        let numberOfForwardBlocks = jsonParser.forward.count + (hasLoop ? 1 : 0 ) + (hasDisturbance ? 1 : 0 )
-        let numberOfLoopBlocks = jsonParser.loop.count
+        if !jsonParser {
+            jsonParser = JSONFeedbackModel(sysModel: sysModel, pathToModel: pathToFile)
+        }
+        
+        let hasLoop:Bool = jsonParser!.loop.count > 0
+        let hasDisturbance = jsonParser!.hasDisturbance
+        let numberOfForwardBlocks = jsonParser!.forward.count + (hasLoop ? 1 : 0 ) + (hasDisturbance ? 1 : 0 )
+        let numberOfLoopBlocks = jsonParser!.loop.count
         
         // set the feedback type for the model currently being displayed
         var fbType: String = "PLACEHOLDER"
@@ -91,7 +94,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         description.font = UIFont.systemFontOfSize(14)
         description.scrollEnabled = true
         description.bounces = true
-        description.text = jsonParser.modelDescrip
+        description.text = jsonParser!.modelDescrip
         description.backgroundColor = UIColor(red: 1, green: 1, blue: (231.0/255.0), alpha: 1)
         self.view.addSubview(description)
         
@@ -113,14 +116,14 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         blocksOnScreen.append(Dictionary<Int, String>())
         
         // add the forward blocks to the screen
-        for (name, type, value) in jsonParser.forward {
-            if type == "block" { // woo for effective use of post increment!
+        for (name, type, value) in jsonParser!.forward {
+            if type == BlockDeviceType.Block { // woo for effective use of post increment!
                 let newTextField = UITextField(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 49.0, 31.0))
                 setupTextField(newTextField, withTag: Int(position), andText: "\(value!)")
                 newTextField.addTarget(self, action: "forwardBlockChanged:", forControlEvents: UIControlEvents.EditingDidEnd)
                 self.view.addSubview(newTextField)
                 blocksOnScreen[0].updateValue(name!, forKey: newTextField.tag)
-            } else if type == "limitBlock" {
+            } else if type == BlockDeviceType.LimitBlock {
                 if limitBlock == nil
                 {
                     limitBlock = UILimitBlock(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 70.0, 31.0))
@@ -134,7 +137,12 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
                     self.view.addSubview(limitBlock)
                     blocksOnScreen[0].updateValue(name!, forKey: limitBlock!.tag)
                 }
-            }// fi
+            } else if type == BlockDeviceType.SysModelBlock {
+                // why not just sove something on the screen thar kids
+                let sysModelBlock = UIFeedbackModelBlock(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 70.0, 31.0))
+                sysModelBlock.tag = Int(position)
+                self.view.addSubview(sysModelBlock)
+            } // fi
         } // rof
         
         if hasDisturbance { // if there is disturbance in the system, add another circle and the slider
@@ -162,14 +170,14 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         blocksOnScreen.append(Dictionary<Int, String>())
         // add the loop block
         position = 1.0
-        for (name,type, value) in jsonParser.loop {
-            if(type == "block") {
+        for (name,type, value) in jsonParser!.loop {
+            if(type == BlockDeviceType.Block) {
                 let newTextField = UITextField(frame: CGRectMake(CGFloat(6.5+(position++)*loopPadding), 118, 49.0, 31.0))
                 setupTextField(newTextField, withTag:Int(position), andText: "\(value!)")
                 newTextField.addTarget(self, action: "loopBlockChanged:", forControlEvents: UIControlEvents.EditingDidEnd)
                 self.view.addSubview(newTextField)
                 blocksOnScreen[1].updateValue(name!, forKey: newTextField.tag)
-            } else if type == "limitBlock" {
+            } else if type == BlockDeviceType.LimitBlock {
                 if limitBlock == nil
                 {
                     limitBlock = UILimitBlock(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 70.0, 31.0))
@@ -298,7 +306,9 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     {
         // first we need to generate a new version of ourselves
         let replacement:CustomModelViewController = UIStoryboard(name: "iPhoneStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CustomModelView") as CustomModelViewController
-        replacement.sysModel.resetModel()
+        
+        //replacement.sysModel.resetModel() - don't need to do this anyway now, first it's done by jsonParser
+        // second it's no longer set at init
         replacement.jsonParser = JSONFeedbackModel(sysModel: replacement.sysModel, pathToModel: path)
         // this will dismiss the popover view
         self.dismissViewControllerAnimated(false, completion: {})
@@ -314,7 +324,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         inputSlider.value = 0.0;
         inputLabel.text = "I=0.00"
         // update teh output (use the model for this, just incase
-        var output = sysModel.calculateOutputForInput(0, withDistrubance: disturbSlider!.value)
+        var output = sysModel.calculateOutputForInput(0, withDistrubance: disturbSlider ? disturbSlider!.value:0)
         outputLabel!.text = "O="+String(format:"%.2f", output) // set the output label
         if output > 10.0 { output = 10.0 }
         if output < -10.0 { output = -10.0 }

@@ -3,12 +3,16 @@
 //  blockDevices
 //
 //  Created by Oliver Hayman on 23/05/2012.
-//  Copyright (c) 2012 OlliesPage. All rights reserved.
+//  Updated by Oliver Hayman on 28/07/2014.
+//  Copyright (c) 2014 OlliesPage. All rights reserved.
 //
 
 #import "feedbackModel.h"
 // private elements
 @interface feedbackModel ()
+@property (strong, nonatomic) NSMutableDictionary *forwardDict;
+@property (strong, nonatomic) NSMutableDictionary *loopDict;
+
 - (double)calculateForwardValue;
 - (double)calculateOneMinusLoopValueWithForward:(double)forward;
 @end
@@ -30,7 +34,7 @@
 }
 
 // limit is the current limit block value, forward and loop cache are caches of function output
-#warning Only one limit block can be used in the system and it's limit behaviour requires changing.
+#warning Only one limit block can be used in the system
 double limit = 0, forwardCache=0, loopCache=0;
 
 #pragma mark - limit
@@ -65,8 +69,8 @@ double limit = 0, forwardCache=0, loopCache=0;
         for(int i=0; i<[values count];i++)
         {
             dispatch_group_async(loopGroup, loopQueue, ^{
-                NSBlockDevice *current = [values objectAtIndex:i];
-                if(current.type.intValue ==0)
+                BlockDevice *current = [values objectAtIndex:i];
+                if(current.type.intValue !=1)
                 {
                     forward *= [current.value doubleValue];
                 }
@@ -80,13 +84,13 @@ double limit = 0, forwardCache=0, loopCache=0;
 
 - (double)calculateOneMinusLoopValueWithForward:(double)forward
 {
+    if([self.loopDict count] == 0) return 1;
     if(loopCache != 0) return loopCache;
 #ifdef VERBOSE
     NSLog(@"calculating oneMinusLoop with forward %.2f",forward);
 #endif
     __block double oneMinusLoop;
     NSArray *values;
-    if([self.loopDict count] == 0) return 1;
     oneMinusLoop = forward; values = [self.loopDict allValues];
     dispatch_group_t loopGroup = dispatch_group_create();
     dispatch_queue_t loopQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
@@ -94,8 +98,8 @@ double limit = 0, forwardCache=0, loopCache=0;
         for(int i=0; i<[values count]; i++)
         {
             dispatch_group_async(loopGroup, loopQueue, ^{
-                NSBlockDevice *current = [values objectAtIndex:i];
-                if(current.type.intValue == 0)
+                BlockDevice *current = [values objectAtIndex:i];
+                if(current.type.intValue != 1)
                 {
                     oneMinusLoop *= [current.value doubleValue];
                 }
@@ -111,11 +115,12 @@ double limit = 0, forwardCache=0, loopCache=0;
 #pragma mark - publicInterfaceMethods
 - (void)addBlockDevicesWithForwardDevices:(NSArray *)forwardDevices WithLoopDevices:(NSArray *)loopDevices
 {
+    loopCache = forwardCache = 0;
     for(int i=0; i<[forwardDevices count]; i++)
     {
-        if(((NSBlockDevice *)[forwardDevices objectAtIndex:i]).type.intValue == 0)
+        if(((BlockDevice *)[forwardDevices objectAtIndex:i]).type.intValue == 0)
             [self addBlockDevice:[forwardDevices objectAtIndex:i] onLevel:0]; // this is the forward
-        else [self setLimitValue:((NSBlockDevice *)[forwardDevices objectAtIndex:i]).value.doubleValue];
+        else [self setLimitValue:((BlockDevice *)[forwardDevices objectAtIndex:i]).value.doubleValue];
             }
     for(int i=0; i<[loopDevices count]; i++)
     {
@@ -124,9 +129,9 @@ double limit = 0, forwardCache=0, loopCache=0;
 }
 
 
-- (void)addBlockDevice:(NSBlockDevice *)device onLevel:(int)level
+- (void)addBlockDevice:(BlockDevice *)device onLevel:(int)level
 {
-#warning this method should be re-written, loops must be able to be within loops...
+    loopCache = forwardCache = 0;
     if(level == 0)
         [self.forwardDict setObject:device forKey:device.name];
     else
@@ -138,7 +143,7 @@ double limit = 0, forwardCache=0, loopCache=0;
 {
     forwardCache = loopCache = 0; // make the cache stale
     // first get the block
-    NSBlockDevice *current = level?[self.loopDict objectForKey:name]:[self.forwardDict objectForKey:name];
+    BlockDevice *current = level?[self.loopDict objectForKey:name]:[self.forwardDict objectForKey:name];
     if(current.value.doubleValue != value)
     {
         current.value = [NSNumber numberWithDouble:value]; // update the value
@@ -158,6 +163,14 @@ double limit = 0, forwardCache=0, loopCache=0;
     forwardCache = loopCache = limit = 0; // set limit back to zero and make cache stale
     [self setForwardDict:nil]; // this will cause it to be re-alloced
     [self setLoopDict:nil]; // this will cause it to be re-alloced
+}
+
+- (void)resetCache
+{
+#ifdef DEBUG
+    NSLog(@"-------------- Cache has been reset --------------");
+#endif
+    forwardCache = loopCache = 0;
 }
 
 - (double)calculateOutputForInput:(float)input withDistrubance:(float)disturbance

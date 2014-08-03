@@ -18,3 +18,4 @@ FOUNDATION_EXPORT const unsigned char FeedbackUIFrameworkVersionString[];
 
 #import <FeedbackUIFramework/UICircleView.h>
 #import <FeedbackUIFramework/UILimitBlock.h>
+#import <FeedbackUIFramework/UIFeedbackModelBlock.h>
