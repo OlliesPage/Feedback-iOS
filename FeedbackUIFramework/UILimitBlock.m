@@ -54,6 +54,14 @@
 }
 
 - (void)setupLabels {
+    self.layer.borderWidth = 0.5;
+    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 5;
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 3);
+    self.layer.shadowOpacity = 0.8;
+    
     self.autoresizesSubviews = YES;
     self.limiting = NO;
     self.negLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height*0.5-10.5, self.bounds.size.width*0.45, 21)];
@@ -107,13 +115,6 @@
 {
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    self.layer.borderWidth = 0.5;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.layer.masksToBounds = YES;
-    self.layer.cornerRadius = 5;
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 3);
-    self.layer.shadowOpacity = 0.8;
     if(self.limiting)
         [[UIColor redColor] setStroke];
     else

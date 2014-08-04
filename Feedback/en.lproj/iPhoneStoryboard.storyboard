@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1000px-University_of_Reading_logo.svg.png" id="CD9-xQ-vxn">
-                                <rect key="frame" x="283" y="217" width="192" height="100"/>
+                                <rect key="frame" x="283.00000042587504" y="217" width="192" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="lEk-IA-R0m">
