@@ -13,7 +13,7 @@ class JSONModelLoader: NSObject
 {
     let privatePaths = NSBundle.mainBundle().pathsForResourcesOfType("json", inDirectory: "")
     let userPaths: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
-    init()
+    override init()
     {
         super.init()
     }

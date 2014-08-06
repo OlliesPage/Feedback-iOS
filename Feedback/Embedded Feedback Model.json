@@ -1,9 +1,9 @@
 {
-    "name": "Basic",
+    "name": "Embedded Feedback Model",
     "model": [
               {
                 "amplifier": {
-                    "block": 11
+                    "block": 2
                 }
               },
               {
@@ -28,5 +28,5 @@
                     ]
               }
              ],
-    "description": "This is a model of a feedback system. By moving the sliders you can adjust the input I and the disturbance D. By tapping the block paramaters they also can be adjusted. The type of feedback system being modelled is shown below.\n\nThis app is designed to allows you to see how feedback can be used to modify input"
+    "description": "This model demonstrates the concept of an embedded feedback model. By clicking the model block you can alter the parameters of the embedded model.\n\nThis demonstrates how an entire system can be represented as a single block inside a larger system. By calculating the gain of the embedded system, a value for it's \"block\" is calculated and then it can be treated like a regular block."
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 @objc class FeedbackSystemBlockDevice: BlockDevice {
-    strong let systemModel: feedbackModel?
+    let systemModel: feedbackModel?
     override var value: NSNumber! {
         get {
             return NSNumber.numberWithDouble(systemModel!.calculateOutputForInput(1, withDistrubance: 0))

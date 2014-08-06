@@ -71,7 +71,7 @@ class JSONFeedbackModel {
                 return outputBD
             }// special case
             
-            if subDict is NSDictionary && !outputBD {
+            if subDict is NSDictionary && outputBD == nil {
                 for (blockType: String, val: Double) in subDict as Dictionary<String, Double> {
                     if blockType == "block"
                     {

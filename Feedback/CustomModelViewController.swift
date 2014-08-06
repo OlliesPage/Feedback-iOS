@@ -31,7 +31,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
 // MARK:- Initalizer methods
     // this is for storyboards
-    init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder!)  {
         // setup the input label on init
         inputLabel = UILabel(frame: CGRectMake(31, 57, 54.0, 21.0))
         inputLabel.text = "I=0.00"
@@ -42,7 +42,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
     override func viewDidLoad()  {
         
-        if !jsonParser {
+        if jsonParser == nil {
             jsonParser = JSONFeedbackModel(sysModel: sysModel, pathToModel: pathToFile)
         }
         
@@ -81,7 +81,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         outputLabel = UILabel(frame: CGRectMake(view.frame.width-85, 57, 54.0, 21.0))
         outputLabel!.text = "O=0.00"
         outputLabel!.adjustsFontSizeToFitWidth = true
-        self.view.addSubview(outputLabel)
+        self.view.addSubview(outputLabel!)
         
         // add description at 31, 141, width-31, height-41 (button height + 5 for buffering) - my y pos
         let descrOrigin = CGPointMake(34, 154) // this is the position of the description text box
@@ -126,22 +126,25 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
             } else if type == BlockDeviceType.LimitBlock {
                 if limitBlock == nil
                 {
+                    // this limit block has it's own UITextField now so I don't need to add one, it will pop it up
+                    // on touch. If the delegate is set it will use delegate methods to inform the delegate of a value
+                    // change
                     limitBlock = UILimitBlock(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 70.0, 31.0))
                     limitBlock!.value = sysModel.getLimitValue();
                     limitBlock!.clearsContextBeforeDrawing = true
                     limitBlock!.tag = Int(position)
                     limitBlock!.delegate = self
-                    // generate a new tag for limit block?
-                    //setupTextField(limitBlock, withTag: Int(position), andText: "\(value!)")
-                    //limitBlock.addTarget(self, action: "forwardBlockChanged:", forControlEvents: UIControlEvents.EditingDidEnd)
-                    self.view.addSubview(limitBlock)
+                    self.view.addSubview(limitBlock!)
                     blocksOnScreen[0].updateValue(name!, forKey: limitBlock!.tag)
                 }
             } else if type == BlockDeviceType.SysModelBlock {
                 // why not just sove something on the screen thar kids
                 let sysModelBlock = UIFeedbackModelBlock(frame: CGRectMake(CGFloat(6.5+(position++)*forwardPadding), 73, 70.0, 31.0))
+                let sysModelTap = UITapGestureRecognizer(target: self, action: "showEmbeddedModel:")
+                sysModelBlock.addGestureRecognizer(sysModelTap)
                 sysModelBlock.tag = Int(position)
                 self.view.addSubview(sysModelBlock)
+                blocksOnScreen[0].updateValue(name!, forKey: sysModelBlock.tag)
             } // fi
         } // rof
         
@@ -155,7 +158,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
             disturbSlider!.minimumValue = -100
             disturbSlider!.value = 0.0
             disturbSlider!.addTarget(self, action: "disturbanceChanged:", forControlEvents: UIControlEvents.ValueChanged)
-            self.view.addSubview(disturbSlider)
+            self.view.addSubview(disturbSlider!)
             
             // create the disturbLabel and it's gesture
             let disturbTapGest = UITapGestureRecognizer(target: self, action: "resetDisturbSlider")
@@ -164,7 +167,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
             disturbLabel!.adjustsFontSizeToFitWidth = true
             disturbLabel!.text = "D=0.00"
             disturbLabel!.addGestureRecognizer(disturbTapGest)
-            view.addSubview(disturbLabel)
+            view.addSubview(disturbLabel!)
         } // fi
         
         blocksOnScreen.append(Dictionary<Int, String>())
@@ -188,7 +191,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
                     // generate a new tag for limit block?
                     //setupTextField(limitBlock, withTag: Int(position), andText: "\(value!)")
                     //limitBlock.addTarget(self, action: "forwardBlockChanged:", forControlEvents: UIControlEvents.EditingDidEnd)
-                    self.view.addSubview(limitBlock)
+                    self.view.addSubview(limitBlock!)
                     blocksOnScreen[0].updateValue(name!, forKey: limitBlock!.tag)
                 }
             }// fi
@@ -197,9 +200,13 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
     override func viewWillAppear(animated: Bool)
     {
-// FIXME: this should run when the application returns after being in the background
         super.viewWillAppear(animated)
-        self.checkGraphButtonLabel() // it's the same function so why not
+        sysModel.resetCache() // reset the model cache when we reappear
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.checkGraphButtonLabel()
     }
     
     func checkGraphButtonLabel()
@@ -236,7 +243,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     @IBAction func inputChanged(sender: VerticalUISlider) {
         inputLabel.text = "I="+String(format: "%.2f", sender.value) // set the input label
         var distVal: Float = 0;
-        if disturbSlider {
+        if disturbSlider != nil {
             distVal = disturbSlider!.value
         }
         var output = sysModel.calculateOutputForInput(sender.value, withDistrubance: distVal)
@@ -263,7 +270,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     func blockValueChanged(sender: UITextField, level: Int32) {
         if let name = blocksOnScreen[Int(level)][sender.tag] {
             println("\(name) was tapped")
-            sysModel.setBlockDeviceWithName(name, value: sender.text.bridgeToObjectiveC().doubleValue, onLevel: level)
+            sysModel.setBlockDeviceWithName(name, value: (sender.text as NSString).doubleValue, onLevel: level)
             var fbType: String = "PLACEHOLDER"
             if sysModel.isFeedbackNegative()
             {
@@ -316,7 +323,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         self.navigationController.pushViewController(replacement, animated: false)
     }
     
-// MARK:-
+// MARK:- UI Gesture interaction
     
     func resetInputSlider()
     {
@@ -324,7 +331,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         inputSlider.value = 0.0;
         inputLabel.text = "I=0.00"
         // update teh output (use the model for this, just incase
-        var output = sysModel.calculateOutputForInput(0, withDistrubance: disturbSlider ? disturbSlider!.value:0)
+        var output = sysModel.calculateOutputForInput(0, withDistrubance: disturbSlider != nil ? disturbSlider!.value:0)
         outputLabel!.text = "O="+String(format:"%.2f", output) // set the output label
         if output > 10.0 { output = 10.0 }
         if output < -10.0 { output = -10.0 }
@@ -355,6 +362,19 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         outputSlider.value = Float(output)
     }
     
+    func showEmbeddedModel(sender: UITapGestureRecognizer)
+    {
+        // rawr
+        if let name = blocksOnScreen[0][sender.view.tag] {
+            println("Show Embedded model called with sender \(name)")
+            if let modelBlock = sysModel.getBlockDeviceWithName(name, onLevel: 0) as? FeedbackSystemBlockDevice
+            {
+                // now we have the model block do a segue, using the block as the sender
+                performSegueWithIdentifier("embeddedModelSegue", sender: modelBlock)
+            }
+        }
+    }
+    
     @IBAction func showGraphs()
     {
         let use_sin = NSUserDefaults.standardUserDefaults().boolForKey("use_sin")
@@ -364,6 +384,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
             self.performSegueWithIdentifier("graphSegue", sender: self)
         }
     }
+// MARK:- UI change intereaction
 // WARNING: - this doesn't allow for multiple levels of loop
     func forwardBlockChanged(sender:UITextField) {
         return blockValueChanged(sender, level: 0)
@@ -377,7 +398,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         if segue.identifier == "graphSegue" {
             // setup the regular graph view
             let graphView: iPhoneGraphViewController = segue.destinationViewController as iPhoneGraphViewController
-            if disturbSlider { // if we have a disturbance slider use it's value
+            if disturbSlider != nil { // if we have a disturbance slider use it's value
                 graphView.min = self.sysModel.minOutputWithDisturbance(disturbSlider!.value)
                 graphView.max = self.sysModel.maxOutputWithDisturbance(disturbSlider!.value)
             } else { // if we don't (i.e. it's nil) use zero
@@ -400,10 +421,19 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         if segue.identifier == "selectModel" {
             let selectModelVC = segue.destinationViewController as SelectModelTableViewController
             selectModelVC.modalPresentationStyle = UIModalPresentationStyle.Popover;
-            selectModelVC.preferredContentSize = CGSizeMake(300, 200);
+            selectModelVC.preferredContentSize = CGSizeMake(260, 200);
             selectModelVC.delegate = self
             let popoverControll = selectModelVC.popoverPresentationController // this is nil
             popoverControll.delegate = self
+        }
+        
+        if segue.identifier == "embeddedModelSegue" {
+            let embeddedModelVC = segue.destinationViewController as EmbeddedFeedbackModelViewController
+            if let sysBlock = sender as? FeedbackSystemBlockDevice
+            {
+                println("sys model found and passed to embeddedFeedbackModelViewController")
+                embeddedModelVC.sysModel = sysBlock.systemModel
+            }
         }
         NSLog("Segue has been called \(segue.identifier)");
     }

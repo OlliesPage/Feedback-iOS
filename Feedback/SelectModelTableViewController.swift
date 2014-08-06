@@ -63,7 +63,7 @@ class SelectModelTableViewController: UITableViewController
     {
         var cell: customUITableViewCell = tableView.cellForRowAtIndexPath(indexPath) as customUITableViewCell
         NSLog("Selected model is \(cell.textLabel.text) with path: \(cell.pathName)")
-        if cell.pathName && delegate // check against nil
+        if cell.pathName != nil && delegate != nil // check against nil
         {
             delegate?.changeToModelWithJSONatPath(cell.pathName!)
         }

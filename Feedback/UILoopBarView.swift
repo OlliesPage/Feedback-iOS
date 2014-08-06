@@ -10,8 +10,13 @@ import Foundation
 import UIKit
 
 class UILoopBarView: UIView {
-    init(frame: CGRect)  {
+    override init(frame: CGRect)  {
         super.init(frame: frame)
+        backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
     }
     

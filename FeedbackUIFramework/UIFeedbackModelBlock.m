@@ -54,22 +54,18 @@
     CGContextAddCurveToPoint(context, 5, self.bounds.size.height*0.60, self.bounds.size.width*0.5, self.bounds.size.height+9, self.bounds.size.width-5, self.bounds.size.height*0.60);
     CGContextStrokePath(context);
     
-    CGContextBeginPath(context);
-        CGContextMoveToPoint(context, self.bounds.size.width-3, self.bounds.size.height*0.45);
-        CGContextAddLineToPoint(context, self.bounds.size.width-15, self.bounds.size.height*0.40);
-        CGContextAddLineToPoint(context, self.bounds.size.width-10, self.bounds.size.height*0.15);
-        CGContextSetRGBFillColor(context, 1, 0, 0, 1);
-        CGContextFillPath(context);
-    CGContextClosePath(context);
+    CGContextMoveToPoint(context, self.bounds.size.width-3, self.bounds.size.height*0.45);
+    CGContextAddLineToPoint(context, self.bounds.size.width-15, self.bounds.size.height*0.40);
+    CGContextAddLineToPoint(context, self.bounds.size.width-10, self.bounds.size.height*0.15);
+    CGContextSetRGBFillColor(context, 1, 0, 0, 1);
+    CGContextFillPath(context);
     CGContextStrokePath(context);
     
-    CGContextBeginPath(context);
-        CGContextMoveToPoint(context, 3, self.bounds.size.height*0.55);
-        CGContextAddLineToPoint(context, 15, self.bounds.size.height*0.60);
-        CGContextAddLineToPoint(context, 10, self.bounds.size.height*0.85);
-        CGContextSetRGBFillColor(context, 1, 0, 0, 1);
-        CGContextFillPath(context);
-    CGContextClosePath(context);
+    CGContextMoveToPoint(context, 3, self.bounds.size.height*0.55);
+    CGContextAddLineToPoint(context, 15, self.bounds.size.height*0.60);
+    CGContextAddLineToPoint(context, 10, self.bounds.size.height*0.85);
+    CGContextSetRGBFillColor(context, 1, 0, 0, 1);
+    CGContextFillPath(context);
     CGContextStrokePath(context);
 }
 

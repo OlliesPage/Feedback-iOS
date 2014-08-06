@@ -49,6 +49,16 @@ double limit = 0, forwardCache=0, loopCache=0;
     return limit; // this is a simple getter
 }
 
+- (NSDictionary *)getForwardDictionary
+{
+    return [self.forwardDict copy];
+}
+
+- (NSDictionary *)getLoopDictionary
+{
+    return [self.loopDict copy];
+}
+
 #pragma mark - privateInterfaceMethods
 - (double)calculateForwardValue
 {
@@ -151,6 +161,16 @@ double limit = 0, forwardCache=0, loopCache=0;
         NSLog(@"Block value updated to %f for device %@", current.value.doubleValue, current.name);
         
     }
+}
+
+- (BlockDevice *)getBlockDeviceWithName:(NSString *)name onLevel:(int)level
+{
+    if (level == 0) {
+        return [self.forwardDict objectForKey:name];
+    } else if(level == 1) {
+        return [self.loopDict objectForKey:name];
+    }
+    return nil; // Swift like, biatch
 }
 
 /*
