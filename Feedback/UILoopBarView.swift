@@ -15,7 +15,7 @@ class UILoopBarView: UIView {
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
     }

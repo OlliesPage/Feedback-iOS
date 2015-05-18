@@ -4,7 +4,6 @@
 
 #import "BlockDevice.h"
 #import "feedbackModel.h"
-#import "VerticalUISlider.h"
 #import "TextFieldDelegate.h"
 #import "SinGraphGLKViewController.h"
 #import "OpenGLESGraphsViewController.h"

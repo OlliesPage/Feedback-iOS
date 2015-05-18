@@ -1,15 +1,15 @@
 //
-//  EmbeddedFeedbackModelViewController.swift
+//  QuizViewController.swift
 //  Feedback
 //
-//  Created by Ollie Hayman on 05/08/2014.
+//  Created by Oliver Hayman on 20/08/2014.
 //  Copyright (c) 2014 OlliesPage. All rights reserved.
 //
 
 import UIKit
 import FeedbackUIFramework
 
-class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegate {
+class QuizViewController: UIViewController, UILimitBlockDelegate {
     // MARK: Instance variables
     var sysModel: feedbackModel?
     
@@ -142,7 +142,7 @@ class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegat
             }// fi
         } // rof
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -195,15 +195,15 @@ class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegat
             feedbackTypeLabel.text = String(format: "%@: %@", NSLocalizedString("TOF", comment: "Type of feedback being modeled"), fbType )
         }
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

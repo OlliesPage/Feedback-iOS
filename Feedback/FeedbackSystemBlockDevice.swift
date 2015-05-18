@@ -12,7 +12,7 @@ import Foundation
     let systemModel: feedbackModel?
     override var value: NSNumber! {
         get {
-            return NSNumber.numberWithDouble(systemModel!.calculateOutputForInput(1, withDistrubance: 0))
+            return NSNumber(double: systemModel!.calculateOutputForInput(1, withDistrubance: 0))
         }
         set {
             // we should never be setting this value, therefore it's always going to raise an exception when you try

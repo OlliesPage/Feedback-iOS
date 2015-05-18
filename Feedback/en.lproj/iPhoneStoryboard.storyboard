@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5Fs-3k-Bi8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5Fs-3k-Bi8">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
     </dependencies>
     <scenes>
         <!--Credits View Controller-->
@@ -9,11 +9,11 @@
             <objects>
                 <viewController id="RqT-Xs-FH5" customClass="CreditsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Opc-Wg-5Xa">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1000px-University_of_Reading_logo.svg.png" id="CD9-xQ-vxn">
-                                <rect key="frame" x="283" y="217" width="192" height="100"/>
+                                <rect key="frame" x="335.00000019993047" y="217" width="228" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="lEk-IA-R0m">
@@ -42,13 +42,15 @@ Original by Dr Richard Mitchell.
             <objects>
                 <tableViewController id="DCE-aV-hwa" customClass="SelectModelTableViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nHd-Xj-06x">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sysModelCell" textLabel="sqk-Pb-BwB" style="IBUITableViewCellStyleDefault" id="5km-jD-xsb" customClass="customUITableViewCell" customModule="Feedback" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22" width="568" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5km-jD-xsb" id="g9N-AT-iXM">
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sqk-Pb-BwB">
@@ -76,11 +78,11 @@ Original by Dr Richard Mitchell.
             <objects>
                 <viewController id="3sM-un-TFH" customClass="EmbeddedFeedbackModelViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UqC-bF-QMK">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Feedback: PLACEHOLDER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t1H-R9-H7T">
-                                <rect key="frame" x="206" y="288" width="238" height="21"/>
+                                <rect key="frame" x="206" y="288" width="326" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -97,7 +99,7 @@ Original by Dr Richard Mitchell.
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="k5s-bH-8Ur" customClass="UIBackBarView">
-                                <rect key="frame" x="31" y="57" width="418" height="64"/>
+                                <rect key="frame" x="31" y="57" width="506" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -117,24 +119,24 @@ Original by Dr Richard Mitchell.
             <objects>
                 <viewController storyboardIdentifier="CustomModelView" id="EeA-i0-lL8" customClass="CustomModelViewController" customModule="Feedback" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMf-9f-eus">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="BCD-YE-M4H" customClass="VerticalUISlider">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="BCD-YE-M4H" customClass="UIVerticalSlider">
                                 <rect key="frame" x="-113" y="146" width="254" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <connections>
                                     <action selector="inputChanged:" destination="EeA-i0-lL8" eventType="valueChanged" id="U6a-6j-ybX"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="AxY-s0-8Pb" customClass="VerticalUISlider">
-                                <rect key="frame" x="339" y="145" width="254" height="31"/>
+                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="10" id="AxY-s0-8Pb" customClass="UIVerticalSlider">
+                                <rect key="frame" x="427" y="145" width="254" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <color key="thumbTintColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="r0t-Ow-uWo">
-                                <rect key="frame" x="452" y="292" width="22" height="22"/>
+                                <rect key="frame" x="540" y="292" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,7 +146,7 @@ Original by Dr Richard Mitchell.
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Feedback: PLACEHOLDER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wtH-UU-6o2">
-                                <rect key="frame" x="206" y="288" width="238" height="21"/>
+                                <rect key="frame" x="206" y="288" width="326" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -152,7 +154,7 @@ Original by Dr Richard Mitchell.
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zte-ba-aTW">
                                 <rect key="frame" x="31" y="284" width="167" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -167,15 +169,14 @@ Original by Dr Richard Mitchell.
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DCE-aV-hwa" kind="popover" identifier="selectModel" popoverAnchorView="1Tl-Rw-K2m" id="7LH-ah-1hu">
-                                        <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
-                                    </segue>
+                                    <segue destination="DCE-aV-hwa" kind="push" identifier="selectModel" id="7LH-ah-1hu"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="7iB-d3-8bP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="feedbackTypeLabel" destination="wtH-UU-6o2" id="kPn-3J-Jfp"/>
                         <outlet property="inputSlider" destination="BCD-YE-M4H" id="xpQ-HG-Hyx"/>
@@ -407,9 +408,6 @@ Swipe to change the phase</string>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
-        <simulatedScreenMetrics key="destination">
-            <size key="portraitSize" width="320" height="480"/>
-            <size key="landscapeSize" width="480" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

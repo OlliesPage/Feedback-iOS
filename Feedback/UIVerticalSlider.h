@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface VerticalUISlider : UISlider
+IB_DESIGNABLE
+@interface UIVerticalSlider : UISlider
 
 @end

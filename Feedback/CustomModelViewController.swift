@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIkit
+//import UIkit
 import FeedbackUIFramework
 
 class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopoverPresentationControllerDelegate, SelectModalTableViewControllerDelegate {
@@ -24,14 +24,14 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
     var limitBlock: UILimitBlock? = nil
     
-    @IBOutlet weak var inputSlider: VerticalUISlider!
-    @IBOutlet weak var outputSlider: VerticalUISlider!
+    @IBOutlet weak var inputSlider: UIVerticalSlider!
+    @IBOutlet weak var outputSlider: UIVerticalSlider!
     @IBOutlet weak var showGraphButton: UIButton!
     @IBOutlet weak var feedbackTypeLabel: UILabel!
     
 // MARK:- Initalizer methods
     // this is for storyboards
-    required init(coder aDecoder: NSCoder!)  {
+    required init(coder aDecoder: NSCoder)  {
         // setup the input label on init
         inputLabel = UILabel(frame: CGRectMake(31, 57, 54.0, 21.0))
         inputLabel.text = "I=0.00"
@@ -43,7 +43,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     override func viewDidLoad()  {
         
         if jsonParser == nil {
-            jsonParser = JSONFeedbackModel(sysModel: sysModel, pathToModel: pathToFile)
+            jsonParser = JSONFeedbackModel(sysModel: sysModel, pathToModel: pathToFile!)
         }
         
         let hasLoop:Bool = jsonParser!.loop.count > 0
@@ -63,8 +63,8 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         feedbackTypeLabel.text = String(format: "%@: %@", NSLocalizedString("TOF", comment: "Type of feedback being modeled"), fbType )
         
         // some just in-case tweaking of the button - let it shrink it's title, but not by more than 1/2 the size
-        showGraphButton.titleLabel.adjustsFontSizeToFitWidth = true;
-        showGraphButton.titleLabel.minimumScaleFactor = 0.5;
+        showGraphButton.titleLabel!.adjustsFontSizeToFitWidth = true;
+        showGraphButton.titleLabel!.minimumScaleFactor = 0.5;
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkGraphButtonLabel", name: UIApplicationWillEnterForegroundNotification, object: nil)
         
         println("there are \(numberOfForwardBlocks) devices")
@@ -201,7 +201,8 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        sysModel.resetCache() // reset the model cache when we reappear
+        sysModel.resetCache() // reset the model cache when we reappear - here we need to re-calculate the output values too
+        inputChanged(inputSlider)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -240,7 +241,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
 
 // MARK:- UI interaction methods
     
-    @IBAction func inputChanged(sender: VerticalUISlider) {
+    @IBAction func inputChanged(sender: UIVerticalSlider) {
         inputLabel.text = "I="+String(format: "%.2f", sender.value) // set the input label
         var distVal: Float = 0;
         if disturbSlider != nil {
@@ -312,7 +313,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     func changeToModelWithJSONatPath(path: String)
     {
         // first we need to generate a new version of ourselves
-        let replacement:CustomModelViewController = UIStoryboard(name: "iPhoneStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CustomModelView") as CustomModelViewController
+        let replacement:CustomModelViewController = UIStoryboard(name: "iPhoneStoryboard", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("CustomModelView") as! CustomModelViewController
         
         //replacement.sysModel.resetModel() - don't need to do this anyway now, first it's done by jsonParser
         // second it's no longer set at init
@@ -320,7 +321,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         // this will dismiss the popover view
         self.dismissViewControllerAnimated(false, completion: {})
         // this pushes the replacement viewController to the stack
-        self.navigationController.pushViewController(replacement, animated: false)
+        self.navigationController!.pushViewController(replacement, animated: false)
     }
     
 // MARK:- UI Gesture interaction
@@ -365,7 +366,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     func showEmbeddedModel(sender: UITapGestureRecognizer)
     {
         // rawr
-        if let name = blocksOnScreen[0][sender.view.tag] {
+        if let name = blocksOnScreen[0][sender.view!.tag] {
             println("Show Embedded model called with sender \(name)")
             if let modelBlock = sysModel.getBlockDeviceWithName(name, onLevel: 0) as? FeedbackSystemBlockDevice
             {
@@ -394,10 +395,10 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         return blockValueChanged(sender, level: 1)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "graphSegue" {
             // setup the regular graph view
-            let graphView: iPhoneGraphViewController = segue.destinationViewController as iPhoneGraphViewController
+            let graphView: iPhoneGraphViewController = segue.destinationViewController as! iPhoneGraphViewController
             if disturbSlider != nil { // if we have a disturbance slider use it's value
                 graphView.min = self.sysModel.minOutputWithDisturbance(disturbSlider!.value)
                 graphView.max = self.sysModel.maxOutputWithDisturbance(disturbSlider!.value)
@@ -411,7 +412,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         
         if segue.identifier == "sineGraphSegue" {
             // if usingSin {
-            let dest = segue.destinationViewController as OpenGLESGraphsViewController
+            let dest = segue.destinationViewController as! OpenGLESGraphsViewController
             dest.systemModel = sysModel // set the model
             // }
             // else setup the line view controller.
@@ -419,16 +420,16 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         }
         
         if segue.identifier == "selectModel" {
-            let selectModelVC = segue.destinationViewController as SelectModelTableViewController
+            let selectModelVC = segue.destinationViewController as! SelectModelTableViewController
             selectModelVC.modalPresentationStyle = UIModalPresentationStyle.Popover;
             selectModelVC.preferredContentSize = CGSizeMake(260, 200);
             selectModelVC.delegate = self
             let popoverControll = selectModelVC.popoverPresentationController // this is nil
-            popoverControll.delegate = self
+            popoverControll!.delegate = self
         }
         
         if segue.identifier == "embeddedModelSegue" {
-            let embeddedModelVC = segue.destinationViewController as EmbeddedFeedbackModelViewController
+            let embeddedModelVC = segue.destinationViewController as! EmbeddedFeedbackModelViewController
             if let sysBlock = sender as? FeedbackSystemBlockDevice
             {
                 println("sys model found and passed to embeddedFeedbackModelViewController")

@@ -22,23 +22,23 @@ class JSONFeedbackModel {
     let modelName: String
     let modelDescrip: String?
     
-    var forward = Array<(String?, BlockDeviceType?, Double?)>()
+    var forward = [(String?, BlockDeviceType?, Double?)]()
     var loop = Array<(String?, BlockDeviceType?, Double?)>()
     
     // MARK:- Initializer function
     init(sysModel: feedbackModel, pathToModel:NSString) {
-        json = NSData.dataWithContentsOfFile(pathToModel, options:NSDataReadingOptions.DataReadingMappedIfSafe, error: &error)
-        jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as Dictionary<String, AnyObject>
+        json = NSData(contentsOfFile: pathToModel as String, options:.DataReadingMappedIfSafe, error: &error)!
+        jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as! Dictionary<String, AnyObject>
         // read the boolean for disturbance, if it exists
         if let distVal: AnyObject = jsonDict["hasDisturbance"] {
-            hasDisturbance = distVal as Bool
+            hasDisturbance = distVal as! Bool
         } else {
             hasDisturbance = false
         }
         
         // read the name of the model if it exists
         if let name: AnyObject = jsonDict["name"] {
-            modelName = name as String
+            modelName = name as! String
         } else {
             modelName = "Unknown"
         }
@@ -46,6 +46,8 @@ class JSONFeedbackModel {
         // read the description from the model and set it if appropriate
         if let jsonDescription: AnyObject = jsonDict["description"] {
             modelDescrip = jsonDescription as? String
+        } else {
+            modelDescrip = nil;
         }
         
         // ensure system is empty
@@ -72,14 +74,14 @@ class JSONFeedbackModel {
             }// special case
             
             if subDict is NSDictionary && outputBD == nil {
-                for (blockType: String, val: Double) in subDict as Dictionary<String, Double> {
+                for (blockType: String, val: Double) in subDict as! Dictionary<String, Double> {
                     if blockType == "block"
                     {
                         outputBD = BlockDevice(name: blockName, andValue: val)
-                        outputBD!.type = BlockDeviceType.Block.toRaw()
+                        outputBD!.type = BlockDeviceType.Block.rawValue
                     } else if blockType == "limitBlock" {
                         outputBD = BlockDevice(name: blockName, andValue: val)
-                        outputBD!.type = BlockDeviceType.LimitBlock.toRaw()
+                        outputBD!.type = BlockDeviceType.LimitBlock.rawValue
                     }
                 }
             }
@@ -90,33 +92,35 @@ class JSONFeedbackModel {
     // the array that holds blocks for fwrd/loop needs to either be made to hold BlockDevices or
     // should there must be a way to convert from int to string for types
     private func parseModel(jsonModel: AnyObject, systemModel:feedbackModel, addToScreen: Bool) {
-        for element: AnyObject in jsonModel as NSArray {
+        for element: AnyObject in jsonModel as! NSArray {
             // Check if the element is a dictionary
             if element is NSDictionary {
                 // a dictionary will have a string and a dictionary, this is the name and blocktype/value
-                let nBlock = instantiateBlockFromDictionary(inputDictionary: element as Dictionary)
+                let nBlock = instantiateBlockFromDictionary(inputDictionary: element as! Dictionary)
                 //let forwardVal = ()
                 if addToScreen == true
                 {
-                    forward.append(nBlock?.name, BlockDeviceType.fromRaw(nBlock!.type), nBlock?.value)
+                    let fname:String? = nBlock?.name;
+                    forward.append((fname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue))
                 }
-                let bType = BlockDeviceType.fromRaw(nBlock!.type)
+                let bType = BlockDeviceType(rawValue: nBlock!.type.integerValue)
                 if bType == BlockDeviceType.LimitBlock {
-                    systemModel.setLimitValue(nBlock!.value) // set the limit
+                    systemModel.setLimitValue(nBlock!.value.doubleValue) // set the limit
                 } else {
                     systemModel.addBlockDevice(nBlock, onLevel: 0)
                 }
                 println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)") // this causes it to crash
             } else if element is NSArray {
-                for subelement: AnyObject in element as NSArray {
+                for subelement: AnyObject in element as! NSArray {
                     // and again
                     println("Entering Loop")
                     if subelement is NSDictionary {
-                        let nBlock = instantiateBlockFromDictionary(inputDictionary: subelement as Dictionary)
+                        let nBlock = instantiateBlockFromDictionary(inputDictionary: subelement as! Dictionary)
                         //let loopVal = (nBlock?.name, BlockDeviceType.fromRaw(nBlock?.type), nBlock?.value)
                         if addToScreen == true
                         {
-                            loop.append(nBlock?.name, BlockDeviceType.fromRaw(nBlock!.type), nBlock?.value)
+                            let lname:String? = nBlock?.name;
+                            loop.append(lname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue)
                         }
                         systemModel.addBlockDevice(nBlock, onLevel: 1)
                         println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)")
