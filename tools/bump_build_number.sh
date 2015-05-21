@@ -6,7 +6,9 @@ if [ $# -ne 1 ]; then
 fi
 
 plist="$1"
+version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$plist")
 dir="$(dirname "$plist")"
+settingsBundle="$dir/Settings.bundle/Root.plist"
 
 # Only increment the build number if source files have changed
 if [ -n "$(find "$dir" \! -path "*xcuserdata*" \! -path "*.git" -newer "$plist")" ]; then
@@ -17,6 +19,7 @@ if [ -n "$(find "$dir" \! -path "*xcuserdata*" \! -path "*.git" -newer "$plist")
     fi
     buildnum=$(expr $buildnum + 1)
     /usr/libexec/Plistbuddy -c "Set CFBundleVersion $buildnum" "$plist"
+    /usr/libexec/Plistbuddy -c "Set PreferenceSpecifiers:1:DefaultValue '$version ($buildnum)'" "$settingsBundle"
     echo "Incremented build number to $buildnum"
 else
     echo "Not incrementing build number as source files have not changed"

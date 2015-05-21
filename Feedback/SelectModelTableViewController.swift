@@ -41,20 +41,22 @@ class SelectModelTableViewController: UITableViewController
         if tableView == self.tableView
         {
             cell = tableView.dequeueReusableCellWithIdentifier("sysModelCell") as? customUITableViewCell // this should be nil if there is no re-usable cell
-            if cell != nil { // just using an if now checks if the value is not null
-                if(jsonModelLoader.countPrivateModels() > 1)
-                {
-                    NSLog("Could not find cell for sysModelCell")
-                    let path = jsonModelLoader.getPrivateSystemModels(atIndex: indexPath.item) as String!
-                    let name = path.lastPathComponent.stringByDeletingPathExtension
-                    cell!.textLabel!.text = name
-                    cell!.pathName = path
-                } else {
-                    cell = customUITableViewCell()
-                    cell!.textLabel!.text = "No models found"
-                    cell!.textLabel!.textColor = UIColor.grayColor()
-                    cell!.userInteractionEnabled = false
-                }
+            if cell == nil {
+                NSLog("Could not find cell for sysModelCell")
+                // create a new cell to use
+                cell = customUITableViewCell.new()
+            }
+            if(jsonModelLoader.countPrivateModels() > 1)
+            {
+                let path = jsonModelLoader.getPrivateSystemModels(atIndex: indexPath.item) as String!
+                let name = path.lastPathComponent.stringByDeletingPathExtension
+                cell!.textLabel!.text = name
+                cell!.pathName = path
+            } else {
+                cell = customUITableViewCell()
+                cell!.textLabel!.text = "No models found"
+                cell!.textLabel!.textColor = UIColor.grayColor()
+                cell!.userInteractionEnabled = false
             }
         }
         return cell!

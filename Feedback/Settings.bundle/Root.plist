@@ -5,14 +5,14 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
 			<key>FooterText</key>
 			<string>CopyrightT</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>3.0.0 (423)</string>
+			<string>3.0.0 (569)</string>
 			<key>Key</key>
 			<string>version_preference</string>
 			<key>Title</key>
@@ -21,24 +21,24 @@
 			<string>PSTitleValueSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>SineG</string>
-			<key>Key</key>
-			<string>use_sin</string>
 			<key>DefaultValue</key>
 			<true/>
+			<key>Key</key>
+			<string>use_sin</string>
+			<key>Title</key>
+			<string>SineG</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 		<dict>
-			<key>SupportedUserInterfaceIdioms</key>
-			<array>
-				<string>Pad</string>
-			</array>
 			<key>DefaultValue</key>
 			<false/>
 			<key>Key</key>
 			<string>learning_preference</string>
+			<key>SupportedUserInterfaceIdioms</key>
+			<array>
+				<string>Pad</string>
+			</array>
 			<key>Title</key>
 			<string>Learning Mode</string>
 			<key>Type</key>

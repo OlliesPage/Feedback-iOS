@@ -553,9 +553,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0701ACB314DACD6000AE4374 /* Build configuration list for PBXNativeTarget "Feedback" */;
 			buildPhases = (
-				07F138C4196D464D004E5946 /* ShellScript */,
 				0701AC9114DACD6000AE4374 /* Sources */,
 				0701AC9214DACD6000AE4374 /* Frameworks */,
+				07F138C4196D464D004E5946 /* Update Build Numbers */,
 				0701AC9314DACD6000AE4374 /* Resources */,
 				07CD036E197E99E4004840BB /* Embed Frameworks */,
 			);
@@ -657,13 +657,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07F138C4196D464D004E5946 /* ShellScript */ = {
+		07F138C4196D464D004E5946 /* Update Build Numbers */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Update Build Numbers";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
