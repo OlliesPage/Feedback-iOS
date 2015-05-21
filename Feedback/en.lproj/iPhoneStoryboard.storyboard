@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5Fs-3k-Bi8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5Fs-3k-Bi8">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Credits View Controller-->
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1000px-University_of_Reading_logo.svg.png" id="CD9-xQ-vxn">
-                                <rect key="frame" x="335.00000019993047" y="217" width="228" height="100"/>
+                                <rect key="frame" x="335.00000026072286" y="217" width="228" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" id="lEk-IA-R0m">
@@ -50,7 +50,7 @@ Original by Dr Richard Mitchell.
                                 <rect key="frame" x="0.0" y="22" width="568" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5km-jD-xsb" id="g9N-AT-iXM">
-                                    <rect key="frame" x="0.0" y="0.0" width="568" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="568" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sqk-Pb-BwB">
@@ -71,7 +71,7 @@ Original by Dr Richard Mitchell.
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-8O-EUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-80"/>
+            <point key="canvasLocation" x="50" y="86"/>
         </scene>
         <!--Embedded Feedback Model View Controller-->
         <scene sceneID="NbA-A2-8gX">
@@ -169,7 +169,7 @@ Original by Dr Richard Mitchell.
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="DCE-aV-hwa" kind="push" identifier="selectModel" id="7LH-ah-1hu"/>
+                                    <segue destination="DCE-aV-hwa" kind="push" identifier="selectModel" id="4Dj-hM-GWa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,7 +189,7 @@ Original by Dr Richard Mitchell.
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sww-Gu-CY8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="-135"/>
+            <point key="canvasLocation" x="1191" y="-176"/>
         </scene>
         <!--OpenGLES Graphs View Controller-->
         <scene sceneID="ASd-1f-qEk">

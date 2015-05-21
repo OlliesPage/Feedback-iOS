@@ -421,11 +421,10 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         
         if segue.identifier == "selectModel" {
             let selectModelVC = segue.destinationViewController as! SelectModelTableViewController
-            selectModelVC.modalPresentationStyle = UIModalPresentationStyle.Popover;
             selectModelVC.preferredContentSize = CGSizeMake(260, 200);
+            selectModelVC.modalPresentationStyle = UIModalPresentationStyle.Popover;
             selectModelVC.delegate = self
-            let popoverControll = selectModelVC.popoverPresentationController // this is nil
-            popoverControll!.delegate = self
+            selectModelVC.popoverPresentationController!.delegate = self
         }
         
         if segue.identifier == "embeddedModelSegue" {
@@ -439,8 +438,11 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         NSLog("Segue has been called \(segue.identifier)");
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!) -> UIModalPresentationStyle
-    {
-        return UIModalPresentationStyle.None;
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!, traitCollection: UITraitCollection!) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
 }

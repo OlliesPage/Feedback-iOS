@@ -47,6 +47,9 @@
 		07819EA015B6CFE600C98CA4 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07819E9F15B6CFE600C98CA4 /* GraphView.m */; };
 		07894E1619A4C1F4003302A0 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07894E1519A4C1F4003302A0 /* QuizViewController.swift */; };
 		07898DC9164092E900B2B8AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07898DC8164092E900B2B8AD /* QuartzCore.framework */; };
+		078FF5581B0BFA3200D48A5C /* ModerniPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078FF5571B0BFA3200D48A5C /* ModerniPhone.storyboard */; };
+		078FF55A1B0BFA7C00D48A5C /* ModernFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078FF5591B0BFA7C00D48A5C /* ModernFeedbackViewController.swift */; };
+		0797BDF11B0D128000C5540A /* LayoutFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0797BDF01B0D128000C5540A /* LayoutFeedbackView.swift */; };
 		079BD3B6164BA188007A8A76 /* UIReadOnlyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */; };
 		079D90B719751F660083B847 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079D90B619751F660083B847 /* OpenGLES.framework */; };
 		07A714661990FB5100728EB9 /* EmbeddedFeedbackModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A714651990FB5100728EB9 /* EmbeddedFeedbackModelViewController.swift */; };
@@ -156,6 +159,9 @@
 		07819E9F15B6CFE600C98CA4 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		07894E1519A4C1F4003302A0 /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		07898DC8164092E900B2B8AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		078FF5571B0BFA3200D48A5C /* ModerniPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ModerniPhone.storyboard; sourceTree = "<group>"; };
+		078FF5591B0BFA7C00D48A5C /* ModernFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernFeedbackViewController.swift; sourceTree = "<group>"; };
+		0797BDF01B0D128000C5540A /* LayoutFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutFeedbackView.swift; sourceTree = "<group>"; };
 		079BD3B4164BA188007A8A76 /* UIReadOnlyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIReadOnlyTextView.h; sourceTree = "<group>"; };
 		079BD3B5164BA188007A8A76 /* UIReadOnlyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIReadOnlyTextView.m; sourceTree = "<group>"; };
 		079D90B619751F660083B847 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -376,6 +382,9 @@
 			isa = PBXGroup;
 			children = (
 				0701ACAB14DACD6000AE4374 /* iPhoneStoryboard.storyboard */,
+				078FF5571B0BFA3200D48A5C /* ModerniPhone.storyboard */,
+				078FF5591B0BFA7C00D48A5C /* ModernFeedbackViewController.swift */,
+				0797BDF01B0D128000C5540A /* LayoutFeedbackView.swift */,
 				077D73D21767ADED009D4880 /* CustomSegue.h */,
 				077D73D31767ADED009D4880 /* CustomSegue.m */,
 				07E787E2196AD5E60023EC79 /* View Controllers */,
@@ -585,7 +594,7 @@
 		0701AC8C14DACD6000AE4374 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = OlliesPage;
 				TargetAttributes = {
 					0701AC9414DACD6000AE4374 = {
@@ -626,6 +635,7 @@
 				0729F4A81977CCDD0002033E /* Shader.vsh in Resources */,
 				07E787CF196AA95A0023EC79 /* Basic Feedback Model.json in Resources */,
 				072FB98F19CDF0BD00BECAE5 /* Images.xcassets in Resources */,
+				078FF5581B0BFA3200D48A5C /* ModerniPhone.storyboard in Resources */,
 				07E9A2881986958E0029DC7D /* Feedback With Limits.json in Resources */,
 				0754D9D015B62A8200E997B0 /* iPadInterface.storyboard in Resources */,
 				077E043115BAD40400450452 /* Settings.bundle in Resources */,
@@ -678,6 +688,7 @@
 				07E787D3196AB02C0023EC79 /* JSONFeedbackModel.swift in Sources */,
 				07FFE6F31562A9AF000E32DE /* iPadFeedbackView.m in Sources */,
 				0777506C1977E796009460CC /* OpenGLESGraphsViewController.m in Sources */,
+				0797BDF11B0D128000C5540A /* LayoutFeedbackView.swift in Sources */,
 				077E9DD0156DA07400122AFE /* feedbackModel.m in Sources */,
 				07A714661990FB5100728EB9 /* EmbeddedFeedbackModelViewController.swift in Sources */,
 				0705D56715B3926D008FBC1C /* iPadBasicViewController.m in Sources */,
@@ -691,6 +702,7 @@
 				071348A7196C063F000B106E /* FeedbackSystemBlockDevice.swift in Sources */,
 				077E042815B97C7E00450452 /* iPadLimitView.m in Sources */,
 				07DF954515C19D4D00186BF3 /* TextFieldDelegate.m in Sources */,
+				078FF55A1B0BFA7C00D48A5C /* ModernFeedbackViewController.swift in Sources */,
 				0729F4A41977CCC10002033E /* SinGraphGLKViewController.m in Sources */,
 				07894E1619A4C1F4003302A0 /* QuizViewController.swift in Sources */,
 				07700A211986E6E4001F3CB9 /* JSONModelLoader.swift in Sources */,
@@ -795,6 +807,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -833,6 +846,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -912,6 +926,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
