@@ -25,7 +25,16 @@ class LayoutFeedbackView {
         sysModel = aModel
     }
     
-    // MARK:- Layout IO and buttons for default view
+    // MARK:- Layout basic UI
+    
+    func layoutBasicUI(#inputSlider: UIVerticalSlider, outputSlider: UIVerticalSlider, infoButton: UIButton, selectModelButton: UIButton)
+    {
+        layoutIOSliders(inputSlider: inputSlider, outputSlider: outputSlider)
+        layoutInfoButton(infoButton, rightOf: outputSlider)
+        layoutSelectModelButton(selectModelButton, leftOf: inputSlider)
+    }
+    
+    // MARK: Layout individual IO and buttons
     
     func layoutIOSliders(#inputSlider: UIVerticalSlider, outputSlider: UIVerticalSlider)
     {

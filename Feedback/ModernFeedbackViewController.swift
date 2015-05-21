@@ -70,10 +70,8 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         let layoutController = LayoutFeedbackView(aView: view, aModel: sysModel)
         
         // Layout the basics:
-        layoutController.layoutIOSliders(inputSlider: inputSlider, outputSlider: outputSlider)
+        layoutController.layoutBasicUI(inputSlider: inputSlider, outputSlider: outputSlider, infoButton: infoButton, selectModelButton: selectModelButton)
         layoutController.layoutInputLabel(inputLabel)
-        layoutController.layoutInfoButton(infoButton, rightOf: outputSlider)
-        layoutController.layoutSelectModelButton(selectModelButton, leftOf: inputSlider)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -94,7 +92,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     
     func checkGraphButtonLabel()
     {
-        let use_sin = true //NSUserDefaults.standardUserDefaults().boolForKey("use_sin")
+        let use_sin = NSUserDefaults.standardUserDefaults().boolForKey("use_sin")
         if !use_sin {
             showGraphButton.setTitle(NSLocalizedString("PlotG", comment: "show graphs of input v output and output v disturbance"), forState: UIControlState.Normal) // change the button's text
         } else {
