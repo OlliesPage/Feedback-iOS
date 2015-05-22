@@ -16,6 +16,7 @@
     if (self) {
         // rotate the slider by 270 degrees - this was originally in the drawRect but it had issues
         self.transform = CGAffineTransformRotate(self.transform, 270.0/180*M_PI);
+        self.translatesAutoresizingMaskIntoConstraints = false;
     }
     return self;
 }
@@ -26,6 +27,7 @@
     if (self) {
         // rotate the slider by 270 degrees - this was originally in the drawRect but it had issues
         self.transform = CGAffineTransformRotate(self.transform, 270.0/180*M_PI);
+        self.translatesAutoresizingMaskIntoConstraints = false;
     }
     return self;
 }

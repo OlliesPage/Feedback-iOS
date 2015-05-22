@@ -182,8 +182,8 @@ Original by Dr Richard Mitchell.
                         <outlet property="inputSlider" destination="BCD-YE-M4H" id="xpQ-HG-Hyx"/>
                         <outlet property="outputSlider" destination="AxY-s0-8Pb" id="CB8-i1-eKz"/>
                         <outlet property="showGraphButton" destination="zte-ba-aTW" id="RU2-7v-LP7"/>
-                        <segue destination="iKx-6K-5Zt" kind="custom" identifier="sineGraphSegue" customClass="CustomSegue" id="ssr-LP-Lt8"/>
-                        <segue destination="jvW-1y-mAT" kind="custom" identifier="graphSegue" customClass="CustomSegue" id="oBy-Tw-6hO"/>
+                        <segue destination="iKx-6K-5Zt" kind="custom" identifier="sineGraphSegue" customClass="GraphRightTransitionSegue" id="ssr-LP-Lt8"/>
+                        <segue destination="jvW-1y-mAT" kind="custom" identifier="graphSegue" customClass="GraphRightTransitionSegue" id="oBy-Tw-6hO"/>
                         <segue destination="3sM-un-TFH" kind="modal" identifier="embeddedModelSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0Gy-cr-swt"/>
                     </connections>
                 </viewController>

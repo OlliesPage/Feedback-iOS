@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomSegue : UIStoryboardSegue
+@interface GraphRightTransitionSegue : UIStoryboardSegue
 
 @end

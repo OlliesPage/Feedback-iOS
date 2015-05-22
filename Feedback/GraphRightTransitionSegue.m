@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 OlliesPage. All rights reserved.
 //
 
-#import "CustomSegue.h"
+#import "GraphRightTransitionSegue.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation CustomSegue
+@implementation GraphRightTransitionSegue
 
 - (void)perform
 {

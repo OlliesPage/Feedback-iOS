@@ -27,11 +27,31 @@ class LayoutFeedbackView {
     
     // MARK:- Layout basic UI
     
-    func layoutBasicUI(#inputSlider: UIVerticalSlider, outputSlider: UIVerticalSlider, infoButton: UIButton, selectModelButton: UIButton)
+    func layoutBasicUI(#inputSlider: UIVerticalSlider, outputSlider: UIVerticalSlider, infoButton: UIButton, selectModelButton: UIButton, descriptionLabel: UITextView? = nil)
     {
         layoutIOSliders(inputSlider: inputSlider, outputSlider: outputSlider)
         layoutInfoButton(infoButton, rightOf: outputSlider)
         layoutSelectModelButton(selectModelButton, leftOf: inputSlider)
+        
+        // add a backBar
+        let backBarView = UIBackBarView()
+        //backBarView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(backBarView)
+        view.sendSubviewToBack(backBarView)
+        view.addConstraint(NSLayoutConstraint(item: backBarView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 64))
+        view.addConstraint(NSLayoutConstraint(item: backBarView, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 57))
+        view.addConstraint(NSLayoutConstraint(item: backBarView, attribute: .Left, relatedBy: .Equal, toItem: inputSlider, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+        view.addConstraint(NSLayoutConstraint(item: backBarView, attribute: .Right, relatedBy: .Equal, toItem: outputSlider, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+        
+        // If there is a description, add the label to the screen
+        if let descripLabel = descriptionLabel {
+            view.addSubview(descripLabel)
+            view.sendSubviewToBack(descripLabel)
+            view.addConstraint(NSLayoutConstraint(item: descripLabel, attribute: .Left, relatedBy: .Equal, toItem: inputSlider, attribute: .CenterX, multiplier: 1.0, constant: 0.5*inputSlider.bounds.height-5))
+            view.addConstraint(NSLayoutConstraint(item: descripLabel, attribute: .Right, relatedBy: .Equal, toItem: outputSlider, attribute: .CenterX, multiplier: 1.0, constant: -0.5*outputSlider.bounds.height+5))
+            view.addConstraint(NSLayoutConstraint(item: descripLabel, attribute: .Bottom, relatedBy: .Equal, toItem: infoButton, attribute: .Top, multiplier: 1.0, constant: -10.0))
+            view.addConstraint(NSLayoutConstraint(item: descripLabel, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 20.0))
+        }
     }
     
     // MARK: Layout individual IO and buttons
@@ -78,10 +98,13 @@ class LayoutFeedbackView {
         }
     }
     
-    func layoutInputLabel(inputLabel: UILabel)
+    func layoutIOLabels(#inputLabel: UILabel, outputLabel: UILabel)
     {
+        // verify it makes sence to add teh labels
         if ioSliders {
             view.addSubview(inputLabel)
+            outputLabel.frame = CGRectMake(view.frame.width-85, 57, 54.0, 21.0)
+            view.addSubview(outputLabel)
         }
     }
     

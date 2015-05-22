@@ -38,7 +38,7 @@
 		07700A1F1986E309001F3CB9 /* SelectModelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07700A1E1986E309001F3CB9 /* SelectModelTableViewController.swift */; };
 		07700A211986E6E4001F3CB9 /* JSONModelLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07700A201986E6E4001F3CB9 /* JSONModelLoader.swift */; };
 		0777506C1977E796009460CC /* OpenGLESGraphsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */; };
-		077D73D41767ADED009D4880 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D73D31767ADED009D4880 /* CustomSegue.m */; };
+		077D73D41767ADED009D4880 /* GraphRightTransitionSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D73D31767ADED009D4880 /* GraphRightTransitionSegue.m */; };
 		077E042415B97C6500450452 /* iPadLimitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E042315B97C6500450452 /* iPadLimitViewController.m */; };
 		077E042815B97C7E00450452 /* iPadLimitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 077E042715B97C7E00450452 /* iPadLimitView.m */; };
 		077E043115BAD40400450452 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 077E043015BAD40400450452 /* Settings.bundle */; };
@@ -144,8 +144,8 @@
 		07700A201986E6E4001F3CB9 /* JSONModelLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModelLoader.swift; sourceTree = "<group>"; };
 		0777506A1977E796009460CC /* OpenGLESGraphsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLESGraphsViewController.h; sourceTree = "<group>"; };
 		0777506B1977E796009460CC /* OpenGLESGraphsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLESGraphsViewController.m; sourceTree = "<group>"; };
-		077D73D21767ADED009D4880 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
-		077D73D31767ADED009D4880 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
+		077D73D21767ADED009D4880 /* GraphRightTransitionSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphRightTransitionSegue.h; sourceTree = "<group>"; };
+		077D73D31767ADED009D4880 /* GraphRightTransitionSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphRightTransitionSegue.m; sourceTree = "<group>"; };
 		077E042215B97C6500450452 /* iPadLimitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadLimitViewController.h; sourceTree = "<group>"; };
 		077E042315B97C6500450452 /* iPadLimitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadLimitViewController.m; sourceTree = "<group>"; };
 		077E042615B97C7E00450452 /* iPadLimitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadLimitView.h; sourceTree = "<group>"; };
@@ -385,8 +385,8 @@
 				078FF5571B0BFA3200D48A5C /* ModerniPhone.storyboard */,
 				078FF5591B0BFA7C00D48A5C /* ModernFeedbackViewController.swift */,
 				0797BDF01B0D128000C5540A /* LayoutFeedbackView.swift */,
-				077D73D21767ADED009D4880 /* CustomSegue.h */,
-				077D73D31767ADED009D4880 /* CustomSegue.m */,
+				077D73D21767ADED009D4880 /* GraphRightTransitionSegue.h */,
+				077D73D31767ADED009D4880 /* GraphRightTransitionSegue.m */,
 				07E787E2196AD5E60023EC79 /* View Controllers */,
 			);
 			name = "iPhone interface";
@@ -554,6 +554,7 @@
 			buildConfigurationList = 0701ACB314DACD6000AE4374 /* Build configuration list for PBXNativeTarget "Feedback" */;
 			buildPhases = (
 				0701AC9114DACD6000AE4374 /* Sources */,
+				0797BDF21B0EB27700C5540A /* Add User warnings */,
 				0701AC9214DACD6000AE4374 /* Frameworks */,
 				07F138C4196D464D004E5946 /* Update Build Numbers */,
 				0701AC9314DACD6000AE4374 /* Resources */,
@@ -657,6 +658,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0797BDF21B0EB27700C5540A /* Add User warnings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Add User warnings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"WARNING:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+		};
 		07F138C4196D464D004E5946 /* Update Build Numbers */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -682,7 +697,7 @@
 				0701ACAA14DACD6000AE4374 /* FeedbackAppDelegate.m in Sources */,
 				07EE342D1519681500EBBE2C /* CreditsViewController.m in Sources */,
 				07523F9E1520882800507602 /* iPhoneGraphViewController.m in Sources */,
-				077D73D41767ADED009D4880 /* CustomSegue.m in Sources */,
+				077D73D41767ADED009D4880 /* GraphRightTransitionSegue.m in Sources */,
 				07523FDF152373C600507602 /* iPadFeedbackViewController.m in Sources */,
 				07523FF01523B33E00507602 /* iPadBasicFeedbackView.m in Sources */,
 				07EE8B6D196DA39900044E2C /* UILoopBarView.swift in Sources */,

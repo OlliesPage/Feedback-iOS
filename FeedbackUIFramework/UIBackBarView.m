@@ -31,6 +31,7 @@
 - (void)initiate
 {
     self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:(231.0/255.0) alpha:1];
+    self.translatesAutoresizingMaskIntoConstraints = false; // do this by default
 }
 
 // Only override drawRect: if you perform custom drawing.
