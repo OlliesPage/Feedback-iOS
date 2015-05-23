@@ -40,7 +40,7 @@
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
     [[UIColor blackColor] setStroke];
-    CGContextSetLineWidth(context, 4.0);
+    CGContextSetLineWidth(context, [UIScreen mainScreen].scale*1.5);
     CGContextMoveToPoint(context, 0, (rect.size.height/2));
     CGContextAddLineToPoint(context, rect.size.width, (rect.size.height/2));
     CGContextStrokePath(context);

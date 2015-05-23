@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07CD037E197E9A58004840BB"
-               BuildableName = "FeedbackUIFrameworkTests.xctest"
-               BlueprintName = "FeedbackUIFrameworkTests"
-               ReferencedContainer = "container:Feedback.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

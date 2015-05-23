@@ -17,6 +17,10 @@ class LayoutFeedbackView {
     private let sysModel: feedbackModel
     private var ioSliders = false
     
+    // hold onto weak copies of these
+    private weak var inputSlider: UIVerticalSlider?
+    private weak var outputSlider: UIVerticalSlider?
+    
     // MARK:- Initalizer methods
     
     required init(aView: UIView, aModel: feedbackModel)
@@ -29,6 +33,8 @@ class LayoutFeedbackView {
     
     func layoutBasicUI(#inputSlider: UIVerticalSlider, outputSlider: UIVerticalSlider, infoButton: UIButton, selectModelButton: UIButton, descriptionLabel: UITextView? = nil)
     {
+        self.inputSlider = inputSlider
+        self.outputSlider = outputSlider
         layoutIOSliders(inputSlider: inputSlider, outputSlider: outputSlider)
         layoutInfoButton(infoButton, rightOf: outputSlider)
         layoutSelectModelButton(selectModelButton, leftOf: inputSlider)
@@ -106,6 +112,62 @@ class LayoutFeedbackView {
             outputLabel.frame = CGRectMake(view.frame.width-85, 57, 54.0, 21.0)
             view.addSubview(outputLabel)
         }
+    }
+    
+    // MARK:- Layout the feedback model
+    func layoutFeedbackModel(sysModel: feedbackModel)
+    {
+        
+    }
+    
+    func generateHorizontalSpacingConstraints(viewsToLayout: Array<UIView>) -> NSArray? {
+        // generate and add "invisible" views that to layout the system.
+        // H:[inputSlider][spacer1(>=0)][circle][spacer2(==spacer1)][block][spacer3(==spacer1)]
+        if inputSlider == nil || outputSlider == nil {
+            return nil // only let this run if there are sliders
+        }
+        let viewsDictionary = NSMutableDictionary()
+        viewsDictionary.setObject(inputSlider!, forKey: "inputSlider")
+        viewsDictionary.setObject(outputSlider!, forKey: "outputSlider")
+        var constraint = "[inputSlider]"
+        
+        // create a spacer for each input
+        for var i=0; i < viewsToLayout.count; i++ {
+            let spacerView = UIView.new()
+            spacerView.hidden = true
+            spacerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            view.addSubview(spacerView)
+            // constrain the view's height to zero
+            view.addConstraint(NSLayoutConstraint(item: spacerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0))
+            // add the spacer and view to the dictionary
+            viewsDictionary.setObject(spacerView, forKey: "spacer\(i)")
+            viewsDictionary.setObject(viewsToLayout[i], forKey: "view\(i)")
+            if i == 0
+            {
+                constraint += "[spacer\(i)(>=0)]"
+            } else {
+                constraint += "[spacer\(i)(==spacer0)]"
+            }
+            constraint += "[view\(i)]"
+        }
+        constraint += "[spacer\(viewsToLayout.count+1)(==spacer0)][outputSlider]"
+        
+        return NSLayoutConstraint.constraintsWithVisualFormat(constraint, options: nil, metrics: nil, views: viewsDictionary as [NSObject : AnyObject])
+    }
+    
+    // MARK:- Setup the text fields for blocks
+    
+    func setupBlockUI(blockUI: UITextField, withTag tag: Int, andText text: String) {
+        blockUI.borderStyle = .RoundedRect
+        blockUI.textAlignment = .Center
+        blockUI.contentVerticalAlignment = .Center
+        blockUI.returnKeyType = .Done
+        blockUI.keyboardType = .NumbersAndPunctuation
+        blockUI.enablesReturnKeyAutomatically = true
+        blockUI.autocorrectionType = .No
+        blockUI.tag = tag
+        blockUI.text = text
+        blockUI.delegate = TextFieldDelegate() // connect to a new text field delegate
     }
     
 }

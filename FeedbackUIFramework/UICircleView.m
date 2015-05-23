@@ -26,7 +26,7 @@
 - (void)drawCircleAtPoint:(CGPoint)p withRadius:(CGFloat)radius plusAtTop:(BOOL)top plusAtBottom:(BOOL)bottom inContext:(CGContextRef)context
 {
     UIGraphicsPushContext(context);
-    CGContextSetLineWidth(context, 4.0);
+    CGContextSetLineWidth(context, 1.5*[UIScreen mainScreen].scale);
     CGContextBeginPath(context);
     CGContextAddArc(context, p.x, p.y, radius, 0, 2*M_PI, YES);
     
@@ -38,7 +38,7 @@
     CGContextStrokePath(context); // output the cross to teh screen
     
     // draw us a nice plus at the side - Note this will not be drawn to screen if there is no plus at the top or bottom
-    CGContextSetLineWidth(context, 2);
+    CGContextSetLineWidth(context, [UIScreen mainScreen].scale);
     CGContextMoveToPoint(context, p.x-((radius/2)+7), p.y);
     CGContextAddLineToPoint(context, p.x-(radius/2)+3, p.y);
     CGContextMoveToPoint(context, p.x-((radius/2)+2), p.y-5);
@@ -62,7 +62,7 @@
         CGContextAddLineToPoint(context, p.x+5, p.y-((radius/2)+2));
         CGContextStrokePath(context);
     }
-    CGContextSetLineWidth(context, 4.0);
+    CGContextSetLineWidth(context, 1.5*[UIScreen mainScreen].scale);
     UIGraphicsPopContext();
 }
 

@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Release">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07FF8A641987C4DA00BF056B"
-               BuildableName = "Feedback Tests.xctest"
-               BlueprintName = "Feedback Tests"
-               ReferencedContainer = "container:Feedback.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -95,5 +85,14 @@
       buildConfiguration = "AppStore"
       customArchiveName = "Feedback"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "version=$(/usr/libexec/PlistBuddy -c &quot;Print CFBundleShortVersionString&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;)&#10;buildnum=$(/usr/libexec/Plistbuddy -c &quot;Print CFBundleVersion&quot; &quot;${PROJECT_DIR}/${INFOPLIST_FILE}&quot;)&#10;cd ${PROJECT_DIR};git commit -a -m &quot;Archived build v$version ($buildnum) for App Store.&quot;&#10;cd ${PROJECT_DIR};git tag -a &quot;v$version&quot; -m &quot;Archived build v$version ($buildnum) for App Store.&quot;">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>
