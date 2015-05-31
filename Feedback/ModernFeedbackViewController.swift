@@ -50,7 +50,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     required init(coder aDecoder: NSCoder)  {
         // setup the input label on init
         inputLabel = UILabel(frame: CGRectMake(31, 57, 54.0, 21.0))
-        inputLabel.text = "I=0.00"
+        inputLabel.text = String(format:NSLocalizedString("InputLabel", comment: "Input Label"), 0.0)
         inputLabel.adjustsFontSizeToFitWidth = true
         inputLabel.userInteractionEnabled = true // this is required to allow the guesture recognizer to work
         outputLabel = UILabel.new()
@@ -81,7 +81,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         
         // set outputLabel text value for the current model with all params set to zero
         let outputValue = sysModel.calculateOutputForInput(0, withDistrubance: 0)
-        outputLabel.text = "O="+String(format: "%.2f", outputValue)
+        outputLabel.text = String(format:NSLocalizedString("OutputLabel", comment: "Output Label"), outputValue)
         
         infoButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         
@@ -153,13 +153,13 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     // MARK:- UI interaction methods
     
     func inputChanged(sender: UIVerticalSlider) {
-        inputLabel.text = "I="+String(format: "%.2f", sender.value)
+        inputLabel.text = String(format:NSLocalizedString("InputLabel", comment: "Input Label"), sender.value)
         var disturbance: Float = 0
         if disturbSlider != nil {
             disturbance = disturbSlider!.value
         }
         let outputValue = sysModel.calculateOutputForInput(sender.value, withDistrubance: disturbance)
-        outputLabel.text = "O="+String(format: "%.2f", outputValue)
+        outputLabel.text = String(format:NSLocalizedString("OutputLabel", comment: "Output Label"), outputValue)
         outputSlider.value = Float(outputValue)
         
         if let limitBlockUI = limitBlock {
@@ -203,7 +203,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     {
         // do something to respond to the tap
         inputSlider.value = 0.0
-        inputLabel.text = "I=0.00"
+        inputLabel.text = String(format:NSLocalizedString("InputLabel", comment: "Input Label"), 0.0)
         // get the disturance value (if there is one, else assume zero)
         var disturbance: Float = 0
         if disturbSlider != nil {
@@ -211,7 +211,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         }
         // set the output based on the reset input and current disturbence value
         let outputValue = sysModel.calculateOutputForInput(0, withDistrubance: disturbance)
-        outputLabel.text = "O="+String(format: "%.2f", outputValue)
+        outputLabel.text = String(format:NSLocalizedString("OutputLabel", comment: "Output Label"), outputValue)
         outputSlider.value = Float(outputValue)
         
         if let limitBlockUI = limitBlock {

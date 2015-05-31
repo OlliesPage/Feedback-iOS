@@ -13,3 +13,5 @@
 "Incorrect" = "Incorrect";
 "PlotG" = "Plot this on a Graph";
 "ShowSinG" = "Show Sine Graphs";
+"OutputLabel" = "O=%.2f";
+"InputLabel" = "I=%.2f";
