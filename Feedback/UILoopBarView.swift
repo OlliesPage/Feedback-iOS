@@ -26,11 +26,13 @@ class UILoopBarView: UIView {
     override init(frame: CGRect)  {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 0)
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 0)
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func drawRect(rect: CGRect) {

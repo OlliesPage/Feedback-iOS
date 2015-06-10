@@ -71,7 +71,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         let outputValue = sysModel.calculateOutputForInput(0, withDistrubance: 0)
         outputLabel.text = String(format:NSLocalizedString("OutputLabel", comment: "Output Label"), outputValue)
         
-        //infoButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        infoButton.translatesAutoresizingMaskIntoConstraints = false
         
         // setup for the graph button
         showGraphButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -80,7 +80,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         // if there is a model description, setup a text view to contain it
         if let modelDescription = jsonParser?.modelDescrip {
             descriptionLabel = UITextView()
-            //descriptionLabel!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            descriptionLabel!.translatesAutoresizingMaskIntoConstraints = false
             descriptionLabel!.text = modelDescription
             descriptionLabel!.editable = false
             descriptionLabel!.selectable = false

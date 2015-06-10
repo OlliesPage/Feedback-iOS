@@ -102,12 +102,12 @@ class LayoutFeedbackView {
         view.addConstraint(NSLayoutConstraint(item: inputSlider, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 0.90, constant: 0.0))
         let constant:CGFloat = -1.0*((0.90*view.bounds.size.height/2)-(inputSlider.intrinsicContentSize().height/2))
         NSLog("height: %f", constant);
-        view.addConstraint(NSLayoutConstraint(item: inputSlider, attribute: .Leading, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier:1.0, constant: constant))
+        view.addConstraint(NSLayoutConstraint(item: inputSlider, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier:1.0, constant: constant))
         view.addConstraint(NSLayoutConstraint(item: inputSlider, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
         
         // Now we need to fix the output slider. Again, we use the same principles as above.
         view.addConstraint(NSLayoutConstraint(item: outputSlider, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 0.90, constant: 0.0))
-        view.addConstraint(NSLayoutConstraint(item: outputSlider, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -1.0*constant))
+        view.addConstraint(NSLayoutConstraint(item: outputSlider, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -1.0*constant))
         view.addConstraint(NSLayoutConstraint(item: outputSlider, attribute: .CenterY, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
         
         // mark that the ioSliders have been layed out
@@ -218,7 +218,7 @@ class LayoutFeedbackView {
         for var i=0; i < viewsToLayout.count; i++ {
             let spacerView = UIView.new()
             spacerView.hidden = true
-            //spacerView.setTranslatesAutoresizingMaskIntoConstraints(false) DEPRECATED?
+            spacerView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(spacerView)
             // constrain the view's height to zero
             view.addConstraint(NSLayoutConstraint(item: spacerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0))
@@ -235,7 +235,7 @@ class LayoutFeedbackView {
         }
         let spacerView = UIView.new()
         spacerView.hidden = true
-        //spacerView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        spacerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spacerView)
         // constrain the view's height to zero
         view.addConstraint(NSLayoutConstraint(item: spacerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0))
@@ -260,7 +260,7 @@ class LayoutFeedbackView {
         blockUI.autocorrectionType = .No
         blockUI.tag = tag
         blockUI.text = text
-        //blockUI.setTranslatesAutoresizingMaskIntoConstraints(false)
+        blockUI.translatesAutoresizingMaskIntoConstraints = false
         blockUI.delegate = (parentController as! ModernFeedbackViewController).blockDelegate // connect to a new text field delegate
         view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 31))
         view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 49))
