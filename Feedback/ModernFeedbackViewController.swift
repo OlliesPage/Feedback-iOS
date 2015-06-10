@@ -33,6 +33,9 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     var limitBlock: UILimitBlock?
     var jsonParser:JSONFeedbackModel?
     
+    var blocksOnScreen = Array<Dictionary<Int,String>>()
+    let blockDelegate = TextFieldDelegate()
+    
     // MARK: Private variables
     private let inputLabel: UILabel
     private let outputLabel: UILabel
@@ -49,7 +52,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     
     required init(coder aDecoder: NSCoder)  {
         // setup the input label on init
-        inputLabel = UILabel(frame: CGRectMake(31, 57, 54.0, 21.0))
+        inputLabel = UILabel(frame: CGRectMake(31, 57, 45.0, 21.0))
         inputLabel.text = String(format:NSLocalizedString("InputLabel", comment: "Input Label"), 0.0)
         inputLabel.adjustsFontSizeToFitWidth = true
         inputLabel.userInteractionEnabled = true // this is required to allow the guesture recognizer to work
@@ -64,26 +67,11 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         let inputTapGestuer:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "resetInputSlider")
         inputLabel.addGestureRecognizer(inputTapGestuer)
         
-        // Setup the sliders for input and output.
-        inputSlider.maximumValue = 10
-        inputSlider.minimumValue = -10
-        inputSlider.value = 0
-        // Finally connect the input slider to the inputChanged action!
-        inputSlider.addTarget(self, action: "inputChanged:", forControlEvents: UIControlEvents.ValueChanged)
-        
-        // Now setup the outputSlider
-        outputSlider.maximumValue = 10
-        outputSlider.minimumValue = -10
-        outputSlider.value = 0
-        outputSlider.enabled = false
-        outputSlider.tintColor = UIColor.lightGrayColor() // trying a light gray for the tracking
-        //outputSlider.thumbTintColor = UIColor.grayColor()
-        
         // set outputLabel text value for the current model with all params set to zero
         let outputValue = sysModel.calculateOutputForInput(0, withDistrubance: 0)
         outputLabel.text = String(format:NSLocalizedString("OutputLabel", comment: "Output Label"), outputValue)
         
-        infoButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        //infoButton.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         // setup for the graph button
         showGraphButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -92,7 +80,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         // if there is a model description, setup a text view to contain it
         if let modelDescription = jsonParser?.modelDescrip {
             descriptionLabel = UITextView()
-            descriptionLabel!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            //descriptionLabel!.setTranslatesAutoresizingMaskIntoConstraints(false)
             descriptionLabel!.text = modelDescription
             descriptionLabel!.editable = false
             descriptionLabel!.selectable = false
@@ -127,11 +115,18 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         setupUIElements()
         
         // Initalise a layout controller to handle laying out the class
-        let layoutController = LayoutFeedbackView(aView: view, aModel: sysModel)
+        let layoutController = LayoutFeedbackView(parentController: self, systemModel: sysModel)
         
         // Layout the basics:
         layoutController.layoutBasicUI(inputSlider: inputSlider, outputSlider: outputSlider, infoButton: infoButton, selectModelButton: selectModelButton, descriptionLabel: descriptionLabel)
         layoutController.layoutIOLabels(inputLabel: inputLabel, outputLabel: outputLabel)
+        
+        layoutController.layoutFeedbackModel(usingJsonModel: jsonParser!)
+        view.bringSubviewToFront(inputLabel)
+        view.bringSubviewToFront(outputLabel)
+        
+        // next comes the blocks, and these are important, do we setup the blocks in this controller then pass them back to the layoutController
+        // or set them up in the layout controller and pass them back to this class?
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -175,6 +170,33 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
                 }
             }
         }
+    }
+    
+    private func blockValueChanged(sender: UITextField, level: Int32)
+    {
+        if let name = blocksOnScreen[Int(level)][sender.tag] {
+            print("\(name) was tapped")
+            sysModel.setBlockDeviceWithName(name, value: (sender.text! as NSString).doubleValue, onLevel: level)
+            var fbType: String
+            if sysModel.isFeedbackNegative() {
+                fbType = NSLocalizedString("Negative", comment: "")
+            } else {
+                fbType = NSLocalizedString("Positive", comment: "")
+            }
+            // Update the display as required
+            feedbackTypeLabel.text = String(format:"%@: %@", NSLocalizedString("TOF", comment:"Type of feedback being modelled"), fbType)
+            inputChanged(inputSlider)
+        }
+    }
+    
+    func forwardBlockChanged(sender: UITextField)
+    {
+        return blockValueChanged(sender, level:0)
+    }
+    
+    func loopBlockChanged(sender: UITextField)
+    {
+        return blockValueChanged(sender, level: 1)
     }
     
     func checkGraphButtonLabel()
@@ -234,7 +256,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
         
         // This controls the segue for the model selection popover
         if segue.identifier == "selectModel" {
-            let selectModelVC = segue.destinationViewController as! UIViewController//as! SelectModelTableViewController
+            let selectModelVC = segue.destinationViewController as UIViewController//as! SelectModelTableViewController
             selectModelVC.preferredContentSize = CGSizeMake(260, 200);
             selectModelVC.modalPresentationStyle = UIModalPresentationStyle.Popover;
             //selectModelVC.delegate = self
@@ -263,7 +285,7 @@ class ModernFeedbackViewController: UIViewController,UIPopoverPresentationContro
     }
     
     // MARK:- UIPopoverPresentationControllerDelegate methods
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!, traitCollection: UITraitCollection!) -> UIModalPresentationStyle {
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .None
     }
 

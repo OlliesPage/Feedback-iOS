@@ -162,7 +162,7 @@ class QuizViewController: UIViewController, UILimitBlockDelegate {
     }
     
     @IBAction func doReturn() {
-        println("Returning")
+        print("Returning")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -195,8 +195,8 @@ class QuizViewController: UIViewController, UILimitBlockDelegate {
     
     func blockValueChanged(sender: UITextField, level: Int32) {
         if let name = blocksOnScreen[Int(level)][sender.tag] {
-            println("\(name) was tapped")
-            sysModel!.setBlockDeviceWithName(name, value: (sender.text as NSString).doubleValue, onLevel: level)
+            print("\(name) was tapped")
+            sysModel!.setBlockDeviceWithName(name, value: (sender.text! as NSString).doubleValue, onLevel: level)
             var fbType: String = "PLACEHOLDER"
             if sysModel!.isFeedbackNegative()
             {

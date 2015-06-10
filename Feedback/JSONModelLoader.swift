@@ -25,7 +25,7 @@ import UIKit
 class JSONModelLoader: NSObject
 {
     let privatePaths = NSBundle.mainBundle().pathsForResourcesOfType("json", inDirectory: "")
-    let userPaths: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+    let userPaths: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
     override init()
     {
         super.init()
@@ -40,7 +40,7 @@ class JSONModelLoader: NSObject
     {
         if countPrivateModels() >  index
         {
-            return privatePaths[index] as? String
+            return privatePaths[index]
         } else {
             return nil
         }
@@ -49,11 +49,10 @@ class JSONModelLoader: NSObject
     func getUserSystemModels()
     {
         NSLog("\(userPaths)")
-        var error: NSError?
-        let results = NSFileManager.defaultManager().contentsOfDirectoryAtPath(userPaths, error: &error)!
+        let results = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(userPaths)
         for item in results
         {
-            println(item) // lets see what we've got
+            print(item) // lets see what we've got
         }
 //        NSArray *libraryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:libraryPath error:nil];
     }

@@ -25,19 +25,19 @@ import UIKit
 class UILoopBarView: UIView {
     override init(frame: CGRect)  {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
+        backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 0)
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 1)
+        backgroundColor = UIColor(red: 1.0, green: 1.0, blue: (231.0/255.0), alpha: 0)
     }
     
     override func drawRect(rect: CGRect) {
         // here we're going to draw a line the middle of the way down the rect
-        var context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()
         UIColor.blackColor().setStroke()
-        CGContextSetLineWidth(context, 4.0)
+        CGContextSetLineWidth(context, UIScreen.mainScreen().scale*1.5)
         CGContextMoveToPoint(context, 2, 0)
         CGContextAddLineToPoint(context, 2, rect.size.height-2)
         CGContextAddLineToPoint(context, rect.size.width-2, rect.size.height-2)

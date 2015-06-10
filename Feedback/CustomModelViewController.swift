@@ -80,7 +80,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
         showGraphButton.titleLabel!.minimumScaleFactor = 0.5;
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkGraphButtonLabel", name: UIApplicationWillEnterForegroundNotification, object: nil)
         
-        println("there are \(numberOfForwardBlocks) devices")
+        print("there are \(numberOfForwardBlocks) devices")
         
         let backBarView = UIBackBarView(frame: CGRectMake(31, 57, view.frame.width-62, 64))
         self.view.addSubview(backBarView)
@@ -283,8 +283,8 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     
     func blockValueChanged(sender: UITextField, level: Int32) {
         if let name = blocksOnScreen[Int(level)][sender.tag] {
-            println("\(name) was tapped")
-            sysModel.setBlockDeviceWithName(name, value: (sender.text as NSString).doubleValue, onLevel: level)
+            print("\(name) was tapped")
+            sysModel.setBlockDeviceWithName(name, value: (sender.text! as NSString).doubleValue, onLevel: level)
             var fbType: String = "PLACEHOLDER"
             if sysModel.isFeedbackNegative()
             {
@@ -380,7 +380,7 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
     {
         // rawr
         if let name = blocksOnScreen[0][sender.view!.tag] {
-            println("Show Embedded model called with sender \(name)")
+            print("Show Embedded model called with sender \(name)")
             if let modelBlock = sysModel.getBlockDeviceWithName(name, onLevel: 0) as? FeedbackSystemBlockDevice
             {
                 // now we have the model block do a segue, using the block as the sender
@@ -444,14 +444,14 @@ class CustomModelViewController:UIViewController, UILimitBlockDelegate, UIPopove
             let embeddedModelVC = segue.destinationViewController as! EmbeddedFeedbackModelViewController
             if let sysBlock = sender as? FeedbackSystemBlockDevice
             {
-                println("sys model found and passed to embeddedFeedbackModelViewController")
+                print("sys model found and passed to embeddedFeedbackModelViewController")
                 embeddedModelVC.sysModel = sysBlock.systemModel
             }
         }
         NSLog("Segue has been called \(segue.identifier)");
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController!, traitCollection: UITraitCollection!) -> UIModalPresentationStyle {
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .None
     }
     

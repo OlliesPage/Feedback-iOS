@@ -77,7 +77,7 @@ class SelectModelTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var cell: customUITableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! customUITableViewCell
+        let cell: customUITableViewCell = tableView.cellForRowAtIndexPath(indexPath) as! customUITableViewCell
         NSLog("Selected model is \(cell.textLabel!.text) with path: \(cell.pathName)")
         if cell.pathName != nil && delegate != nil // check against nil
         {

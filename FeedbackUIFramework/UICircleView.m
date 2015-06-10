@@ -26,12 +26,23 @@
 @synthesize hasBottomPlus = _hasBottomPlus;
 @synthesize hasTopPlus = _hasTopPlus;
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.hasBottomPlus = self.hasTopPlus = false; // default
+        self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:(231.0/255.0) alpha:1];
+        self.translatesAutoresizingMaskIntoConstraints = false;
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.hasBottomPlus = self.hasTopPlus = false; // default
         self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:(231.0/255.0) alpha:1];
+        self.translatesAutoresizingMaskIntoConstraints = false;
     }
     return self;
 }

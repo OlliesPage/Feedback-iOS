@@ -40,8 +40,9 @@ class JSONFeedbackModel {
     
     // MARK:- Initializer function
     init(sysModel: feedbackModel, pathToModel:NSString) {
-        json = NSData(contentsOfFile: pathToModel as String, options:.DataReadingMappedIfSafe, error: &error)!
-        jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: NSJSONReadingOptions.AllowFragments, error: &error) as! Dictionary<String, AnyObject>
+        json = NSData(contentsOfFile: pathToModel as String)!
+// WARNING: - this is a dirty hack and the exception handling should be done properly to ensure user models are well formed JSON code.
+        try! jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: .AllowFragments) as! Dictionary<String, AnyObject>
         // read the boolean for disturbance, if it exists
         if let distVal: AnyObject = jsonDict["hasDisturbance"] {
             hasDisturbance = distVal as! Bool
@@ -69,7 +70,7 @@ class JSONFeedbackModel {
         if let model: AnyObject = jsonDict["model"] {
             parseModel(model, systemModel: sysModel, addToScreen: true)
         } else {
-            println("Model error: Model not found")
+            print("Model error: Model not found")
             abort() // cannot run in this condition, so crash
         }
     }
@@ -78,7 +79,7 @@ class JSONFeedbackModel {
     private func instantiateBlockFromDictionary(inputDictionary inDict:Dictionary<String, AnyObject>) -> BlockDevice?
     {
         var outputBD: BlockDevice?
-        for (blockName, subDict: AnyObject) in inDict {
+        for (blockName, subDict) in inDict {
             if(blockName == "model") {
                 let newModel = feedbackModel();
                 parseModel(subDict, systemModel: newModel, addToScreen: false)
@@ -87,7 +88,7 @@ class JSONFeedbackModel {
             }// special case
             
             if subDict is NSDictionary && outputBD == nil {
-                for (blockType: String, val: Double) in subDict as! Dictionary<String, Double> {
+                for (blockType, val) in subDict as! Dictionary<String, Double> {
                     if blockType == "block"
                     {
                         outputBD = BlockDevice(name: blockName, andValue: val)
@@ -114,7 +115,8 @@ class JSONFeedbackModel {
                 if addToScreen == true
                 {
                     let fname:String? = nBlock?.name;
-                    forward.append((fname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue))
+                    forward.append(fname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue)
+                    //forward.append((fname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue))
                 }
                 let bType = BlockDeviceType(rawValue: nBlock!.type.integerValue)
                 if bType == BlockDeviceType.LimitBlock {
@@ -122,11 +124,11 @@ class JSONFeedbackModel {
                 } else {
                     systemModel.addBlockDevice(nBlock, onLevel: 0)
                 }
-                println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)") // this causes it to crash
+                print("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)") // this causes it to crash
             } else if element is NSArray {
                 for subelement: AnyObject in element as! NSArray {
                     // and again
-                    println("Entering Loop")
+                    print("Entering Loop")
                     if subelement is NSDictionary {
                         let nBlock = instantiateBlockFromDictionary(inputDictionary: subelement as! Dictionary)
                         //let loopVal = (nBlock?.name, BlockDeviceType.fromRaw(nBlock?.type), nBlock?.value)
@@ -136,9 +138,9 @@ class JSONFeedbackModel {
                             loop.append(lname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue)
                         }
                         systemModel.addBlockDevice(nBlock, onLevel: 1)
-                        println("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)")
+                        print("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)")
                     } else {
-                        println("Badly formed model - does it have a sub model?")
+                        print("Badly formed model - does it have a sub model?")
                     }
                 }
             }
