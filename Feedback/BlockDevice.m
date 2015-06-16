@@ -34,7 +34,7 @@
 
 - (instancetype)init
 {
-    return [self initWithName:@""];
+    return [self initWithName:@"Unknown"]; // give a default name
 }
 
 -(instancetype)initWithName:(NSString *)name

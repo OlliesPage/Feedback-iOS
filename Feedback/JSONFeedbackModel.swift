@@ -22,6 +22,7 @@
 import Foundation
 
 enum BlockDeviceType: Int { case Block=0, LimitBlock, SysModelBlock }
+enum JSONModelError: ErrorType { case InvalidJSON }
 
 // refactored to remove NSObject subclass as Objc no longer needs to use this class
 class JSONFeedbackModel {
@@ -41,8 +42,12 @@ class JSONFeedbackModel {
     // MARK:- Initializer function
     init(sysModel: feedbackModel, pathToModel:NSString) {
         json = NSData(contentsOfFile: pathToModel as String)!
-// WARNING: - this is a dirty hack and the exception handling should be done properly to ensure user models are well formed JSON code.
+
+        // The JSON should be in the app abundle, therefore it's safe to assume that it will be valid,
+        // However, IRL, this probably should be in a do { } catch { } block.
+        // when adapting this model must change
         try! jsonDict = NSJSONSerialization.JSONObjectWithData(json, options: .AllowFragments) as! Dictionary<String, AnyObject>
+        
         // read the boolean for disturbance, if it exists
         if let distVal: AnyObject = jsonDict["hasDisturbance"] {
             hasDisturbance = distVal as! Bool
@@ -67,12 +72,13 @@ class JSONFeedbackModel {
         // ensure system is empty
         sysModel.resetModel()
         
-        if let model: AnyObject = jsonDict["model"] {
-            parseModel(model, systemModel: sysModel, addToScreen: true)
-        } else {
-            print("Model error: Model not found")
-            abort() // cannot run in this condition, so crash
+        // Swift 2.0 guard statement
+        guard let model = jsonDict["model"] else {
+            print("Model error: model not found in JSON dictionary (\(pathToModel)")
+            abort()
         }
+        
+        parseModel(model, systemModel: sysModel, addToScreen: true)
     }
     
     // MARK:- Private member functions
@@ -122,7 +128,7 @@ class JSONFeedbackModel {
                 if bType == BlockDeviceType.LimitBlock {
                     systemModel.setLimitValue(nBlock!.value.doubleValue) // set the limit
                 } else {
-                    systemModel.addBlockDevice(nBlock, onLevel: 0)
+                    systemModel.addBlockDevice(nBlock!, onLevel: 0)
                 }
                 print("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)") // this causes it to crash
             } else if element is NSArray {
@@ -137,7 +143,7 @@ class JSONFeedbackModel {
                             let lname:String? = nBlock?.name;
                             loop.append(lname, BlockDeviceType(rawValue: nBlock!.type.integerValue), nBlock?.value.doubleValue)
                         }
-                        systemModel.addBlockDevice(nBlock, onLevel: 1)
+                        systemModel.addBlockDevice(nBlock!, onLevel: 1)
                         print("\(nBlock!.name) has type \(nBlock?.type) and value: \(nBlock?.value)")
                     } else {
                         print("Badly formed model - does it have a sub model?")

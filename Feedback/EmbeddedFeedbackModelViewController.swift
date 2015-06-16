@@ -83,7 +83,7 @@ class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegat
                 setupTextField(newTextField, withTag: Int(position), andText: "\(block.value!)")
                 newTextField.addTarget(self, action: "forwardBlockChanged:", forControlEvents: UIControlEvents.EditingDidEnd)
                 self.view.addSubview(newTextField)
-                blocksOnScreen[0].updateValue(block.name!, forKey: newTextField.tag)
+                blocksOnScreen[0].updateValue(block.name, forKey: newTextField.tag)
             } else if block.type == BlockDeviceType.LimitBlock.rawValue {
                 if limitBlock == nil
                 {
@@ -96,7 +96,7 @@ class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegat
                     limitBlock!.tag = Int(position)
                     limitBlock!.delegate = self
                     self.view.addSubview(limitBlock!)
-                    blocksOnScreen[0].updateValue(block.name!, forKey: limitBlock!.tag)
+                    blocksOnScreen[0].updateValue(block.name, forKey: limitBlock!.tag)
                 }
             } else if block.type == BlockDeviceType.SysModelBlock.rawValue {
                 // why not just sove something on the screen thar kids
@@ -105,7 +105,7 @@ class EmbeddedFeedbackModelViewController: UIViewController, UILimitBlockDelegat
                 sysModelBlock.addGestureRecognizer(sysModelTap)
                 sysModelBlock.tag = Int(position)
                 self.view.addSubview(sysModelBlock)
-                blocksOnScreen[0].updateValue(block.name!, forKey: sysModelBlock.tag)
+                blocksOnScreen[0].updateValue(block.name, forKey: sysModelBlock.tag)
             } // fi
         } // rof
         

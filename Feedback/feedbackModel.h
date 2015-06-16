@@ -21,6 +21,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 @interface feedbackModel : NSObject
 
@@ -30,7 +31,7 @@
 - (NSDictionary *)getForwardDictionary;
 - (NSDictionary *)getLoopDictionary;
 
-- (void)addBlockDevicesWithForwardDevices:(NSArray *)forwardDevices WithLoopDevices:(NSArray *)loopDevices;
+- (void)addBlockDevicesWithForwardDevices:(nullable NSArray<BlockDevice *> *)forwardDevices WithLoopDevices:(nullable NSArray<BlockDevice *> *)loopDevices;
 - (void)addBlockDevice:(BlockDevice *)device onLevel:(int)level; // the level is 0 for forward, 1 for loop
 - (void)setBlockDeviceWithName:(NSString *)name value:(double)value onLevel:(int)level;
 - (BlockDevice *)getBlockDeviceWithName:(NSString *)name onLevel:(int)level;
@@ -44,3 +45,5 @@
 - (BOOL)isFeedbackNegative;
 - (BOOL)isLimitingAtInput:(float)input;
 @end
+
+NS_ASSUME_NONNULL_END

@@ -22,9 +22,11 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface BlockDevice : NSObject
 @property (strong) NSString *name;
-@property (strong) NSNumber *value;
+@property (null_unspecified, strong) NSNumber *value;
 @property (strong, nonatomic) NSNumber *type;
 
 + (instancetype)blockWithName:(NSString *)name andValue:(NSNumber *)value;
@@ -32,3 +34,5 @@
 -(instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
 -(instancetype)initWithName:(NSString *)name andValue:(NSNumber *)value;
 @end
+
+NS_ASSUME_NONNULL_END
