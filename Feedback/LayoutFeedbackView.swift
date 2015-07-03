@@ -35,6 +35,7 @@ class LayoutFeedbackView {
     // hold onto weak copies of these
     private weak var inputSlider: UIVerticalSlider?
     private weak var outputSlider: UIVerticalSlider?
+    private var loopBarView: UILoopBarView?
     private let backBarView = UIBackBarView()
     
     // MARK:- Initalizer methods
@@ -155,12 +156,12 @@ class LayoutFeedbackView {
         
         if hasLoop {
             // setup the loop
-            let loopBarView = UILoopBarView()
-            view.addSubview(loopBarView)
+            loopBarView = UILoopBarView()
+            view.addSubview(loopBarView!)
             // setup the loop bar view
-            view.addConstraint(NSLayoutConstraint(item: loopBarView, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: -UIScreen.mainScreen().scale*10))
-            view.addConstraint(NSLayoutConstraint(item: loopBarView, attribute: .Top, relatedBy: .Equal, toItem: backBarView, attribute: .Top, multiplier: 1.0, constant: 33.0))
-            view.addConstraint(NSLayoutConstraint(item: loopBarView, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -54.0))
+            view.addConstraint(NSLayoutConstraint(item: loopBarView!, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .CenterY, multiplier: 1.0, constant: -UIScreen.mainScreen().scale*10))
+            view.addConstraint(NSLayoutConstraint(item: loopBarView!, attribute: .Top, relatedBy: .Equal, toItem: backBarView, attribute: .Top, multiplier: 1.0, constant: 33.0))
+            view.addConstraint(NSLayoutConstraint(item: loopBarView!, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: -54.0))
             
             // next setup the circle view
             let circleView = UICircleView()
@@ -171,7 +172,7 @@ class LayoutFeedbackView {
             view.addConstraint(NSLayoutConstraint(item: circleView, attribute: .Top, relatedBy: .Equal, toItem: backBarView, attribute: .Top, multiplier: 1.0, constant: 0.0))
             viewArray.append(circleView)
             
-            view.addConstraint(NSLayoutConstraint(item: loopBarView, attribute: .Left, relatedBy: .Equal, toItem: circleView, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: loopBarView!, attribute: .Left, relatedBy: .Equal, toItem: circleView, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
         }
         
         var forwardDict = Dictionary<Int, String>()
@@ -181,6 +182,9 @@ class LayoutFeedbackView {
                 let blockUI = UITextField()
                 view.addSubview(blockUI)
                 setupBlockUI(blockUI, withTag: position++, andText: "\(value!)") // effective usage of post increment
+                // Setup block UI cannot do height as it is used for both forward and loop blocks
+                // therefore, must add teh .top constraint here
+                view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Top, relatedBy: .Equal, toItem: backBarView, attribute: .Top, multiplier: 1.0, constant: 15.0))
                 blockUI.addTarget(parentController, action: "forwardBlockChanged:", forControlEvents: .EditingDidEnd)
                 forwardDict.updateValue(name!, forKey: Int(blockUI.tag))
                 viewArray.append(blockUI)
@@ -198,10 +202,39 @@ class LayoutFeedbackView {
             viewArray.append(circleView)
         }
         
+        // Add the forward constraints
         if let constraints = generateHorizontalSpacingConstraints(viewArray) {
             view.addConstraints(constraints)
         }
+        
+        // Setup the loop dictionary and do it all over again!
+        var loopDict = Dictionary<Int, String>()
+        position = 1
+        viewArray.removeAll() // clear the viewArray such that it can be reused
+        for (name, type, value) in jsonModel.loop {
+            guard let loopView = loopBarView else {
+                print("Cannot find loopBar, which is required for layout")
+                abort()
+            }
+            if type == .Block {
+                let blockUI = UITextField()
+                view.addSubview(blockUI)
+                setupBlockUI(blockUI, withTag: position++, andText: "\(value!)")
+                view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Top, relatedBy: .Equal, toItem: loopView, attribute: .Bottom, multiplier: 1.0, constant: -16.0))
+                blockUI.addTarget(parentController, action: "loopBlockChanged:", forControlEvents: .EditingDidEnd)
+                loopDict.updateValue(name!, forKey: Int(blockUI.tag))
+                viewArray.append(blockUI)
+            }
+        }
+        (parentController as! ModernFeedbackViewController).blocksOnScreen.append(loopDict)
+        
+        // Add the loop constraints
+        if let constraints = generateLoopHorizontalSpacingConstraints(viewArray) {
+            view.addConstraints(constraints)
+        }
     }
+    
+    // MARK:- Generate horizontal spacing constraints for forward and loop view
     
     func generateHorizontalSpacingConstraints(viewsToLayout: Array<UIView>) -> [NSLayoutConstraint]? {
         // generate and add "invisible" views that to layout the system.
@@ -248,6 +281,51 @@ class LayoutFeedbackView {
         return NSLayoutConstraint.constraintsWithVisualFormat(constraint, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary.copy() as! Dictionary<String, AnyObject>)
     }
     
+    func generateLoopHorizontalSpacingConstraints(viewsToLayout: Array<UIView>) -> [NSLayoutConstraint]? {
+        let viewsDictionary = NSMutableDictionary()
+        
+        guard let _ = loopBarView else {
+            print("No loop bar view set, this is required for layout! (generateLoopHorizontalSpacingConstraints)")
+            abort()
+        }
+        
+        var constraint = "|-"
+        
+        // create a spacer for each input
+        for var i=0; i < viewsToLayout.count; i++ {
+            let spacerView = UIView.new()
+            spacerView.hidden = true
+            spacerView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(spacerView)
+            // constrain the view's height to zero
+            view.addConstraint(NSLayoutConstraint(item: spacerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0))
+            // add the spacer and view to the dictionary
+            viewsDictionary.setObject(spacerView, forKey: "spacer\(i)")
+            viewsDictionary.setObject(viewsToLayout[i], forKey: "view\(i)")
+            if i == 0
+            {
+                constraint += "[spacer\(i)(>=0)]"
+            } else {
+                constraint += "[spacer\(i)(==spacer0)]"
+            }
+            constraint += "[view\(i)]"
+        }
+        let spacerView = UIView.new()
+        spacerView.hidden = true
+        spacerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(spacerView)
+        // constrain the view's height to zero
+        view.addConstraint(NSLayoutConstraint(item: spacerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1.0, constant: 0))
+        // add the spacer and view to the dictionary
+        viewsDictionary.setObject(spacerView, forKey: "spacer\(viewsToLayout.count+1)")
+        constraint += "[spacer\(viewsToLayout.count+1)(==spacer0)]-(-54.0)-|"
+        
+        print(constraint)
+        
+        return NSLayoutConstraint.constraintsWithVisualFormat(constraint, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary.copy() as! Dictionary<String, AnyObject>)
+    }
+    
+    
     // MARK:- Setup the text fields for blocks
     
     func setupBlockUI(blockUI: UITextField, withTag tag: Int, andText text: String) {
@@ -264,7 +342,6 @@ class LayoutFeedbackView {
         blockUI.delegate = (parentController as! ModernFeedbackViewController).blockDelegate // connect to a new text field delegate
         view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 31))
         view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 49))
-        view.addConstraint(NSLayoutConstraint(item: blockUI, attribute: .Top, relatedBy: .Equal, toItem: backBarView, attribute: .Top, multiplier: 1.0, constant: 15.0))
     }
     
 }
